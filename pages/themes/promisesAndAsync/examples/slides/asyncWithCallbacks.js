@@ -1,12 +1,12 @@
 // generate array of integers - needed for tests bellow:
 let testArrays = [
-	Array.from({length:3_000_000},(_,i)=>i+1),
 	Array.from({length:1_000_000},(_,i)=>i+1),
 	Array.from({length:2_000_000},(_,i)=>i+1),
+	Array.from({length:3_000_000},(_,i)=>i+1),
 
 ];
 
-// TODO: not working
+
 function calcArraySum(array,callback) {
 	let sum = array.reduce((ac,el)=>ac+el);
 	callback(sum, array);
@@ -15,7 +15,6 @@ function calcArraySum(array,callback) {
 function showArraySum(sum,array) {
 	console.log(`Sum of array(${array.length} = ${sum})`);
 }
-
 
 
 function asyncDemo(){

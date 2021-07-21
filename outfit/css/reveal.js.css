@@ -492,3 +492,15 @@ section.copyright>.license{
     right: .1em;
   }
 }
+
+
+/* -------------------------------------------------------------------------- */
+/*                  External Resource (iframes, etc) styling                  */
+/* -------------------------------------------------------------------------- */
+.gist,
+.gist-file,
+.gist-data {
+  max-height: 60vh !important;
+  max-width: 80vw;
+  margin: 0 auto;
+}

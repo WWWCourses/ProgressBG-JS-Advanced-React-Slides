@@ -79,96 +79,109 @@
 
 <section data-min="5"><h1>map()</h1></section>
 <section><h2>map()</h2>
-  <section><h3>Overview</h3>
-  	<dl class="fa">
-  		<dt>The <code>map()</code> method creates a <span class="note">new array</span> with the results of calling a <span class="note">provided function on every element</span> in the calling array.</dt>
-  	</dl>
-  	<a href="images/map_function.png"><img src="images/map_function.png"></a>
-  </section>
-  <section><h3>Example</h3>
-  	<pre><code rel="JS" class="js">
-  		let input = ['a', 'b', 'c', 'd'];
-  		let output = input.map( (e)=>e.toUpperCase() )
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The <code>map()</code> method creates a <span class="note">new array</span> with the results of calling a <span class="note">provided function on every element</span> in the calling array.</dt>
+		</dl>
+		<a href="images/map_function.png"><img src="images/map_function.png"></a>
+	</section>
+	<section><h3>Example</h3>
+		<pre><code rel="JS" class="js">
+			let input = ['a', 'b', 'c', 'd'];
+			let output = input.map( (e)=>e.toUpperCase() )
 
-  		console.log(`input: ${input}`);
-  		console.log(`output: ${output}`);
-  	</code></pre>
-  </section>
-  <section><h3>Reference</h3>
-  	<dl class="fa">
-  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
-  	</dl>
-  </section>
+			console.log(`input: ${input}`);
+			console.log(`output: ${output}`);
+		</code></pre>
+	</section>
+	<section><h3>Reference</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
+		</dl>
+	</section>
 </section>
 
 <section data-min="5"><h1>filter()</h1></section>
 <section><h2>filter()</h2>
-  <section><h3>Overview</h3>
-  	<dl class="fa">
-  		<dt>The <code>filter()</code> method creates <span class="note">a new array</span> with all elements that <span class="note">pass the test implemented by the provided function</span>.</dt>
-  		<dt>I.e. the resulting array will contain only the input elements, for each the <span class="note">provided function</span> will return <code><strong>true</strong></code> value.</dt>
-  	</dl>
-  	<a href="images/filter.png"><img src="images/filter.png"></a>
-  </section>
-  <section><h3>Example</h3>
-  	<pre><code rel="JS" class="js">
-  		let input = [0,1,2,3,4];
-  		let output = input.filter( x=>x%2);
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The <code>filter()</code> method creates <span class="note">a new array</span> with all elements that <span class="note">pass the test implemented by the provided function</span>.</dt>
+			<dt>I.e. the resulting array will contain only the input elements, for each the <span class="note">provided function</span> will return <code><strong>true</strong></code> value.</dt>
+		</dl>
+		<a href="images/filter.png"><img src="images/filter.png"></a>
+	</section>
+	<section><h3>Example</h3>
+		<pre><code rel="JS" class="js">
+			let input = [0,1,2,3,4];
+			let output = input.filter( x=>x%2);
 
-  		console.log(`input: ${input}`);
-  		console.log(`output: ${output}`);
-  	</code></pre>
-  </section>
-  <section><h3>Reference</h3>
-  	<dl class="fa">
-  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
-  	</dl>
-  </section>
+			console.log(`input: ${input}`);
+			console.log(`output: ${output}`);
+		</code></pre>
+	</section>
+	<section><h3>Reference</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
+		</dl>
+	</section>
 </section>
 
 <section data-min="5"><h1>reduce()</h1></section>
 <section><h2>reduce()</h2>
-  <section><h3>Overview</h3>
-  	<dl class="fa">
-  		<dt>The <code>reduce()</code> method executes the provided reducer function on each element of the array, resulting in a <span class="note">single output value</span>.</dt>
-  	</dl>
-  	<a href="images/reduce.png"><img src="images/reduce.png"></a>
-  </section>
-  <section><h3>Example</h3>
-  	<pre><code rel="JS" class="js">
-  		let input = [1,2,3,4];
-  		let output = input.reduce( (acc, cur)=> acc+cur );
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The <code>reduce()</code> method executes the provided reducer function on each element of the array, resulting in a <span class="note">single output value</span>.</dt>
+		</dl>
+		<a href="images/reduce.png"><img src="images/reduce.png"></a>
+	</section>
+	<section><h3>Example</h3>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+			let output = input.reduce( (acc, cur)=> acc+cur );
 
-  		console.log(`input: ${input}`);
-  		console.log(`output: ${output}`);
-  	</code></pre>
-  </section>
-  <section><h3>Reference</h3>
-  	<dl class="fa">
-  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
-  	</dl>
-  </section>
+			console.log(`input: ${input}`);
+			console.log(`output: ${output}`);
+		</code></pre>
+	</section>
+	<section><h3>Reference</h3>
+		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
+		</dl>
+	</section>
 </section>
 
 <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: words_starting_with_given_leter</h2>
-  <section><h3>description</h3>
-  	<dl class="fa">
-  		<dt>Given is the next Douglas Adams quote: <blockquote>A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.</blockquote> </dt>
-  		<dt>Make a program, which will write in the console <span class="note">only </span> the words that starts with letter 't' and are longer than 2 symbols</dt>
-  	</dl>
-  	<pre><code rel="expected output" class="js">
-  		that
-  		trying
-  		the
-  	</code></pre>
-  </section>
+<section><h2>Task1: calcProductsPrices</h2>
+	<section>
+		<dl class="fa">
+			<br>
+			<dt>The task is given in next template file. You can view the  raw code by clicking on "view raw" in bottom-right corner</dt>
+		</dl>
+		<br><br>
+		<script src="https://gist.github.com/WWWCourses/5e9d7d4c7d27587261ded8018a562d43.js"></script>
+	</section>
+</section>
+<section><h2>Task1: filterWordsStartingWithLetter</h2>
+	<section><h3>description</h3>
+		<dl class="fa">
+			<dt>Given is the next Douglas Adams quote: <blockquote>A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.</blockquote> </dt>
+			<dt>Make a program, which will write in the console <span class="note">only </span> the words that starts with letter 't' and are longer than 2 symbols</dt>
+		</dl>
+		<pre><code rel="expected output" class="js">
+			that
+			trying
+			the
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">Hint:</span> to split a string into array of words you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">String.prototype.split()</a> method</dt>
+		</dl>
+	</section>
 </section>
 <section><h2>Task2</h2>
 	<section><h3>description</h3>
 		<dl class="fa">
 			<dt>Given is the next array of numbers: <code>[1,2,3,4,5,6,7,8,9,10]</code></dt>
-			<dt>Write a program which will output in the console the sum of the squres of even numbers, </dt>
+			<dt>Write a program which will output in the console the sum of squares of even numbers</dt>
 		</dl>
 		<pre><code rel="expected output" class="js">
 			220
