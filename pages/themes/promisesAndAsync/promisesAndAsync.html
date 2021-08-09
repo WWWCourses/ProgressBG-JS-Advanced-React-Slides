@@ -92,8 +92,8 @@
 		</dl>
 	</section>
   <section><h3>Synchronous vs. Asynchronous Overview</h3>
-  	<a href="images/sync_execution.png"><img src="images/sync_execution.png" style="width: 33%;"></a>
-  	<a href="images/async_execution.png"><img src="images/async_execution.png" style="width: 30%;"></a>
+  	<a href="images/sync_execution.png"><img src="images/sync_execution.png" style="display: inline-block; width: 33%;"></a>
+  	<a href="images/async_execution.png"><img src="images/async_execution.png" style="display: inline-block; width: 33%;"></a>
   </section>
   <section><h3>Synchronous vs. Asynchronous Demo</h3>
   	<pre><code rel="JS" class="js">
@@ -140,6 +140,31 @@
   </section>
 </section>
 
+<section data-min="5"><h1>Why?</h1></section>
+<section><h2>Why?</h2>
+	<section><h3>The problem</h3>
+		<dl class="fa">
+			<dt>Examine the next code. It works as we want, but calling a function into another function is a bad practise</dt>
+			<dd>no separattion of concerns</dd>
+			<dd>spagetti code</dd>
+		</dl>
+		<script src="https://gist.github.com/WWWCourses/de6465bf8c0a18a0604b550eb7a2441f.js"></script>
+	</section>
+	<section><h3>Solution with callbacks</h3>
+		<dl class="fa">
+			<dt>As you can see the code is still difficult to mange</dt>
+		</dl>
+		<script src="https://gist.github.com/WWWCourses/3c1b13ea43461d67b1c6053839bbca3f.js"></script>
+	</section>
+	<section><h3>Solution with Promises</h3>
+		<dl class="fa">
+			<dt>Next code is definitely cleaner</dt>
+		</dl>
+		<script src="https://gist.github.com/WWWCourses/a2aa6b0f8688dae0c92e9584b6adb202.js"></script>
+	</section>
+
+</section>
+
 <section data-min="5"><h1>Promises</h1></section>
 <section><h2>Promises</h2>
   <section><h3>Overview</h3>
@@ -148,7 +173,7 @@
       <dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
   	</dl>
   </section>
-  <section><h3>The meaning</h3>
+  <!-- <section><h3>The meaning</h3>
     <dl class="fa">
       <dt>NLP case: "If you keep your promise to clean the room, then we are going to eat icecream</dt>
     </dl>
@@ -171,7 +196,7 @@
 
       cleanRoom.then(eatIcecream)
     </code></pre>
-  </section>
+  </section> -->
 </section>
 
 <section data-min="5"><h1>References</h1></section>

@@ -4,6 +4,8 @@ let promiseForEven = new Promise( (resolve, reject)=>{
 		console.log(`num = ${num}`);
 
 		if(num%2 === 0){
+			console.dir(`resolve:${resolve.name}`);
+
 			resolve(num)
 		}else{
 			reject(num)
@@ -26,4 +28,4 @@ promiseForEven
 	.catch( promiseRejected )
 
 
-console.log(`I'm doing something important`);
+console.log(`I'm doing something important and I don't want to wait`);

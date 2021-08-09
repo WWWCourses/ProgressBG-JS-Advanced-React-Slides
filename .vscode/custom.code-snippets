@@ -19,7 +19,7 @@
 		"scope": "javascript,typescript",
 		"prefix": "dir",
 		"body": [
-			"console.dir(`$1:${$1}`);",
+			"console.dir($1);\n",
 			"$2"
 		],
 		"description": "Log output to console"

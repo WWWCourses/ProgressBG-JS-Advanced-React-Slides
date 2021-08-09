@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>todosWithCallbacks </title>
+</head>
+<body>
+	<h2>Add todo</h2>
+	<input type="text" placeholder="enter a todo title" class="todo-title-input">
+	<button class="btn-add-todo">Add</button>
+	<h2>Current Todos</h2>
+	<ul class="todo-list">
+
+	</ul>
+
+	<script>
+		const dom = {
+			todoTitleInput: document.querySelector('.todo-title-input'),
+			btnAddTodo: document.querySelector('.btn-add-todo'),
+			todoList:document.querySelector('.todo-list'),
+		}
+		let todosJSON = `
+		[
+			{
+				"id":1,
+				"title":"Todo1",
+				"completed":false
+			},
+			{
+				"id":2,
+				"title":"Todo2",
+				"completed":true
+			}
+		]
+		`;
+
+		let todos = [];
+
+		function getTodos(callback) {
+			console.log(`waiting to get todos`);
+
+			return new Promise((resolve, reject)=>{
+				setTimeout(() => {
+					todos = JSON.parse(todosJSON);
+					let error = false;
+
+					if(!error){
+						resolve(todos)
+					}else{
+						reject('Can not get todos')
+					}
+
+				}, 1000);
+			})
+
+		}
+
+		function addTodo() {
+			console.log(`waiting to add todo`);
+
+			const todoTitle = dom.todoTitleInput.value;
+			const newTodo = {
+				id:todos.length+1,
+				title:todoTitle,
+				completed:false
+			}
+
+			// simulate POST async request:
+			return new Promise((resolve, reject)=>{
+				setTimeout(() => {
+					let error = false;
+					if(!error){
+						todosJSON = JSON.stringify([...todos,newTodo]);
+						todos=[...todos,newTodo];
+						resolve(todos);
+					}else{
+						reject('can not add todo')
+					}
+
+				}, 3000);
+			})
+		}
+
+		function renderTodos() {
+			console.log(todos);
+			dom.todoList.innerHTML = '';
+
+			todos.forEach(todo => {
+				dom.todoList.innerHTML+=`
+				<li>${todo.title} - ${todo.completed?'completed':'pending'}</li>
+				`
+			});
+
+		}
+
+		// events:
+		dom.btnAddTodo.addEventListener('click', function(e) {
+			// addTodo(renderTodos);
+			addTodo()
+				.then(todos=>renderTodos(todos))
+				.catch(err=>console.error(err))
+		});
+
+		window.onload = function() {
+			// const todos = getTodos();
+			// renderTodos(todos);
+
+			// getTodos(renderTodos)
+
+			getTodos()
+				.then(todos=>renderTodos(todos))
+				.catch(err=>console.error(err))
+		}
+
+	</script>
+</body>
+</html>
