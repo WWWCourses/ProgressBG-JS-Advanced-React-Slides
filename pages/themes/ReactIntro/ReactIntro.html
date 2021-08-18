@@ -78,16 +78,19 @@
 <section><h2>Overview</h2>
   <section><h3>What is React</h3>
     <dl class="fa">
-      <dt>React is <span class="note">a view (UI) library</span>,  not (yet another)SPA framework</dt>
+      <dt>React is <span class="note">a view (UI) library</span>,  not (yet another) SPA framework</dt>
+      <dd>Yet the whole ecosystem around React makes it possible, and incrementally easy, to build SPA applications.</dd>
       <dt>It only enables you to render components as viewable elements in a browser</dt>
       <dt>It is the V in the MVC (model view controller)</dt>
       <dt class="note">But the view is a hierarchy of <strong>composable components</strong>.</dt>
-      <dt>Yet the whole ecosystem around React makes it possible, and incrementally easy, to build SPA</dt>
     </dl>
   </section>
-  <section><h3>Components and UI Tree</h3>
-    <a href="images/UI_ComponentTree.png"><img src="images/UI_ComponentTree.png"></a>
+  <section><h3>TodoApp with components</h3>
+    <a href="./images/TodoAppComponentsStructure.png"><img src="./images/TodoAppComponentsStructure.png" alt="TodoAppComponentsStructure"></a>
   </section>
+  <!-- <section><h3>Components and UI Tree</h3>
+    <a href="images/UI_ComponentTree.png"><img src="images/UI_ComponentTree.png"></a>
+  </section> -->
 </section>
 
 <section data-min="5"><h1>Write your first react app</h1></section>
@@ -113,8 +116,19 @@
         &lt;/script&gt;
       &lt;/body&gt;
     </code></pre>
+    <dl class="fa">
+      <dt>Of course, in practise we use React libraries with NPM!</dt>
+    </dl>
   </section>
-  <!-- <section><h3>The simplest "hello world" react app, using npm</h3>
+</section>
+
+<section data-min="5"><h1>using React with NPM</h1></section>
+<section><h2>using React with NPM</h2>
+  <section><h3>Init the project</h3>
+    <dl class="fa">
+      <dt>In order to use react libraries as NPM modules we will need a module bundler like <a href="https://webpack.github.io/">webpack</a></dt>
+      <dd>Webpack is a module bundler, it takes a bunch of modules and turns them into a single bundle</dd>
+    </dl>
     <pre><code rel="Terminal" class="bash">
       # create the project folder
       mkdir simplest-react-app
@@ -126,11 +140,72 @@
       npm init -y
 
       # install react
-      npm install react react-dom
-    </code></pre>
-  </section> -->
-</section>
+      npm install --save-dev react react-dom
 
+      # install webpack
+      npm install --save-dev webpack webpack-cli
+    </code></pre>
+  </section>
+  <section><h3>Project folder structure</h3>
+    <dl class="fa">
+      <dt>Make sure you have next structure:</dt>
+    </dl>
+    <pre><code rel="simplest-react-app/" class="bash">
+      ├── dist
+      ├── index.html
+      ├── package.json
+      ├── src
+      │   └── index.js
+      └── webpack.config.js
+    </code></pre>
+  </section>
+  <section><h3>Webpack config</h3>
+    <pre><code rel="webpack.config.js" class="js">
+      const path = require('path')
+      // const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+      module.exports = {
+        entry: path.join(process.cwd(), 'src/index'),
+        output: {
+          path: path.join(__dirname, '/dist'),
+          filename: 'index.bundle.js'
+        },
+
+        // Rules of how webpack will take our files, complie & bundle them for the browser
+        module: {
+          rules: [
+            {
+              test: /\.(js|jsx)$/,
+              exclude: /nodeModules/,
+            }
+          ]
+        }
+      }
+    </code></pre>
+  </section>
+  <section><h3>Build the project</h3>
+    <dl class="fa">
+      <dt>We can build our project by starting webpack manually:</dt>
+    </dl>
+    <pre><code rel="Terminal" class="bash">
+      npx webpack --mode production
+    </code></pre>
+    <dl class="fa">
+      <dt>But it is more convenient to setup this command in pacakge.json</dt>
+    </dl>
+    <pre><code rel="JSON" class="json">
+      "scripts": {
+        "build": "webpack --mode production"
+      }
+    </code></pre>
+    <dl class="fa">
+      <dt>And then just type:</dt>
+    </dl>
+    <pre><code rel="Terminal" class="bash">
+      npm run build
+    </code></pre>
+  </section>
+</section>
 <section data-min="5"><h1>create-react-app cli</h1></section>
 <section><h2>create-react-app cli</h2>
   <section><h3>Get familiar with create-react-app cli</h3>
