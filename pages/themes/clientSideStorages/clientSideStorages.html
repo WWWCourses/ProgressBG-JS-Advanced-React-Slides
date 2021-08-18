@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>webStorages</title>
+	<title>clientSideStorages</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -50,7 +50,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>Web Storages</h1></section>
+<section><h1>Client-side storages</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -77,6 +77,43 @@
 	</section>
 </section>
 
+<section data-min="10"><h1>Overview</h1></section>
+<section><h2>Overview</h2>
+	<section>
+		<dl class="fa">
+			<dt>Modern web browsers support a number of ways for web sites to store data on the user's computer (client-side), instead of on the server-side.</dt>
+			<dt>The typical use-cases for client-side storage are:</dt>
+			<dd>Personalizing site preferences.</dd>
+			<dd>Persisting previous site activity (e.g. storing the contents of a shopping cart from a previous session, remembering if a user was previously logged in).</dd>
+			<dd>Storing data for offline use.</dd>
+			<dt>The basic types of client-side storage are:  Cookies, Local Storage,  Session Storage</dt>
+		</dl>
+	</section>
+	<section><h3>Cookies vs Local Storage vs Session Storage</h3>
+		<table style="font-size: .9em">
+			<tr>
+				<th>Cookies</th>
+				<th>Local Storage</th>
+				<th>Session Storage</th>
+			</tr>
+			<tr>
+				<td><span class="note">4KB</span> max</td>
+				<td><span class="note">10MB</span> max</td>
+				<td><span class="note">5MB</span> max</td>
+			</tr>
+			<tr>
+				<td>Expiration depends on settings and/or session</td>
+				<td>Does not expire. Have to be deleted by JS or manually.</td>
+				<td>Expiration depends session</td>
+			</tr>
+			<tr>
+				<td><span class="note">Server</span> and client-side access.</td>
+				<td>only client-side access.</td>
+				<td>only client-side access.</td>
+			</tr>
+		</table>
+	</section>
+</section>
 
 <section data-min="10"><h1>Cookies</h1></section>
 <section><h2>Cookies</h2>
@@ -84,12 +121,10 @@
   	<dl class="fa">
   		<dt>An HTTP cookie is a text data stored to the user's web browser.</dt>
   		<dt>Cookies are sent with the HTTP response message from the web server.</dt>
-  		<dt>The browser can sore the cookie and send it back to the server with next request.</dt>
-  		<dt>With cookies we can emulate a stateful connection through HTTP, which is <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless protocol</a> by design.</dt>
+  		<dt>The browser can store the cookie and send it back to the server with next request.</dt>
+  		<!-- <dt>With cookies we can emulate a stateful connection through HTTP, which is <a href="https://en.wikipedia.org/wiki/Stateless_protocol">stateless protocol</a> by design.</dt> -->
+		<a href="images/cookie_transfer.png"><img src="images/cookie_transfer.png"></a>
   	</dl>
-  </section>
-  <section><h3>How cookies are transferred?</h3>
-  	<a href="images/cookie_transfer.png"><img src="images/cookie_transfer.png"></a>
   </section>
   <section><h3>Cookie format</h3>
   	<dl class="fa">
@@ -162,33 +197,7 @@
   </section>
 </section>
 
-<section data-min="5"><h1>Cookies vs Local vs Session Storage</h1></section>
-<section><h2>Cookies vs Local vs Session Storage</h2>
-  <section><h3>Comparison</h3>
-  	<table style="font-size: .9em">
-  		<tr>
-  			<th>Cookies</th>
-  			<th>Local Storage</th>
-  			<th>Session Storage</th>
-  		</tr>
-  		<tr>
-  			<td><span class="note">4KB</span> max</td>
-  			<td><span class="note">10MB</span> max</td>
-  			<td><span class="note">5MB</span> max</td>
-  		</tr>
-  		<tr>
-  			<td>Expiration depends on settings and/or session</td>
-  			<td>Does not expire. Have to be deleted by JS or manually.</td>
-  			<td>Expiration depends session</td>
-  		</tr>
-  		<tr>
-  			<td><span class="note">Server</span> and client-side access.</td>
-  			<td>only client-side access.</td>
-  			<td>only client-side access.</td>
-  		</tr>
-  	</table>
-  </section>
-</section>
+
 
 <section data-min="1" id="hw"><h1>Exercises</h1></section>
 <section><h2>Task - Store user colour preferences</h2>
