@@ -224,9 +224,9 @@
 		</code></pre>
 	</section>
 </section>
-
+<!--
 <section data-min="5"><h1>Preventing Injection Attacks</h1></section>
-<section><h2>Preventing Injection Attacks</h2>
+<section><h2 class="advanced">Preventing Injection Attacks</h2>
 	<section>
 		<dl class="fa">
 			<dt>By default, React DOM escapes any values embedded in JSX before rendering them</dt>
@@ -235,7 +235,7 @@
 			<dt>Of course, always double check, because <a href="https://medium.com/javascript-security/avoiding-xss-in-react-is-still-hard-d2b5c7ad9412">Avoiding XSS in React is Still Hard</a></dt>
 		</dl>
 	</section>
-</section>
+</section> -->
 
 
 
@@ -256,6 +256,44 @@
   	</dl>
   </section>
 </section> -->
+
+
+<section data-min="10"><h1>Exercises</h1></section>
+<section><h2>Exercises</h2>
+	<section id="todoAppComponentsInit"><h3>TodoApp components init</h3>
+		<dl class="fa">
+			<dt>Create the TodoApp components files in your TodoApp <code>./src/components</code> folder:</dt>
+			<pre><code rel="src/" class="bash">
+				src/
+				├── App.js
+				├── components
+				│   ├── AddTodo.js
+				│   ├── Header.js
+				│   ├── TodoItem.js
+				│   ├── TodoList.js
+				│   └── TodosCount.js
+				└── index.js
+			</code></pre>
+			<dt>Create each TodoApp Components using the Function Components</dt>
+			<dd>For now, each component should only return a React Element,containing as string the name of the component</dd>
+			<dt>Create the App Component using the Class Component.</dt>
+			<dd>For now, it should only render next React Element:</dd>
+			<pre><code rel="./src/App.js" class="html">
+				...
+				&lt;div className=&quot;page&quot;&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&lt;Header/&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&lt;main className=&quot;todoApp&quot;&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;AddTodo/&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;TodoList/&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;TodosCount/&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/main&gt;
+&#x9;&#x9;&#x9;&#x9;&lt;/div&gt;
+				...
+			</code></pre>
+			<dt>Make sure your app runs without problems.</dt>
+		</dl>
+	</section>
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>
