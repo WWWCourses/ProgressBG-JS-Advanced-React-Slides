@@ -82,7 +82,7 @@
 <section><h2>Rendering lists in React </h2>
 	<section><h3>How?</h3>
 		<dl class="fa">
-			<dt>The "React way" of rendering JS array into list is by using the map() function</dt>
+			<dt>The "React way" of rendering JS array into list is by using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">array.map()</a> method.</dt>
 		</dl>
 		<pre><code rel="JSX" class="jsx">
 			const skills = ['HTML', 'CSS', 'JS'];
@@ -96,7 +96,7 @@
 	</section>
 	<section><h3>Why using keys?</h3>
 		<dl class="fa">
-			<dt>If you run the code above, a warning will be generated: "<span class="note">Warning: Each child in a list should have a unique "key" prop.</span>"</dt>
+			<dt>If you run the previous code example a warning will be generated: "<span class="note">Warning: Each child in a list should have a unique "key" prop.</span>"</dt>
 			<dt>In order to optimise the diffing algorithm, React requires the developer to set a unique <span class="note">key</span> attribute to each element of the list.</dt>
 			<dt>Keys help React identify which items have changed, are added, or are removed.</dt>
 		</dl>
