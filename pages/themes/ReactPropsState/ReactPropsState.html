@@ -82,13 +82,13 @@
 <section><h2>Props</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>When React sees a user-defined component, it passes all JSX attributes, and element's children, to this component as a single object (by convention we name it "props").</dt>
-			<dt>Props are way of passing data from parent to child component</dt>
+			<dt>When React sees a user-defined component, it passes all JSX attributes (and element's children, if any), to this component as a <span class="note">single object</span> (by convention we name it "props").</dt>
+			<dt class="note">Props are way of passing data <b>from parent to child</b> component</dt>
 		</dl>
 	</section>
 	<section><h3>Accessing "props" from function component</h3>
 		<dl class="fa">
-			<dt>"props" are passed as object from parent component (PropsDemo) to child component</dt>
+			<dt>"props" are passed as argument object from parent component (PropsDemo) to child component</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
 			// props in function component
@@ -121,6 +121,9 @@
 		</code></pre>
 	</section>
 	<section><h3>Accessing "props" from class component</h3>
+		<dl class="fa">
+			<dt>The props object is accessed in class component with <code>this.props</code></dt>
+		</dl>
 		<pre><code rel="JS" class="js">
 			import React from &quot;react&quot;;
 
@@ -175,11 +178,17 @@
 	</section>
 	<section><h3>Props propagation</h3>
 		<a href="images/propsPropagation.png"><img src="images/propsPropagation.png"></a>
-		<p style="font-size:.8em;">If we want to send props from component 1 to  component 6, <span class="note">every child component</span> in this path has to receive the property from its parent and then resend that property to its child</p>
+		<dl class="fa">
+			<dt>If we want to send props from component 1 to  component 6 (imagine, theme="dark"), <span class="note">every child component</span> in this path has to receive the property from its parent and then resend that property to its child</dt>
+			<dt>From new react version, you can use the <a href="https://reactjs.org/docs/context.html">React Context APIs</a> in order to escape such pass through</dt>
+		</dl>
+		<p style="font-size:.8em;"></p>
 	</section>
 	<section><h3>Props immutability</h3>
 		<dl class="fa">
 			<dt>Props should be <span class="note">immutable</span> object, since they are passed from parent to child! I.e. the children <span class="note">must not</span> chnage the props object!</dt>
+			<dt>All React components must act like pure functions with respect to their props.</dt>
+			<dt>Reference: <a href="https://reactjs.org/docs/components-and-props.html#props-are-read-only">Props are Read-Only</a></dt>
 		</dl>
 	</section>
 </section>
