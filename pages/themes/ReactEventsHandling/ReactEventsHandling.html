@@ -146,8 +146,7 @@
 <section data-min="5"><h1>Handling Events in React</h1></section>
 <section><h2>Handling Events in React</h2>
 	<section><h3>Overview</h3>
-		<p>Handling events with React elements is similar to handling events on DOM elements, using the HTML attributes</p>
-		<p>The main differences are:</p>
+		<p>Handling events with React elements is similar to handling events on DOM elements, using the HTML attributes. The main differences are:</p>
 		<dl class="fa">
 			<dt>React events are named <span class="note">using camelCase</span>, rather than lowercase.</dt>
 			<dt>With JSX you <span class="note">pass a function</span> as the event handler, rather than a string.</dt>
@@ -251,7 +250,7 @@
 
 				clickHandler(e) {
 					// Problem - this is not bound to the AddTodoCC instances:
-					console.dir(this)
+					console.dir(this); // undefined
 					let clickedAt = new Date(this.now+e.timeStamp);
 					console.log(`${e.target.id} was clicked at ${clickedAt.toLocaleString()}`);
 				}
