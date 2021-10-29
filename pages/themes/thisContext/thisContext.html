@@ -189,7 +189,7 @@
            obj1.showID();
        </code></pre>
    </section>
-   <section><h3 class="advanced">Invoke as static method</h3>
+   <!-- <section><h3 class="advanced">Invoke as static method</h3>
        <dl class="fa">
            <dt>In static (class) methods, <span class="note">this</span> refers to the class itself. Not to the object being created.</dt>
            <dt>Note, that you can not invoke a static method from an object.</dt>
@@ -212,30 +212,30 @@
            obj.method1()
            A.staticMethod()
        </code></pre>
-   </section>
+   </section> -->
 </section>
 
 <section data-min="50"><h1>the "this" Pitfall and "that" Solution</h1></section>
 <section><h2>the "this" Pitfall and "that" Solution</h2>
     <section><h3>the problem</h3>
-        <iframe height='265' title='the This Pitfall' src='//codepen.io/ProgressWWWCourses/embed/OmxEGw/?height=265&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/OmxEGw/'>the This Pitfall</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
+        <iframe title='the This Pitfall' src='//codepen.io/ProgressWWWCourses/embed/OmxEGw/?height=265&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='height: 50vh;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/OmxEGw/'>the This Pitfall</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
         </iframe>
     </section>
     <section><h3>the "that" solution</h3>
-        <iframe height='265' title='the "that" solution to "this" Pitfall' src='https://codepen.io/ProgressWWWCourses/embed/oWpzrO/?height=265&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/oWpzrO/'>the "that" solution to "this" Pitfall</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
+        <iframe height='265' title='the "that" solution to "this" Pitfall' src='https://codepen.io/ProgressWWWCourses/embed/oWpzrO/?height=265&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='height: 50vh;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/oWpzrO/'>the "that" solution to "this" Pitfall</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
         </iframe>
     </section>
 </section>
 
-
-<section data-min="50"><h1>Invoke with <code>apply()</code>, <code>call()</code> and <code>bind()</code></h1></section>
-<section><h2>Invoke with <code>apply()</code>, <code>call()</code> and <code>bind()</code></h2>
+<section data-min="50"><h1><code>apply()</code>, <code>call()</code> and <code>bind()</code> function methods</h1></section>
+<section><h2><code>apply()</code>, <code>call()</code> and <code>bind()</code> function methods</code></h2>
    <section><h3>Invoke with apply()</h3>
         <pre><code rel="Syntax">
             func.apply(thisArg, [argsArray])
         </code></pre>
         <dl class="fa">
-            <dt><dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument.The other arguments are passed <span class="note">as an array</span> to the function being called.</dt></dt>
+            <dt>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">apply()</a> method calls a function with a given 'this' value, and arguments provided as an array</dt>
+            <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument.The other arguments are passed <span class="note">as an array</span> to the function being called.</dt>
         </dl>
         <pre><code rel="JS">
             function update(name, age){
@@ -252,9 +252,10 @@
    </section>
    <section><h3>Invoke with call()</h3>
        <pre><code rel="Syntax">
-           func.call(thisArg, arg1, arg2, ...)
+           func.call(thisArg, arg1, ... , argN)
        </code></pre>
        <dl class="fa">
+        <dt>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call()</a> method calls a function with a given 'this' value, and arguments provided individually.</dt>
            <dt>the <code class="note">this</code> value inside function <code>func</code> will be equal to the object passed by <code class="note">thisArg</code> argument.The other arguments are passed <span class="note">as list</span> to the function being called.</dt>
        </dl>
        <pre><code rel="JS">
@@ -270,12 +271,12 @@
             console.log("maria after", maria);
        </code></pre>
    </section>
-   <section><h3>Invoke through bind()</h3>
+   <section><h3>Bind a function with bind()</h3>
        <pre><code rel="Syntax">
-           func.bind(thisArg[, arg1[, arg2[, ...]]])
+            func.bind(thisArg, arg1, ... , argN)
        </code></pre>
        <dl class="fa">
-           <dt>The bind() method creates a new function that, when called, has its <code>this</code> keyword set to the provided value (thisArg), with a given list of arguments preceding any provided when the new function is called</dt>
+           <dt>The bind() method <span class="note">creates a new function</span> that, when called, has its <code>this</code> keyword set to the provided value (thisArg), with a given list of arguments preceding any provided when the new function is called</dt>
        </dl>
        <pre><code rel="JS">
            const maria = {name: "Maria", age:18};
@@ -293,6 +294,17 @@
    </section>
 </section>
 
+<section data-min="5"><h1>Tasks</h1></section>
+<section><h2>Tasks</h2>
+    <section id="task1"><h3>Task1</h3>
+        <p>Fix the problem, so that we see in console numbers 1,2,3 instead of NaNs, on each click</p>
+        <script src="https://gist.github.com/WWWCourses/7d823939c0a9ac03a89da30f11e7b892.js"></script>
+    </section>
+    <section id="task2"><h3>Task2</h3>
+        <p>Fix the problem in countdown function, so that we see in console the numbers 1,2,3 instead of NaN</p>
+        <script src="https://gist.github.com/WWWCourses/7926b1fd078cfa0bbe7c04eca8b66de9.js"></script>
+    </section>
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
      <p>These slides are based on</p>
@@ -324,8 +336,8 @@
             keyboard: true,
             history: true,
             center: true,
-            // width: '100%',
-            // height: '100%',
+            width: '95%',
+            height: '100%',
             // slide transition
             transition: 'concave', // none/fade/slide/convex/concave/zoom
             // Factor of the display size that should remain empty around the content
