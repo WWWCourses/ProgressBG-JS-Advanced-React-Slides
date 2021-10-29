@@ -553,6 +553,37 @@
   </section>
 </section>
 
+<section data-min="5"><h1>The for...of statement</h1></section>
+<section><h2>The for...of statement</h2>
+  <section><h3>Overview</h3>
+    <dl class="fa">
+      <dt>ES6 introduced a new statement <code>for...of</code> that creates a loop that iterates over iterable objects such as: Built-in Array, String, Map, Set, and Array-like objects such as arguments or NodeList</dt>
+      <dt class="note">Note: make sure that you do not confuse <code>for..of</code> statement with <a href="https://wwwcourses.github.io/ProgressBG-JS-Advanced-React-Slides/pages/themes/moreOnObjects/moreOnObjects.html#/2"><code>for..in</code></a> statement</dt>
+    </dl>
+    <pre><code rel="Syntax" class="js">
+      for (variable of iterable) {
+         // statements
+      }
+    </code></pre>
+  </section>
+  <section><h3>Examples</h3>
+    <pre><code rel="JS" class="js">
+      let numbers = [1,2,3,4];
+
+      for (const num of numbers){
+        console.log(num);
+      }
+    </code></pre>
+    <pre><code rel="JS" class="js">
+      const str = 'abc'
+
+      for(const l of str){
+        console.log(l);
+      }
+    </code></pre>
+  </section>
+</section>
+
 <section data-min="5"><h1>The Class Syntax</h1></section>
 <section><h2>The Class Syntax</h2>
   <section><h3>Class definitions:</h3>
