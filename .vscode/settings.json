@@ -1,15 +1,15 @@
 {
     "spellright.language": [
         "Bulgarian",
-        "English (American)",
-        "English (British)"
+        "English (American)"
     ],
     "spellright.documentTypes": [
         "markdown",
         "latex",
         "plaintext",
         "python",
-        "html"
+        "html",
+        "javascriptreact"
     ],
     "editor.fontSize": 16,
     "liveServer.settings.port": 5501,

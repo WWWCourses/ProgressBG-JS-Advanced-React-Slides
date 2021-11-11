@@ -85,19 +85,114 @@
 		</dl>
 		<a href="images/map_function.png"><img src="images/map_function.png"></a>
 	</section>
-	<section><h3>Example</h3>
+	<section><h3>Syntax 1</h3>
+		<pre><code rel="Syntax" class="js">
+			newArr = arr.map( callbackFn )
+		</code></pre>
+		<dl class="fa">
+			<dt>callbackFn can be defined with arrow or with classic syntax</dt>
+			<dt>callbackFn is called for every element of arr. Each time callbackFn executes it's returned value is added to newArray</dt>
+			<dt>The callbackFn function accepts the following arguments:</dt>
+			<dd><span class="note">element</span>: The current element being processed in the array.</dd>
+			<dd><span class="note">index</span>: <i>Optional</i>. The index of the current element being processed in the array.</dd>
+			<dd><span class="note">array</span>: <i>Optional</i>The array map was called upon.</dd>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
+		</dl>
 		<pre><code rel="JS" class="js">
+			let input = ['a', 'b', 'c'];
+
+			let output = input.map((e,i,arr)=>{console.log(e, i, arr)})
+
+			//a 0 [ 'a', 'b', 'c' ]
+			//b 1 [ 'a', 'b', 'c' ]
+			//c 2 [ 'a', 'b', 'c' ]
+		</code></pre>
+	</section>
+	<section><h3>Examples</h3>
+		<pre><code rel="Example - Arrow Syntax" class="js">
 			let input = ['a', 'b', 'c', 'd'];
-			let output = input.map( (e)=>e.toUpperCase() )
+
+			let output = input.map( e=>e.toUpperCase() )
 
 			console.log(`input: ${input}`);
 			console.log(`output: ${output}`);
+
+			//input: a,b,c,d
+			//output: A,B,C,D
+		</code></pre>
+		<pre><code rel="Example - Classic Syntax" class="js">
+			let input = ['a', 'b', 'c', 'd'];
+
+			let output = input.map( function(e){
+				return e.toUpperCase()
+			} )
+
+			console.log(`input: ${input}`);
+			console.log(`output: ${output}`);
+
+			//input: a,b,c,d
+			//output: A,B,C,D
 		</code></pre>
 	</section>
-	<section><h3>Reference</h3>
-		<dl class="fa">
-			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map @mdn</a></dt>
-		</dl>
+	<section><h3>Example - using array index in callbackFn</h3>
+		<pre><code rel="JS" class="js">
+			let input = ['a', 'b', 'c'];
+
+			let output = input.map((e,i)=>e.toUpperCase()+i)
+
+			console.log(output);
+
+			// [ 'A0', 'B1', 'C2' ]
+		</code></pre>
+	</section>
+	<section><h3>TASK_1:</h3>
+		<pre><code rel="JS" class="js">
+			// TASK: from 'cities' array generate a new array 'cityNames' which will contain only the names of the cities
+			let cities = [
+						{name: 'Sofia', population: 1_236_000},
+						{name: 'Plovdiv', population: 343_424 },
+						{name: 'Burgas', population: 202_766},
+						{name: 'Varna', population: 335_177},
+			];
+
+			// YOUR CODE HERE:
+
+			// TEST:
+			console.log(cityNames);
+
+			// EXPECTED OUTPUT:
+			// [ 'Sofia', 'Plovdiv', 'Burgas', 'Varna' ]
+		</code></pre>
+	</section>
+	<section><h3>TASK_2</h3>
+		<pre><code rel="JS" class="js">
+			// TASK: from 'cities' array generate a new array 'bgCityNames' which will contain only the names
+			// of the cities, but mapped to their Bulgarian equivalent
+
+			let dict = {
+				'Sofia' : 'София',
+				'Plovdiv' : 'Пловдив',
+				'Burgas' : 'Бургас',
+				'Varna' : 'Варна'
+			}
+			let cities = [
+						{name: 'Sofia', population: 1_236_000},
+						{name: 'Plovdiv', population: 343_424 },
+						{name: 'Burgas', population: 202_766},
+						{name: 'Varna', population: 335_177},
+			];
+
+			// YOUR CODE HERE:
+			let bgCityNames = cities.map( city=> dict[city.name] )
+
+			// TEST:
+			console.log(bgCityNames);
+
+			// EXPECTED OUTPUT:
+			// [ 'София', 'Пловдив', 'Бургас', 'Варна' ]
+
+
+		</code></pre>
 	</section>
 </section>
 
@@ -107,6 +202,7 @@
 		<dl class="fa">
 			<dt>The <code>filter()</code> method creates <span class="note">a new array</span> with all elements that <span class="note">pass the test implemented by the provided function</span>.</dt>
 			<dt>I.e. the resulting array will contain only the input elements, for each the <span class="note">provided function</span> will return <code><strong>true</strong></code> value.</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
 		</dl>
 		<a href="images/filter.png"><img src="images/filter.png"></a>
 	</section>
@@ -119,10 +215,27 @@
 			console.log(`output: ${output}`);
 		</code></pre>
 	</section>
-	<section><h3>Reference</h3>
-		<dl class="fa">
-			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter @mdn</a></dt>
-		</dl>
+	<section><h3>Task</h3>
+		<pre><code rel="JS" class="js">
+			// TASK: filter only cities which population is greater than 340_000
+			let cities = [
+						{name: 'Sofia', population: 1_236_000},
+						{name: 'Plovdiv', population: 343_424 },
+						{name: 'Burgas', population: 202_766},
+						{name: 'Varna', population: 335_177},
+			];
+
+			// YOUR CODE HERE:
+
+			// TEST:
+			console.log(filtered);
+
+			// EXPECTED OUTPUT:
+			// [
+			// 	{ name: 'Sofia', population: 1236000 },
+			// 	{ name: 'Plovdiv', population: 343424 }
+			// ]
+		</code></pre>
 	</section>
 </section>
 
@@ -131,22 +244,76 @@
 	<section><h3>Overview</h3>
 		<dl class="fa">
 			<dt>The <code>reduce()</code> method executes the provided reducer function on each element of the array, resulting in a <span class="note">single output value</span>.</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
 		</dl>
-		<a href="images/reduce.png"><img src="images/reduce.png"></a>
-	</section>
-	<section><h3>Example</h3>
-		<pre><code rel="JS" class="js">
+		<pre><code rel="Syntax" class="js">
+			let value = arr.reduce(callbackFn)
+		</code></pre>
+		<a href="images/reduce.png"><img src="images/reduce.png" style="height: 40vh; display: inline-block; margin-left: 0;"></a>
+		<pre style="display: inline-block; width: 50vw; margin: 0 0 0 2em;"><code rel="JS" class="js" style="height: 39vh; width: 50vw; margin: 0;">
 			let input = [1,2,3,4];
-			let output = input.reduce( (acc, cur)=> acc+cur );
 
-			console.log(`input: ${input}`);
+			let output = input.reduce( (acc, curr)=> {
+				console.log(acc,curr)
+				return acc+curr;
+			} );
+
 			console.log(`output: ${output}`);
+
+			// OUTPUT
+			// 1 2
+			// 3 3
+			// 6 4
+			// output: 10
 		</code></pre>
 	</section>
-	<section><h3>Reference</h3>
+	<section><h3>A note for <code>acc</code> initial value</h3>
+		<pre><code rel="Syntax" class="js">
+			let value = arr.reduce( (acc, curr)=>{...}, initialValue );
+		</code></pre>
 		<dl class="fa">
-			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">reduce @mdn</a></dt>
+			<dt><span class="note">initialValue</span>: <i>Optional</i>. A value to which <code>acc</code> is initialized the first time the callback is called.</dt>
+			<dt>If initialValue is specified, that also causes <code>curr</code> to be initialized to the first value in the array.</dt>
+			<dt>If initialValue is not specified, <code>acc</code> is initialized to the first value in the array, and <code>curr</code> is initialized to the second value in the array.</dt>
 		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.reduce( (acc, curr)=> {
+				console.log(acc,curr)
+				return acc+curr;
+			}, 0 );
+
+			console.log(`output: ${output}`);
+			// OUTPUT:
+			// 0 1
+			// 1 2
+			// 3 3
+			// 6 4
+			// output: 10
+		</code></pre>
+	</section>
+	<section><h3>Example: sum of array's even numbers</h3>
+		<dl class="fa">
+			<dt>Using reduce() only - difficult to read and write.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.reduce( (acc, curr)=> curr%2==0?acc+curr:acc, 0);
+
+			console.log(`output: ${output}`);
+		</code></pre>
+		<dl class="fa">
+			<dt>Using fileter().reduce() - <span class="note">better approach</span>:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let input = [1,2,3,4];
+
+			let output = input.filter(el=>el%2==0).reduce((acc,curr)=>acc+curr)
+
+			console.log(`output: ${output}`);
+		</code></pre>
 	</section>
 </section>
 
