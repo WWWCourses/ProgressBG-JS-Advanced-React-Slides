@@ -79,16 +79,18 @@
     <section>
         <dl class="fa">
             <dt>We do not live in an error-free world.</dt>
-            <dt>Anticipate the possible errors in your code and deal with them in timely manner.</dt>
+            <dt>With proper error-handling we can anticipate the possible errors and deal with them in timely manner.</dt>
             <dt>Handle the exceptional circumstances.</dt>
         </dl>
     </section>
-    <section><h3>What is exception</h3>
+    <section><h3>What is exception?</h3>
         <dl class="fa">
             <dt>Exception is an event, occuring <span class="note">during the execution of a program</span> (run-time errors), that disturbs the normal flow of the program</dt>
             <dt class="note">Exception !== Syntactic Error</dt>
             <dd>Syntactic errors can be detected during the compilation phase!</dd>
-            <dt>Classical exception example: "division by zero".</dt>
+            <dt>Classical exception example: "ReferenceError: x is not define".</dt>
+            <dt class="note">in JavaScript, there is no Exception object, but an Error object.</dt>
+            <dd>I.e. we, developers speak of Exceptions, but JS throws Errors</dd>
         </dl>
     </section>
 </section>
@@ -96,7 +98,7 @@
 <section><h2>How JavaScript handles errors?</h2>
     <section>
         <dl class="fa">
-            <dt>Instances of Error objects are <span class="note">thrown as exceptions</span> when runtime errors occur.</dt>
+            <dt>Instances of <a href="https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/error">Error objects</a> are <span class="note">thrown as exceptions</span> when runtime errors occur.</dt>
             <dt>The Error objects may also serve as base objects for user‐defined exception classes (explained deeply in next slides)</dt>
         </dl>
         <pre><code rel="Syntax">
@@ -107,16 +109,30 @@
         </dl>
     </section>
     <section><h3>example</h3>
+        <dl class="fa">
+            <dt>We can also throw an Error, using the throw statement (discussed in next slides)</dt>
+            <dt>Next example demonstrate what JS engine do, when an Error occurs</dt>
+        </dl>
         <pre><code rel="JS">
-            function validateEmail(email) {
-                if( email.match(/[\w.-]@\w+\.\w+/) ){
-                    return email
+            function validateAge(age) {
+                if(age<=0 || age>120){
+                    // throw an Error:
+                    throw new Error('Invalid value for age!')
                 }else{
-                    throw new Error(`invalid email: ${email}`);
+                    console.log(`Age is valid: ${age}`);
                 }
             }
 
-            var validEmail = validateEmail('name@domaincom');
+            validateAge(34);
+            validateAge(-5);
+
+            // OUTPUT
+
+            // Age is valid: 34
+            // throw new Error('Invalid value for age!')
+            // ^
+            // Error: Invalid value for age!
+            // ...
         </code></pre>
     </section>
     <!-- <section><h3>Reference</h3>
@@ -134,20 +150,38 @@
         </dl>
 
     </section>
-    <section><h3><code>try...catch</code></h3>
-        <pre><code rel="JS">
-            "use strict";
-            try{
-                x = 2;
-                console.log(`x=${x}`);
-            }catch(err){
-                console.error(`Error: ${err.message}`);
+    <section><h3><code>try...catch</code> statement</h3>
+        <pre><code rel="Syntax" class="js">
+            try {
+              try_statements
+            }
+            catch (exception_var) {
+              catch_statements
             }
         </code></pre>
+
         <dl class="fa">
-            <dt>if error occurs in <code>try</code> block, the execution is stopped and transferred to <code>catch</code> block.</dt>
+            <dt>if exception occurs in any of <code>try</code> block statements, the execution is stopped and transferred to <code>catch</code> block.</dt>
             <dt>If there are no errors => the <code>catch</code> block is not executed.</dt>
+            <dt>The catch-block specifies an identifier (exception_var) that holds the value of the exception; this value is only available in the scope of the catch-block</dt>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch">try...catch @mdn</a></dt>
         </dl>
+    </section>
+    <section><h3><code>try...catch</code> simple example</h3>
+        <pre><code rel="JS">
+            try{
+                console.log(x); // JS will throw an Error here, as x is not defined
+                console.log('Continue try block?');
+            }catch(err){
+                console.log('There was an error');
+            }
+
+            console.log('But program continues to run');
+
+            // OUTPUT
+            // There was an error
+            // But program continues to run
+        </code></pre>
     </section>
     <section><h3>watch the scope</h3>
         <pre><code rel="JS">
@@ -164,44 +198,58 @@
             <dt><code>err</code> - an instance of Error object. It's <span class="note">local scoped</span> to <code>catch</code> block.</dt>
         </dl>
     </section>
-    <section><h3><code>try...catch</code> example</h3>
+    <section><h3><code>try...catch</code> example 2</h3>
         <pre><code rel="JS">
-            var email = 'namedomain.com';
-            try {
-                const validatedEmail = validateEmail(email);
-                if(validatedEmail instanceof Error) {
-                    console.error(`Anticipated: ${validatedEmail.message}`);
-                } else {
-                    console.log(`Valid email: ${validatedEmail}`);
-                }
-            } catch(err) {
-                console.error(`Unanticipated: ${err.message}`);
+            function validateAge(age) {
+                return (age<=0 || age>120) ?
+                    new Error(`Invalid value for age: ${age}`)
+                    : age;
             }
 
-            function validateEmail(email) {
-                return email.match(/[\w.-]@\w+\.\w+/) ?
-                    email :
-                    new Error(`invalid email: ${email}`);
+            try {
+                const validatedAge = validateAge(-5);
+                if(validatedAge instanceof Error) {
+                    console.error(`Anticipated Error: ${validatedAge.message}`);
+                } else {
+                    console.log(`Valid age: ${validatedAge}`);
+                }
+            } catch(err) {
+                console.error(`Opps, something went wrong ! (${err.message})`);
             }
         </code></pre>
     </section>
-    <section><h3><code>the finally block</code></h3>
+    <section><h3><code>try...catch..finally</code> statement</h3>
+        <pre><code rel="Syntax" class="js">
+            try {
+              try_statements
+            }
+            catch (exception_var) {
+              catch_statements
+            }
+            finally {
+              finally_statements
+            }
+        </code></pre>
         <dl class="fa">
             <dt>The statements in <code>finally</code> block are executed after the try block and catch clause(s) execute.</dt>
-            <dt><code>finally</code> block executes <span class="note">whether or not</span> an exception was thrown.</dt>
+            <dt><code>finally</code> block executes <span class="note">whether or not</span> an exception was thrown. I.e. the finally-block will always execute</dt>
             <dt>It's the right place to clean resources used in try-catch.</dt>
         </dl>
     </section>
-    <section><h3><code>the finally block</code></h3>
+    <section><h3><code>try..finaly</code> statement</h3>
+        <dl class="fa">
+            <dt>This construct is not often used in practice.</dt>
+            <dt>Remember, that finally-block will always execute</dt>
+        </dl>
         <pre><code rel="JS">
             try{
                 console.log(`Try 1`);
-                x + 2;
+                console.log(x); // a ReferenceError will be thrown
             }finally{
                 console.log("Finally 1");
             }
 
-            console.log("But it's OK now");
+            console.log("Is program continued?");
         </code></pre>
     </section>
 </section>
@@ -271,9 +319,7 @@
             <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></dt>
             <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError">URIError</a></dt>
         </dl>
-    </section>
-    <section><h3>examples</h3>
-        <pre><code rel="JS">
+        <pre><code rel="JS" style="max-height:30vh ;">
             try {
                 //something that throws an error
             } catch (e){
@@ -295,10 +341,40 @@
             }
         </code></pre>
     </section>
+    <section><h3>examples</h3>
+        <pre><code rel="JS" class="js">
+            try {
+                console.log(x);
+            } catch (e){
+                if (e instanceof EvalError){
+                    console.log('EvalError')
+                } else if (e instanceof RangeError){
+                    console.log('RangeError')
+                } else if (e instanceof ReferenceError){
+                    console.log('ReferenceError')
+                } else if (e instanceof SyntaxError){
+                    console.log('SyntaxError')
+                } else if (e instanceof TypeError){
+                    console.log('TypeError')
+                } else if (e instanceof URIError){
+                    console.log('URIError')
+                } else{
+                    console.log('Error!')
+                }
+            }
+
+            // OUTPUT
+            // ReferenceError
+        </code></pre>
+    </section>
 </section>
 
 <section><h2>Custom exceptions</h2>
     <section><h3>ES5 way</h3>
+        <dl class="fa">
+            <dt>We can throw custom Error objects by defining a constructor function.</dt>
+            <dt>Our object must  inherits the Error object</dt>
+        </dl>
         <pre><code rel="JS">
             function DivideByZero(message) {
                 this.name = "DivideByZero Error";
@@ -325,6 +401,9 @@
         </code></pre>
     </section>
     <section><h3>ES6 way</h3>
+        <dl class="fa">
+            <dt>We can throw custom Error objects for common custom exception by subclassing the Error class</dt>
+        </dl>
         <pre><code rel="JS">
             'use strict';
 
