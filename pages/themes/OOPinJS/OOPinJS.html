@@ -252,7 +252,9 @@
 
 				let obj = {
 					// public members:
-					sayName: () =>console.log(`I'm object: ${_name}`),
+					sayName: function(){
+						console.log(`I'm object: ${_name}`)
+					}
 				};
 
 				return obj;

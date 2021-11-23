@@ -513,7 +513,7 @@
 				"ab1d", 		// ok
 				"1bcd", 		// ok
 				"abcd123", 		// ok
-				"123", 			// not (length)
+				"123", 		// not (length)
 			];
 
 			const rx = /^(?=.*\d).{4,}/;
@@ -530,10 +530,10 @@
 
 
 			const tests = [
-				"a@# cdfasas!", 		// not (missing digit)
+				"a@# cdfasas!", 	// not (missing digit)
 				"a@#9cdfas", 		// ok
 				"1a@#sda", 		// ok
-				"1@@@1344", 	// not (missong letter)
+				"1@@@1344", 		// not (missong letter)
 				"123ab", 		// not (length)
 			];
 
