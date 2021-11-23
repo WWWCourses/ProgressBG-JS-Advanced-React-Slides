@@ -8,9 +8,9 @@ const tests = [
 	"a@# cdfasas!", 		// not (missing digit)
 	"a@#9cdfas", 		// ok
 	"1a@#sda", 		// ok
-	"abcd123", 	// ok
-	"123", 		// not (length)
+	"1@@@1344", 	// not (missong letter)
+	"123ab", 		// not (length)
 ];
 
-const rx = /^(?=.*\d).{4,}/
+const rx = /^(?=.*\d)(?=.*[A-Za-z]).{6,}/
 tests.filter( str => str.match(rx) ).forEach( str => console.log(str) );

@@ -387,17 +387,22 @@
 	<section><h3>Alternation</h3>
 		<dl class="fa">
 			<dt>With alternation we can match one <span class="note">or</span> another regexp!</dt>
+			<table style="margin: 1em;">
+				<tr><th>Alternation</th><th>Description</th></tr>
+				<tr><td>r1<span class="note">|</span>r2</td><td>Matches if r1 OR r2 is matched</td></tr>
+			</table>
+			<dt>Alternation operator (pipe symbol) <span class="note">has the lowest precedence of all regex operators</span>.</dt>
+			<dt>Check this <a href="https://regex101.com/r/8perWX/1/">Alternation Simple Demo</a>.</dt>
 		</dl>
-		<table>
-			<tr><th>Alternation</th><th>Description</th></tr>
-			<tr><td>r1<span class="note">|</span>r2</td><td>Matches if r1 OR r2 is matched</td></tr>
-		</table>
+
 	</section>
 	<section><h3>Alternation example</h3>
 		<pre><code rel="JS" class="js">
+			// TASK: match stings containing 'strawberries' or 'raspberries' words:
 			// NB: this is not example of good practice for grouping regex. Why? => check next slides
-			var re = /\b(straw|rasp)?berries/;
-			var strings = [
+
+			const re = /\b(straw|rasp)?berries/;
+			const strings = [
 				'Icecream with strawberries? Yes!',
 				'Icecream with blueberries? No!',
 				'Icecream with raspberries? Yes!',
@@ -407,14 +412,13 @@
 			strings.forEach(str=> str.match(re) ?
 				console.log(`${str} YES! YES!`) : console.log(`${str} NO! NO!`)
 			)
+
+			// OUTPUT:
 			// Icecream with strawberries? Yes! YES! YES!
 			// Icecream with blueberries? No! NO! NO!
 			// Icecream with raspberries? Yes! YES! YES!
 			// Icecream with berries? Yes! YES! YES!
 		</code></pre>
-	</section>
-	<section><h3>More on Alternation</h3>
-		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#alternation">Alternation</a>
 	</section>
 
 	<section><h3>Grouping and back references</h3>
@@ -431,17 +435,22 @@
 	</section>
 	<section><h3>Grouping regexes example</h3>
 		<pre><code rel="JS" style="font-size: .8em;">
-			var re = /\b(?:straw|rasp)?berries/;
-			var strings = [
+			// TASK: match stings containing 'strawberries' or 'raspberries' words:
+			const strings = [
 				'Icecream with strawberries?',
 				'Icecream with blueberries?',
 				'Icecream with raspberries?',
 				'Icecream with strawraspberries?',
 				'Icecream with berries?',
 			];
+
+			const re = /\b(?:straw|rasp)?berries/;
+
 			strings.forEach(str=>str.match(re) ?
 				console.log(`${str} YES!`) : console.log(`${str} NO!`)
 			);
+
+			// OUTPUT:
 			// Icecream with strawberries? YES!
 			// Icecream with blueberries? NO!
 			// Icecream with raspberries? YES!
@@ -449,7 +458,7 @@
 			// Icecream with berries? YES!
 		</code></pre>
 	</section>
-	<section><h3>Grouping regexes: to group or not to group?</h3>
+	<!-- <section><h3>Grouping regexes: to group or not to group?</h3>
 		<pre><code rel="JS" class="js" style="min-height: 30em;">
 			var regexes = [
 				// task: match only 'strawberries' or 'raspberries':
@@ -488,17 +497,17 @@
 			// Icecream with straw? NO!
 			// Icecream with whateverraspberries? NO!
 		</code></pre>
-	</section>
-	<section><h3>More on Grouping and back references</h3>
+	</section> -->
+	<!-- <section><h3>More on Grouping and back references</h3>
 		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#grouping-back-references">Grouping and back references</a>
-	</section>
+	</section> -->
 	<section><h3 class="advanced">Lookahead/Lookbehind Assertions</h3>
 		<dl class="fa">
 			<dt>Gives the possibility to match a regex only if it is followed or not by something. I.e. we can make lookahead!</dt>
 			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions#other_assertions">Lookahead/Lookbehind Assertions on MDN</a></dt>
 		</dl>
 		<pre><code rel="JS" class="js">
-			// TASK: match only string at least 4 symbols long with at least one digit
+			// TASK: match strings that are at least 4 symbols long with at least one digit in it:
 			const tests = [
 				"abcd", 		// not (missing digit)
 				"ab1d", 		// ok
@@ -521,15 +530,14 @@
 
 
 			const tests = [
-				"a@# cdfasas!", 	// not (missing digit)
+				"a@# cdfasas!", 		// not (missing digit)
 				"a@#9cdfas", 		// ok
 				"1a@#sda", 		// ok
-				"abcd123", 		// ok
-				"123",		// not (length)
+				"1@@@1344", 	// not (missong letter)
+				"123ab", 		// not (length)
 			];
 
-			const rx = /^(?=.*\d).{4,}/;
-
+			const rx = /^(?=.*\d)(?=.*[A-Za-z]).{6,}/
 			tests.filter( str => str.match(rx) ).forEach( str => console.log(str) );
 		</code></pre>
 	</section>
