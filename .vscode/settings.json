@@ -13,4 +13,7 @@
     ],
     "editor.fontSize": 16,
     "liveServer.settings.port": 5501,
+    // "files.associations": {
+	// 	"*.js": "javascriptreact"
+	// },
 }

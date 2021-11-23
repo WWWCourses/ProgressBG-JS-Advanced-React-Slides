@@ -380,7 +380,7 @@
 			// 2 matches in 'one-two,three!'
 		</code></pre>
 	</section>
-	<section><h3>More on 	Anchors and Boundaries</h3>
+	<section><h3>More on Anchors and Boundaries</h3>
 		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#boundaries">Boundaries</a>
 	</section>
 
@@ -492,9 +492,46 @@
 	<section><h3>More on Grouping and back references</h3>
 		<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#grouping-back-references">Grouping and back references</a>
 	</section>
-	<section><h3>Assertions</h3>
-		<p>Gives the possibility to match a regex only if it is followed or not by something. I.e. we can make lookahead!</p>
-		<p class="advanced"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#assertions">Assertions on MDN</a></p>
+	<section><h3 class="advanced">Lookahead/Lookbehind Assertions</h3>
+		<dl class="fa">
+			<dt>Gives the possibility to match a regex only if it is followed or not by something. I.e. we can make lookahead!</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Assertions#other_assertions">Lookahead/Lookbehind Assertions on MDN</a></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			// TASK: match only string at least 4 symbols long with at least one digit
+			const tests = [
+				"abcd", 		// not (missing digit)
+				"ab1d", 		// ok
+				"1bcd", 		// ok
+				"abcd123", 		// ok
+				"123", 			// not (length)
+			];
+
+			const rx = /^(?=.*\d).{4,}/;
+
+			tests.filter( str => str.match(rx) ).forEach( str => console.log(str) );
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">Assertions - use case</h3>
+		<pre><code rel="JS" class="js">
+			// TASK: filter only valid passwords:
+			// a valid password is
+			// 	1. at least 6 symbols long
+			// 	2. must contain at least one letter and number
+
+
+			const tests = [
+				"a@# cdfasas!", 	// not (missing digit)
+				"a@#9cdfas", 		// ok
+				"1a@#sda", 		// ok
+				"abcd123", 		// ok
+				"123",		// not (length)
+			];
+
+			const rx = /^(?=.*\d).{4,}/;
+
+			tests.filter( str => str.match(rx) ).forEach( str => console.log(str) );
+		</code></pre>
 	</section>
 </section>
 
@@ -644,7 +681,7 @@
 	<section><h3>The match() String method: Return value</h3>
 		<dl class="fa" style="font-size:.9em;">
 		    <dt>If no match is found, the method returns <code class="note">null</code>.</dt>
-		    <dt>Without <code>g</code> modifier, <code>match()</code> returns an Array like object with next properties</dt>
+		    <dt><span class="note">Without <code>g</code> modifier</span>, <code>match()</code> returns an Array like object with next properties</dt>
 		    <table style="font-size: .9em">
 		    	<tr><th>Property/index</th><th>Description</th></tr>
 		    	<tr><td><code class="note">[0]</code></td><td>The part of the string that matched the Regex</td></tr>
@@ -652,13 +689,10 @@
 		    	<tr><td><code class="note">index</code></td><td>The string index, where the match starts. Strings indexes are 0-based!</td></tr>
 		    	<tr><td><code class="note">input</code></td><td>The original string</td></tr>
 		    </table>
+			<dt><span class="note">With <code>g</code> modifier</span>, the result is an Array like object, containing all matched substrings.</dt>
 		</dl>
 	</section>
-	<section><h3>The match() String method: Return value</h3>
-		<dl class="fa">
-			<dt>When <code>g</code> modifier is present, the result is an Array like object, containing all matched substrings.</dt>
-		</dl>
-	</section>
+
 	<section><h3>The match() String method</h3>
 		<pre><code rel="JS" class="js">
 			var str = 'abracadabra';
@@ -670,21 +704,15 @@
 			console.dir(resultGlobal);
 		</code></pre>
 	</section>
-	<section><h3>The replace() String method</h3>
+	<section><h3>Other string methods used with Regex</h3>
 		<dl class="fa">
-			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace @mdn</a></dt>
-		</dl>
-	</section>
-	<section><h3>The search() String method</h3>
-		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll">matchAll @mdn</a></dt>
 			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search">search @mdn</a></dt>
-		</dl>
-	</section>
-	<section><h3>The split() String method</h3>
-		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">replace @mdn</a></dt>
 			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">split @mdn</a></dt>
 		</dl>
 	</section>
+
 	<section><h3><code>RegExp</code> object methods</h3>
 		<dl class="fa">
 			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">exec()</a></dt><dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test">test()</a></dt>
@@ -697,10 +725,10 @@
 <section><h2>Useful Resources</h2>
 	<section>
 		<dl class="fa">
+			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular Expressions Guide @mdn</a></dt>
 			<dt><a href="https://regex101.com/">regex101.com</a></dt>
-			<dt><a href="http://www.regexpal.com">Regex Pal</a> <span>javascript/PCRE regex tester with clean interface and useful tooltips</span></dt>
 			<dt><a href="https://www.youtube.com/watch?v=EkluES9Rvak&list=PL-BwA4EWrxLCZ73--QvjEd1IOkJsfTa05&index=1">YouTube: Best of Fluent 2012: /Reg(exp){2}lained/: Demystifying Regular Expressions</a></dt>
-			<dt><a href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">JavaScript RegExp Reference</a> on <span>w3schools</span></dt>
+
 		</dl>
 	</section>
 </section>
