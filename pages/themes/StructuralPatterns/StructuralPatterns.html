@@ -107,9 +107,12 @@
 
 			// test
 			let mixinUserObject = new MixinUser();
-			mixinUserObject.method1(); // I'm F1 from M1
-			mixinUserObject.method3(); // I'm F1 from M1
+			mixinUserObject.method1();
+			mixinUserObject.method3();
 
+			// OUTPUT:
+			// I'm method1 from mixin1
+			// I'm method3 from mixin2
 		</code></pre>
 	</section>
 	<section><h3 class="advanced">Mixin Pattern Implementation</h3>
@@ -175,31 +178,35 @@
 	</section>
 </section>
 
-<section data-notes="20min"><h2 class="advanced">Decorator</h2>
+<section data-notes="20min"><h2>Decorator</h2>
 	<section><h3>about</h3>
 		<a href="images/decoratorIdea.png"><img src="images/decoratorIdea.png"></a>
 		<p class="note"><b>Dynamically</b> augments the behaviour of an existing functions or objects</p class="note">
 	</section>
 	<section><h3>How Decorator differs from Classical Inheritance?</h3>
 		<dl class="fa">
-			<dt>The behaviour is not added to the all of the objects from the same class.</dt>
+			<dt>The behaviour is not added to all of the objects from the same class.</dt>
 			<dt>We can add behaviour only to the object being decorated.</dt>
 		</dl>
 	</section>
 	<section><h3>Function decorators - simple</h3>
 		<dl class="fa">
+			<dt>Function decorator is a function which accepts a base function and returns the decorated function</dt>
 			<dt>Let's look at the most simple case - decorating a function without arguments:</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
 			//a decorator function:
 			function dateDecorator(f){
-				// decorating phase:
-				let d = new Date();
-				const formatedDateStr =  `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`
-				console.log(`${f.name} was called on ${formatedDateStr}`);
+				return function() {
+					// decorating phase:
+					let d = new Date();
+					const formatedDateStr =  `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`
+					console.log(`${f.name} was called on ${formatedDateStr}`);
 
-				// return the decorated function
-				return f
+					// now call the base function
+					// make sure that decorated funciton will return the same result as the base function
+					return f()
+				}
 			}
 
 			// the function to be decorated
@@ -264,15 +271,13 @@
 
 			// Decorator: memory
 			function memory( laptop ) {
-				laptop.getPrice = function() {
-					return laptop.price + 75;
-				};
+				memoryPrice = 75;
+				laptop.price += memoryPrice;
 			}
 			// Decorator: ssd
 			function ssd( laptop ) {
-				laptop.getPrice = function() {
-					return laptop.price + 125;
-				};
+				SSD_Price = 100;
+				laptop.price += SSD_Price;
 			}
 
 			var thinkPad = new Laptop(1000, 13);
@@ -281,11 +286,11 @@
 			memory( thinkPad );
 			ssd( thinkPad );
 
-			console.log( thinkPad.getPrice() );
+			console.log( thinkPad.price );
 
 		</code></pre>
 	</section>
-	<section><h3 class="advanced">Decorator by Composition</h3>
+	<!-- <section><h3 class="advanced">Decorator by Composition</h3>
 		<pre><code rel="JS" class="js">
 			function compositDecorate(component) {
 				const protoComp = Object.getPrototypeOf(component);
@@ -306,7 +311,7 @@
 				};
 			}
 		</code></pre>
-	</section>
+	</section> -->
 	<!-- <section><h3>Implementing decorators with jQuery (opt)</h3>
 		<pre><code rel="JS" class="js">
 			var decoratorApp = decoratorApp || {};
@@ -379,7 +384,7 @@
 	</section>
 </section> -->
 
-<section><h2 class="advanced">Iterator</h2>
+<!-- <section><h2 class="advanced">Iterator</h2>
 	<section><h3>about</h3>
 		<dl class="fa">
 			<dt>Provides easy access to elements of complex data structure.</dt>
@@ -412,7 +417,7 @@
 			<dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterators">Iterators @MDN</a></dt>
 		</dl>
 	</section>
-	<!-- <section><h3>implementation (MDN)</h3>
+	<section><h3>implementation (MDN)</h3>
 		<pre><code rel="JS" class="js">
 			function makeIterator(array) {
 			    var index = 0;
@@ -460,8 +465,8 @@
 			console.log(agg.next());
 		}
 		</code></pre>
-	</section> -->
-</section>
+	</section>
+</section> -->
 
 <section><h2 class="advanced">Observer</h2>
 	<section>
@@ -499,7 +504,8 @@
 
 			// The Observer "class"
 			var Observer = function() {
-				// notification means calling a method of the subscriber object
+				// notification means calling a method of the observer object
+				// each observer must! implement their own version of notify, here we set default:
 				this.update = function() {
 					throw "update() is not implemented";
 				}
