@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>JSON Format</title>
+	<title>WebServices and JSON</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -49,7 +49,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>The JSON Format</h1></section>
+<section><h1>WebServices and JSON</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -76,8 +76,70 @@
 	</section>
 </section>
 
-<section data-notes="20min"><h1>Overview</h1></section>
-<section><h2>Overview</h2>
+
+<section data-min="5"><h1>WebServices Overview</h1></section>
+<section><h2>WebServices Overview</h2>
+	<section>
+		<dl class="fa">
+			<dt>The term Web service (WS) is either:</dt>
+			<dd>a service offered by an electronic device to another electronic device, communicating with each other via the World Wide Web, or</dd>
+			<dd>a server running on a computer device, listening for requests at a particular port over a network, serving web documents (HTML, JSON, XML, images).</dd>
+			<dt>In practice, a web service commonly provides an object-oriented Web-based interface to a database server, utilized for example by another Web server, or by a mobile app, that provides a user interface to the end-user.</dt>
+			<dt>Many organizations that provide data in formatted HTML pages will also provide that data on their server as XML or JSON, often through a Web service to allow syndication.</dt>
+			<dt>Reference: <a href="https://en.wikipedia.org/wiki/Web_service">WebServices @wikipedia</a></dt>
+		</dl>
+	</section>
+	<section><h3>RESTfull WebServices</h3>
+		<dl class="fa">
+			<dt>Representational State Transfer (REST) is <span class="note">an architectural style</span> that specifies constraints, such as uniform interface.</dt>
+			<dt>These constraints helps a web service to induce desirable properties, such as performance, scalability, and modifiability, that enable services to work best on the Web</dt>
+			<dt>Web service APIs that adhere to the REST architectural constraints are called RESTful APIs.</dt>
+		</dl>
+	</section>
+	<section><h3>RESTful APIs</h3>
+		<dl class="fa">
+			<dt>HTTP-based RESTful APIs are defined with the following aspects:</dt>
+			<dd>a base URI, such as http://api.example.com/</dd>
+			<dd>standard HTTP methods (e.g., GET, POST, PUT, and DELETE);</dd>
+		</dl>
+		<hr>
+		<table style="font-size: .7em;">
+			<caption>Semantics of HTTP methods</caption>
+			<tbody>
+				<tr>
+					<th>HTTP method</th>
+					<th>Description</th></tr>
+				<tr>
+					<th>GET</th>
+					<td>used to <span class="note">read (or retrieve)</span> a representation of a resource.</td>
+				</tr>
+				<tr>
+					<th>POST</th>
+					<td>most-often utilized to <span class="note">create</span> new resources.</td>
+				</tr>
+				<tr>
+					<th>PUT</th>
+					<td>most-often utilized to <span class="note">update</span> resources</td>
+				</tr>
+				<tr>
+					<th>DELETE</th>
+					<td>most-often utilized to <span class="note">delete</span> resources.</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+	</section>
+	<section><h3>RESTful APIs with JSON</h3>
+		<dl class="fa">
+			<dt>RESTful services typically interact with data represented in JSON/XMl or other data-exchange format.</dt>
+		</dl>
+		<a href="./images/RESTfullAPIsWithJSON.png"><img src="./images/RESTfullAPIsWithJSON.png" alt="RESTfullAPIsWithJSON.png"></a>
+	</section>
+</section>
+<section data-notes="20min"><h1>JSON Overview</h1></section>
+<section><h2>JSON Overview</h2>
 	<section>
 		<dl class="fa">
 			<dt>JSON = <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation</dt>
