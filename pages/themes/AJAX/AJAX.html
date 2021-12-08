@@ -191,24 +191,79 @@
 			<dt>The Fetch API provides an interface for fetching resources, similar to the XMLHttpRequest, but the new API provides a more powerful and flexible feature set.</dt>
 			<dt>Fetch APIs use the concept of <a href="https://www.sitepoint.com/overview-javascript-promises/">promises</a> in JavaScript</dt>
 			<dt>As Fetch APIs are "A modern replacement for XMLHttpRequest", do think about the browser compatibility: <a href="http://caniuse.com/#feat=fetch">caniuse.com: fetch</a></dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API">Fetch API at MDN</a></dt>
 		</dl>
 	</section>
-	<section>
-		<a href="https://developer.mozilla.org/en/docs/Web/API/Fetch_API">Fetch API at MDN</a>
-	</section>
-	<section><h3>fetch by <code>fetch</code></h3>
+	<section><h3>Promises - Overview</h3>
+		<dl class="fa">
+			<dt>A Promise is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
+		<dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
+		<dt>A promise can either be <span class="note">fulfilled with a value</span> or <span class="note">rejected with a reason (error)</span></dt>
+		<dt>A promise object has method <code>then()</code> which accepts two callback functions and returns a promise object (which means that we can chain multiple <code>then()</code> calls)</dt>
+		<dt>Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously</dt>
 		<pre><code rel="JS" class="js">
+			p.then(onFulfilled[, onRejected]);
+
+			p.then(value => {
+				// fulfillment
+			}, reason => {
+				// rejection
+			});
+		</code></pre>
+
+		</dl>
+	</section>
+	<section><h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/fetch">fetch() method</a> - basic syntax</h3>
+		<pre><code rel="JS" class="js">
+			const response = fetch(url [, init])
+		</code></pre>
+		<dl class="fa">
+			<dt>fetch() starts the process of fetching a resource from the network, returning a promise which is fulfilled once the response is available (<span class="note">even if the server response is an HTTP error status</span>)</dt>
+			<dt>fetch() method takes one mandatory argument, the URL to the resource you want to fetch.</dt>
+			<dt>an optional second argument - init object, can be supplied  containing any custom settings that we want to apply to the request</dt>
+			<dt>It returns a Promise that resolves to a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response object</a> to that request</dt>
+		</dl>
+	</section>
+	<section><h3>fetch() -  example</h3>
+		<pre><code rel="JS" class="js">
+			const response = fetch('https://jsonplaceholder.typicode.com/todos/1')
+			console.dir(response);
+
+			// Promise
+			// 	[[Prototype]]: Promise
+			// 		catch: ƒ catch()
+			// 		constructor: ƒ Promise()
+			// 		finally: ƒ finally()
+			// 		then: ƒ then()
+			// 		Symbol(Symbol.toStringTag): "Promise"
+			// 		[[Prototype]]: Object
+			// 	[[PromiseState]]: "fulfilled"
+			// 	[[PromiseResult]]: Response
+		</code></pre>
+	</section>
+	<section><h3>making GET request with fetch()</h3>
+		<pre><code rel="JS" class="js">
+			// with function declarations
 			fetch(url)
 				.then(function (response){
 					return response.text();
 				})
-				.then(function (responseText){
-					// do something with responseText
-					nodes.output.innerHTML = responseText;
+				.then(function (data){
+					// do something with data
 				})
 		</code></pre>
-		<p class="note">Async by promises!</p>
+		<pre><code rel="JS" class="js">
+			// with arrow function sntax
+			fetch(url)
+				.then( response=>response.text() )
+				.then( data => // do something with data )
+		</code></pre>
+		<dl class="fa">
+			<dt>Once a Response is retrieved, there are a number of methods available to define what the body content is and how it should be handled.</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response @mdn</a></dt>
+		</dl>
 	</section>
+
 	<section><h3>with error checks</h3>
 		<pre><code rel="JS" class="js">
 			fetch(url)
