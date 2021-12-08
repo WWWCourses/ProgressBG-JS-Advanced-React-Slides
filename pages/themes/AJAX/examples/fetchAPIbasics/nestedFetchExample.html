@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nested fetch requests demo</title>
+</head>
+<body>
+	<button>Get data</button>
+	<div class="content"></div>
+	<script>
+		function doSomethingWithData(data) {
+			dom.content.innerHTML = data;
+		}
+		function doSomethingElseWithData(data) {
+			dom.content.innerHTML += `<br>${data}`;
+		}
+
+		function processResponse(r) {
+			if(r.status === 200){
+				return r.text()
+			}else{
+				throw new Error(`Error: ${r.status}`)
+			}
+		}
+
+		const url = './data/sample1.txt';
+
+		const dom = {
+			'button': document.querySelector('button'),
+			'content': document.querySelector('.content')
+		}
+
+		dom.button.addEventListener('click', function (e) {
+			fetch(url)
+			.then( r => processResponse(r) )
+			.then( text => {
+				doSomethingWithData(text);
+				return fetch('./data/sample2.txt')
+						.then( r=> processResponse(r) )
+			})
+			.then( text => doSomethingElseWithData(text))
+			.catch( err => console.log(err) )
+		})
+	</script>
+</body>
+</html>
