@@ -241,7 +241,7 @@
 			// 	[[PromiseResult]]: Response
 		</code></pre>
 	</section>
-	<section><h3>making GET request - example</h3>
+	<section><h3>making GET request - basic steps</h3>
 		<pre><code rel="JS" class="js">
 			// with function declarations
 			fetch(url)
@@ -263,6 +263,16 @@
 			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response @mdn</a></dt>
 		</dl>
 	</section>
+	<section><h3>making GET request - example</h3>
+		<pre><code rel="JS" class="js">
+			const url = 'https://raw.githubusercontent.com/WWWCourses/ProgressBG-JS-Advanced-React-Slides/gh-pages/pages/themes/AJAX/data/charlotte_sometimes.txt';
+
+			fetch(url)
+				.then( response => response.text() )
+				.then( data => console.log(data) )
+				.catch( err=> console.log(err) )
+		</code></pre>
+	</section>
 
 	<section><h3>making GET request with error checks - example</h3>
 		<dl class="fa">
@@ -270,31 +280,31 @@
 			<dt>We must use then handlers to check for HTTP errors.</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
+			// note that the path is wrong - there is no such file on github
+			const url = 'https://raw.githubusercontent.com/WWWCourses/ProgressBG-JS-Advanced-React-Slides/gh-pages/pages/themes/AJAX/data/charlotte_sometimes';
+
 			fetch(url)
-				.then(function (response) {
-					if( response.text){
-						return response.text();
-					}else{
-						throw new Error("No response.text")
-					}
-				})
-				.then(function (responseText) {
-					// renderHTML(responseText);
-					nodes.output.innerHTML = responseText;
-				})
-				.catch( function(error){
-					console.error('Upss, an error occurred');
-					console.error(error.message);
-				});
+			.then( response => {
+				// console.dir(response);
+				if( response.ok ){
+					return response.text();
+				}else{
+					throw new Error(`Error: response status code is ${response.status}`)
+				}
+			} )
+			.then( data => console.log(data) )
+			.catch( err=> console.error(err.message))
 		</code></pre>
 	</section>
-	<section><h3>More on <code>response</code> interface</h3>
-	<a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response interface at MDN</a>
+
+	<section><h3>Nested fetch requests - example</h3>
+		<script src="https://gist.github.com/WWWCourses/be6508b4142e7e61eeaae6adf2b94f14.js"></script>
 	</section>
+
 </section>
 
 <section data-min="10"><h1>Create HTTP request with jQuery</h1></section>
-<section><h2>Create HTTP request with jQuery</h2>
+<section><h2 class="advanced">Create HTTP request with jQuery</h2>
 	<section>
 		<a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp">jQuery - AJAX get() and post() Methods at w3schools</a>
 		<a href="https://www.w3schools.com/jquery/jquery_ref_ajax.asp">jQuery AJAX Methods Reference at w3schools</a>
@@ -351,16 +361,7 @@
 		</dl>
 	</section>
 </section>
-<section><h2>Simple Jokes App</h2>
-	<section><h3>Task</h3>
-		<dl class="fa">
-			<dt>Create a page which shows random jokes on each button click, as shown in gif bellow. <br>
-			Use the <code><a href="http://api.icndb.com/jokes/random">http://api.icndb.com/jokes/random</a></code> URL to fetch the joke data.
-			</dt>
-		</dl>
-		<a href="examples/jokesApp/jokeAppWoringDemo.gif"><img src="examples/jokesApp/jokeAppWoringDemo.gif" alt="jokeAppWoringDemo.gif"></a>
-	</section>
-</section>
+
 <!-- <section><h2 class="advanced">simple Shopping Cart</h2>
 	<section><h3>Example</h3>
 		<a href="examples/ShoppingCart/index.html">Shopping Cart</a>

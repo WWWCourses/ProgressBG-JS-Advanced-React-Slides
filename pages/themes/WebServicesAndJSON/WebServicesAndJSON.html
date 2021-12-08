@@ -269,6 +269,21 @@
 			console.log(typeof dataJSON);
 		</code></pre>
 	</section>
+	<section><h3>Parse JSON from fetch()</h3>
+		<dl class="fa">
+			<dt>The <code>response.json()</code> method returns a promise which resolves with the result of parsing the body text as JSON.</dt>
+			<dt>Note that despite the method being named json(), the result is not JSON but is instead the result of taking JSON as input and parsing it to produce a JavaScript object.</dt>
+		</dl>
+	</section>
+	<section><h3>Parse JSON from fetch() - example</h3>
+		<pre><code rel="JS" class="js">
+			const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+			fetch(url)
+				.then( response => response.json() )
+				.then( todoObj => console.log(todoObj.title) )
+		</code></pre>
+	</section>
 </section>
 
 <section><h1>Public APIs returning JSON</h1></section>
@@ -279,6 +294,18 @@
 		<dt><a href="http://www.icndb.com/api/">The Internet Chuck Norris Database API</a></dt>
 		<dt><a href="https://opentdb.com/api_config.php">Open Trivia Database API</a></dt>
 	</dl>
+</section>
+
+<section data-min="5"><h1>Exersices</h1></section>
+<section><h2>Simple Jokes App</h2>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>Create a page which shows random jokes on each button click, as shown in gif bellow. <br>
+			Use the <code><a href="http://api.icndb.com/jokes/random">http://api.icndb.com/jokes/random</a></code> URL to fetch the joke data.
+			</dt>
+		</dl>
+		<a href="examples/jokesApp/jokeAppWoringDemo.gif"><img src="examples/jokesApp/jokeAppWoringDemo.gif" alt="jokeAppWoringDemo.gif"></a>
+	</section>
 </section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
