@@ -241,7 +241,7 @@
 			// 	[[PromiseResult]]: Response
 		</code></pre>
 	</section>
-	<section><h3>making GET request with fetch()</h3>
+	<section><h3>making GET request - example</h3>
 		<pre><code rel="JS" class="js">
 			// with function declarations
 			fetch(url)
@@ -264,7 +264,11 @@
 		</dl>
 	</section>
 
-	<section><h3>with error checks</h3>
+	<section><h3>making GET request with error checks - example</h3>
+		<dl class="fa">
+			<dt>Note, that the promise retuned by <code>fetch()</code> does not reject on HTTP errors — it only rejects on network errors.</dt>
+			<dt>We must use then handlers to check for HTTP errors.</dt>
+		</dl>
 		<pre><code rel="JS" class="js">
 			fetch(url)
 				.then(function (response) {
@@ -332,7 +336,7 @@
 	</section>
 </section>
 
-<section data-min="10"><h1>Examples && Tasks</h1></section>
+<section data-min="10"><h1>Exercises</h1></section>
 <section><h2>Songs Lyrics</h2>
 	<section><h3>Example: </h3>
 		<!-- <a href="examples/songLyricsAjaxLoad/songLyricsAjaxLoad.html">Load Song Lyrics By AJAX</a> -->
@@ -357,7 +361,7 @@
 		<a href="examples/jokesApp/jokeAppWoringDemo.gif"><img src="examples/jokesApp/jokeAppWoringDemo.gif" alt="jokeAppWoringDemo.gif"></a>
 	</section>
 </section>
-<section><h2 class="advanced">simple Shopping Cart</h2>
+<!-- <section><h2 class="advanced">simple Shopping Cart</h2>
 	<section><h3>Example</h3>
 		<a href="examples/ShoppingCart/index.html">Shopping Cart</a>
 		<p>* created by <a href="https://www.linkedin.com/in/martin-harsovski-57b64311b/">Martin Harsovski</a> during the course taken by him in 2017 *</p>
@@ -370,7 +374,7 @@
 		</dl>
 	</section>
 
-</section>
+</section> -->
 
 
 
