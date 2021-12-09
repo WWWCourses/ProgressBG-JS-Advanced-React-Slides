@@ -80,7 +80,7 @@
 
 
 
-<section data-min="__Y__"><h1>Setup json-server and DB</h1></section>
+<section data-min="__Y__" id="setupJsonServerAndDb"><h1>Setup json-server and DB</h1></section>
 <section><h2>Setup json-server and DB</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
@@ -137,6 +137,10 @@
 			<dt class="advanced">Or you can use <a href="https://www.npmjs.com/package/npx">npx</a> which executes 'command' either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for 'command' to run.</dt>
 		</dl>
 	</section>
+	<section><h3>json-server started screenshot</h3>
+		<a href="./images/json-server_started.png"><img src="./images/json-server_started.png" alt="json-server_started.png"></a>
+		<p class="note">Do not close (or press CTRL+C) the Terminal, as the server will be killed!</p>
+	</section>
 	<section><h3>json-server usage notes</h3>
 		<dl class="fa">
 			<dt>Your request body JSON should be object enclosed, just like the GET output. (for example {"name": "Foobar"})</dt>
@@ -152,8 +156,8 @@
 	</section>
 </section>
 
-<section data-min="__Y__"><h1>The Endpoints</h1></section>
-<section><h2>The Endpoints</h2>
+<section data-min="__Y__" id="jsonServerEndpoints"><h1>json-server endpoints</h1></section>
+<section><h2>json-server endpoints</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
 			<dt>For our TodoApp, we need the server to be capable of serving next requests:</dt>
@@ -169,10 +173,8 @@
 		</dl>
 	</section>
 </section>
-
-<section data-min="__Y__"><h1>Explore the Endpoints</h1></section>
 <section><h2>Explore the Endpoints</h2>
-	<section><h3>Explore the Endpoints with Postman</h3>
+	<section id="exploreTheEndpoints"><h3>Explore the Endpoints with Postman</h3>
 		<dl class="fa">
 			<dt>Before starting with coding, it's useful to get insights of the API Server endpoints. I.e. to send HTTP requests to the server and inspect the response. A useful tool for such API exploratory tasks is <a href="https://www.postman.com/">postman</a></dt>
 			<dt>Next slides will present you a screenshot of Postman for each request we need to inspect</dt>
