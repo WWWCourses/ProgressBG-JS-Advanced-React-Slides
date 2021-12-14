@@ -179,29 +179,72 @@
   </section>
 </section>
 
-<section data-min="520"><h1>Session Storage</h1></section>
-<section><h2>Session Storage</h2>
-  <section><h3>References</h3>
-  	<dl class="fa">
-  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage @mdn</a></dt>
-  	</dl>
-  </section>
-</section>
+<section data-min="520"><h1>Session and Local Storage</h1></section>
+<section><h2>Session and Local Storage</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Modern browsers provide the ability to <span class="note">save key/value pairs in the browser</span>, trough objects accessible as window properties.</dt>
+			<dt>The standard defines <code>window.sessionStorage</code> and <code>window.localStorage</code> read-only properties which stores the respective objects</dt>
+			<dt>Unlike cookies, web storage objects are not sent to server with each request. We work with these objects only with JavaScript by methods to read/write/delete data</dt>
+			<dt>The storage data is bound to the (domain/protocol/port) triplet. And that can not be changed with JS.</dt>
+			<dd> That is, different protocols or subdomains infer different storage objects, they can’t access data from each other.</dd>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">Storage interface of the Web Storage API</a></dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">sessionStorage @mdn</a></dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage @mdn</a></dt>
+		</dl>
+	</section>
+	<section><h3>Storage methods and properties</h3>
+		<p>Both localStorage and sessionStorage objects provide same methods and properties:</p>
+		<dl class="fa">
+			<dt><span class="note">setItem(key, value)</span>  – store key/value pair.</dt>
+			<dt><span class="note">getItem(key)</span>  – get the value by key.</dt>
+			<dt><span class="note">removeItem(key)</span>  – remove the key with its value.</dt>
+			<dt><span class="note">clear()</span> – delete everything.</dt>
+			<dt><span class="note">key(index)</span>  – get the key on a given position.</dt>
+			<dt><span class="note">length</span> – the number of stored items.</dt>
+		</dl>
+	</section>
+	<section><h3>Examples - read/write/delete</h3>
+		<pre><code rel="JS" class="js">
+			storage = window.localStorage
 
-<section data-min="20"><h1>Local Storage</h1></section>
-<section><h2>Local Storage</h2>
-  <section><h3>References</h3>
-  	<dl class="fa">
-  		<dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage @mdn</a></dt>
-  	</dl>
-  </section>
-</section>
+			// set data
+			storage.setItem('userName','Ada')
 
+			// get item by getItem() method:
+			userName=storage.getItem('userName')
+
+			// get item as property (if key name is a valid JS identifier):
+			userName = storage.userName;
+
+			// remove value by key :
+			localStorage.removeItem(userName);
+		</code></pre>
+	</section>
+	<section><h3>Example - get all key/value pairs</h3>
+		<pre><code rel="JS" class="js">
+			for(let i=0; i&lt;localStorage.length; i++) {
+&#x9;&#x9;&#x9;&#x9;let key = localStorage.key(i);
+&#x9;&#x9;&#x9;&#x9;console.log(&grave;${key}: ${localStorage.getItem(key)}&grave;);
+&#x9;&#x9;&#x9;}
+		</code></pre>
+	</section>
+	<section><h3>localStorage vs sessionStorage</h3>
+		<dl class="fa">
+			<dt>The main features of localStorage are:</dt>
+			<dd>Shared between all tabs and windows from the same origin.</dd>
+			<dd>The data does not expire. It remains after the browser restart and even OS reboot.</dd>
+			<dt>The sessionStorage exists only within the current browser tab.</dt>
+			<dd>Each browser tab with the same page have it's own sessionStorage.</dd>
+			<dd>The data survives page refresh, but not closing/opening the tab.</dd>
+		</dl>
+	</section>
+</section>
 
 
 <section data-min="1" id="hw"><h1>Exercises</h1></section>
-<section><h2>Task - Store user colour preferences</h2>
-  <section><h3>Given</h3>
+<section><h2>Task1 - Store user colour preferences</h2>
+  <section id="TaskStoreUserColourPreferences">
     <dl class="fa">
       <dt>Given is next hmtl code:</dt>
     </dl>
@@ -216,15 +259,19 @@
         <button>Set BG</button>
       </div>
     </code></pre>
-  </section>
-  <section><h3>Task</h3>
-    <dl class="fa">
-      <dt>You have to store the colour selected by the user, so that next time when she enters the site, her chosen colour would be set as page background colour.</dt>
+		<dl class="fa">
+      <dt>You have to store the color selected by the user, so that next time when she enters the site, her chosen colour would be set as page background colour.</dt>
       <dd>Implement the task with cookies</dd>
       <!-- <dd>Implement the task with Session Storage</dd> -->
       <dd>Implement the task with Local Storage</dd>
     </dl>
   </section>
+</section>
+<section><h2>Task2 - TodoApp with client-side storage</h2>
+	<dl class="fa">
+		<dt>Implement your todoApp project with ability to save todos data on browser</dt>
+		<dt>The only requirement is the data to be accessible after the user close browser window</dt>
+	</dl>
 </section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
