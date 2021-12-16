@@ -120,10 +120,12 @@
 <section><h2>The npm CLI</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt><code>npm</code> CLI allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They are the <span class="note">dependencies</span> of your application.</dt>
+			<dt><code>npm</code> CLI allows you to <span class="note">install external node packages</span> (utility functions, libraries or whole frameworks) from the command line. They can be used as a standalone utilities or as a <span class="note">dependencies</span> in your application.</dt>
 			<dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
-			<dd>Global node packages are accessible from everywhere in the terminal and you have to install them only once to your global directory</dd>
+			<dd>Global node packages are accessible from everywhere and you have to install them only once to your global directory</dd>
 			<dd>Local node packages are accessible only from your project folder</dd>
+			<dt>Any package that you want to use in your project should be installed locally</dt>
+			<dt>Any package that you want to use from the CLI should be installed globally</dt>
 		</dl>
 	</section>
 	<section><h3>Initialize node project with NPM</h3>
@@ -150,6 +152,17 @@
 			<dt>A <code>package-lock.json</code> will be generated.</dt>
 		</dl>
 	</section>
+	<section><h3>devDependencies</h3>
+		<dl class="fa">
+			<dt>Some packages (like <code>live-server</code>) are only intended to be used in the development phase of our project and not in the production phase.</dt>
+			<dt>These packages are known as devDependencies</dt>
+			<dt>To install a devDependency append --save-dev to the command</dt>
+			<pre><code rel="Terminal" class="bash">
+				npm install live-server --save-dev
+			</code></pre>
+			<dt>devDependency packages are written in <code>package.json</code> file in the "devDependencies:{}" section </dt>
+		</dl>
+	</section>
 	<section><h3>Package installation - demo</h3>
 		<pre><code rel="Terminal" class="bash">
 			# create project folder
@@ -162,14 +175,29 @@
 			npm init -y
 
 			# install live-server package locally
-			npm install live-server
+			npm install live-server --save-dev
 		</code></pre>
 		<dl class="fa">
 			<dt>And you'll have next section added to your <code>package.lock</code> file</dt>
 			<pre><code rel="package.json" class="js">
-				"dependencies": {
+				"devDependencies": {
 					"live-server": "^1.2.1"
 				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Update package</h3>
+		<dl class="fa">
+			<dt>To update a specific local npm package simply run <code>npm update &lt;package-name&gt;</code></dt>
+			<dt>To To update a global package run  <code>npm update &lt;package-name&gt; -g</code></dt>
+			<dt>To update all the packages installed in your project run <code>npm update</code></dt>
+		</dl>
+	</section>
+	<section><h3>Uninstalling an npm package</h3>
+		<dl class="fa">
+			<dt>To uninstall an npm package use the following command:</dt>
+			<pre><code rel="Terminal" class="bash">
+				npm uninstall &lt;package-name&gt;
 			</code></pre>
 		</dl>
 	</section>
