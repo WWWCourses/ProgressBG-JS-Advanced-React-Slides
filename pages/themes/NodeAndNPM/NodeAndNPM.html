@@ -124,8 +124,9 @@
 			<dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
 			<dd>Global node packages are accessible from everywhere and you have to install them only once to your global directory</dd>
 			<dd>Local node packages are accessible only from your project folder</dd>
-			<dt>Any package that you want to use in your project should be installed locally</dt>
-			<dt>Any package that you want to use from the CLI should be installed globally</dt>
+			<dt>Should I install a package as local or global (rule of tumb)</dt>
+			<dd>Any package that you want to use in your project should be installed locally</dd>
+			<dd>Any package that you want to use from the CLI should be installed globally</dd>
 		</dl>
 	</section>
 	<section><h3>Initialize node project with NPM</h3>
@@ -163,7 +164,7 @@
 			<dt>devDependency packages are written in <code>package.json</code> file in the "devDependencies:{}" section </dt>
 		</dl>
 	</section>
-	<section><h3>Package installation - demo</h3>
+	<section><h3>Start node project - demo</h3>
 		<pre><code rel="Terminal" class="bash">
 			# create project folder
 			mkdir myApp
@@ -174,23 +175,50 @@
 			# init the project
 			npm init -y
 
-			# install live-server package locally
-			npm install live-server --save-dev
+			# install dev packages locally
+			npm install &lt;package_name&gt --save-dev
+
+			# install production packages locally:
+			npm install &lt;package_name&gt;
 		</code></pre>
+	</section>
+	<section><h3>How to use executables from a package installed by npm?</h3>
 		<dl class="fa">
-			<dt>And you'll have next section added to your <code>package.lock</code> file</dt>
-			<pre><code rel="package.json" class="js">
-				"devDependencies": {
-					"live-server": "^1.2.1"
-				}
+			<dt>In order to run a script installed with npm <span class="note">as a global package</span>, you just need to type the name of the executable</dt>
+			<pre><code rel="Terminal" class="bash">
+				# start live-server, which is installed globally
+				live-server ./
+			</code></pre>
+			<dt>If you want to start a script installed with npm <span class="note">as a local package</span>, you have two ways:</dt>
+			<dd>you can access the executable from <code>./node_modules/.bin/</code> folder</dd>
+			<pre><code rel="Terminal" class="bash">
+				# start live-server, which is installed locally
+				./node_modules/.bin/live-server ./
+			</code></pre>
+			<dd>you can use <a href="https://www.npmjs.com/package/npx">npx</a></dd>
+			<dd><code>npx</code> is bundled with node, so you don't need to install it (for node>5.2.0)</dd>
+			<pre><code rel="Terminal" class="bash">
+				# start live-server, which is installed locally
+				# if live-server is not found in node_modules/.bin => start live-server which is installed globally
+				# if not found => install the live-server package
+				npx live-server -v
 			</code></pre>
 		</dl>
 	</section>
 	<section><h3>Update package</h3>
 		<dl class="fa">
-			<dt>To update a specific local npm package simply run <code>npm update &lt;package-name&gt;</code></dt>
-			<dt>To To update a global package run  <code>npm update &lt;package-name&gt; -g</code></dt>
-			<dt>To update all the packages installed in your project run <code>npm update</code></dt>
+			<dt>To update a specific local npm package simply run:</dt>
+			<pre><code rel="Terminal" class="bash">
+				npm update &lt;package-name&gt;
+			</code></pre>
+			<dt>To To update a global package run:</dt>
+			<pre><code rel="Terminal" class="bash">
+				npm update &lt;package-name&gt; -g
+			</code></pre>
+			<dt>To update all the packages installed in your project run:</dt>
+			<pre><code rel="Terminal" class="bash">
+				npm update
+			</code></pre>
 		</dl>
 	</section>
 	<section><h3>Uninstalling an npm package</h3>
