@@ -78,34 +78,36 @@
 </section>
 
 
-<section data-min="5"><h1>Why JSX?</h1></section>
-<section><h2>Why JSX?</h2>
-  <section><h3>Demo</h3>
-  	<dl class="fa">
-  		<dt>You can create elements either using pure JavaScript syntax or by using the JSX syntax</dt>
-  		<dt>JSX just provides <span class="note">syntactic sugar</span> for the React.createElement(component, props, ...children) function.</dt>
-  		<dt>In next example both React elements are rendered to identical DOM structure:</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-  		const jsElement = React.createElement("div", {className: "App"},
-  		  React.createElement("h1", null,
-  		    React.createElement('span',null,'Hello')));
-  	</code></pre>
-  	<pre><code rel="JSX" class="jsx">
-  		const jsxElement =
-  		  &lt;div className=&quot;App&quot;&gt;
-  		      &lt;h1&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/h1&gt;
-  		  &lt;/div&gt;
-  	</code></pre>
-  	<dl class="fa">
-  		<dt>the jsxElement is transpiled by babel to the same code, as in jsElement: <a href="https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=MYewdgzgLgBAVhAHgUQDYFMC26ywLwBQMMAPACYCWAbjMKgIYQR4BEAggA4csB8RxAkgAsAjDxIQO9MDwAS6VKhAkA9JOniVovsVWUqOgcSA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.4.5&externalPlugins=">babel repl</a></dt>
-  	</dl>
-  </section>
-</section>
+<section data-min="5"><h1>JSX Overview</h1></section>
+<section><h2>JSX Overview</h2>
+	<section><h3>What is JSX?</h3>
+		<dl class="fa">
+			<dt><b>JSX</b> stands for <b>J</b>ava<b>S</b>cript <b>X</b>ML</dt>
+			<dt>JSX syntax is essentially a <span class="note">syntactic sugar</span> for the <code>React.createElement()</code> function.</dt>
+			<dt class="note">Browsers don’t understand JSX syntax, so we must use tools (Babel or TypeScript) to transform (transpile) JSX code into regular JavaScript.</dt>
+		</dl>
+	</section>
+	<section><h3>Why using JSX?</h3>
+		<dl class="fa">
+			<dt>You can create React elements either using pure JavaScript syntax or by using the JSX syntax</dt>
 
-<section data-min="5"><h1>JSX in HTML?</h1></section>
-<section><h2>JSX in HTML?</h2>
-	<section><h3></h3>
+			<dt>In next example both React elements are rendered to identical DOM structure:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const jsElement = React.createElement("div", {className: "App"},
+													React.createElement("h1", null,
+														React.createElement('span', null,'Hello')));
+		</code></pre>
+		<pre><code rel="JSX" class="jsx">
+			const jsxElement = &lt;div className=&quot;App&quot;&gt;
+														&lt;h1&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/h1&gt;
+												 &lt;/div&gt;
+		</code></pre>
+		<dl class="fa">
+			<dt>the jsxElement is transformed by babel to the same code, as in jsElement: <a href="https://babeljs.io/repl/#?browsers=&build=&builtIns=false&corejs=3.6&spec=false&loose=false&code_lz=MYewdgzgLgBAVhAHgUQDYFMC26ywLwBQMMAPACYCWAbjMKgIYQR4BEAggA4csB8RxAkgAsAjDxIQO9MDwAS6VKhAkA9JOniVovsVWUqOgcSA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=true&targets=&version=7.16.7&externalPlugins=&assumptions=%7B%7D">babel repl</a></dt>
+		</dl>
+	</section>
+	<section><h3>JSX in HTML</h3>
 		<dl class="fa">
 			<dt>If you want to use JSX syntax in <code>script</code> element inside a HTML file, you have to import the <code>babel</code> (as JSX is compiled to JavaScript by babel) and set the script attribute <code>type="text/babel"</code></dt>
 			<dt class="note">Of course, this is not recommended for production!</dt>
@@ -137,8 +139,8 @@
 	</section>
 </section>
 
-<section data-min="20"><h1>JSX Expressions</h1></section>
-<section><h2>JSX Expressions</h2>
+<section data-min="20"><h1>JSX Syntax</h1></section>
+<section><h2>JSX Syntax</h2>
 	<section><h3>How?</h3>
 		<dl class="fa">
 			<dt>You can put any <span class="note">valid JavaScript <b>expression</b></span> inside the <span class="note">curly braces in JSX</span></dt>
