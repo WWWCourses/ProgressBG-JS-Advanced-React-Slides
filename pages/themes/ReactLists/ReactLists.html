@@ -50,7 +50,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>React Lists</h1></section>
+<section><h1>Rendering lists in React</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -78,27 +78,60 @@
 </section>
 
 
-<section data-min="5"><h1>Rendering lists in React </h1></section>
+<section data-min="5"><h1>Rendering lists in React</h1></section>
 <section><h2>Rendering lists in React </h2>
+	<section><h3>With for-loop </h3>
+		<dl class="fa">
+			<dt>Next example just illustrates the usage of JSX inside for-loops</dt>
+			<dt class="note">Please note, that this is not the "React way" of rendering list of items.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			import './App.css';
+			import React from "react";
+
+			const Todos = ()=>{
+				const todos = ['Todo1', 'Todo2','Todo3'];
+				const todosElements = [];
+
+				for (let i = 0; i < todos.length; i++) {
+						const todo = todos[i];
+						todosElements.push(<li>{todo}</li>)
+				}
+
+				return <ul>
+						{todosElements}
+				</ul>
+			}
+
+			function App() {
+				return <div>
+						<Todos/>
+					   </div>
+			}
+
+			export default App;
+		</code></pre>
+	</section>
+
 	<section><h3>How?</h3>
 		<dl class="fa">
 			<dt>The "React way" of rendering JS array into list is by using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">array.map()</a> method.</dt>
 		</dl>
 		<pre><code rel="JSX" class="jsx">
-			const skills = ['HTML', 'CSS', 'JS'];
+			const Todos = ()=>{
+				const todos = ['Todo1', 'Todo2','Todo3'];
 
-			return  (
-				<ul>
-					{skills.map( skill => <li>{skill}</li>)}
+				return <ul>
+					{todos.map( todo=> <li>{todo}</li>)}
 				</ul>
-			)
+			}
 		</code></pre>
 	</section>
 	<section><h3>Why using keys?</h3>
 		<dl class="fa">
 			<dt>If you run the previous code example a warning will be generated: "<span class="note">Warning: Each child in a list should have a unique "key" prop.</span>"</dt>
-			<dt>In order to optimise the diffing algorithm, React requires the developer to set a unique <span class="note">key</span> attribute to each element of the list.</dt>
-			<dt>Keys help React identify which items have changed, are added, or are removed.</dt>
+			<dt>In order to optimise the page rendering ( more exactly - the diffing algorithm which will be discussed in further lectures), React requires the developer to set a unique <span class="note">key</span> attribute to each element of the list.</dt>
+			<dt>Keys help React identify which items have changed or added or removed.</dt>
 		</dl>
 		<pre><code rel="JSX" class="jsx">
 			const skills = ['HTML', 'CSS', 'JS'];
@@ -155,8 +188,9 @@
 <section><h2>Task1: HTML list from array of numbers</h2>
 	<section>
 		<dl class="fa">
-			<dt>Create the test-app we have created in classes: <a href="https://github.com/WWWCourses/ProgressBG-JS-Advanced-React-Labs/tree/4_JS_Advanced_WD/demoProject/test-app">test-app</a></dt>
-			<dt>Change the code only in <a href="https://github.com/WWWCourses/ProgressBG-JS-Advanced-React-Labs/blob/4_JS_Advanced_WD/demoProject/test-app/src/components/hwComp.js">components/hwComp.js</a>, in order to get the output given in next picture: <a href="./HW/images/hwLab21.png" title="click for bigger image"><img src="./HW/images/hwLab21.png" alt=""></a></dt>
+			<dt>Create the test-app we have created in classes.</dt>
+			<dt>Add a new functional component <code>ListRendering</code> using a separate file for it, like <code>components/ListRendering.js</code></dt>
+			<dt>Write the code in order to get the output given in next picture: <a href="./HW/images/hwLab21.png" title="click for bigger image"><img src="./HW/images/hwLab21.png" alt=""></a></dt>
 		</dl>
 	</section>
 </section>
