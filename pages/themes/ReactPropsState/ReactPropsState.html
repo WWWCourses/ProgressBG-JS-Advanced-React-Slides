@@ -218,6 +218,7 @@
 				constructor(props){
 					super(props);
 
+					// set initial state
 					this.state = {
 						'todos' :  [
 							{'title': 'Todo 1', 'completed': false},
@@ -242,46 +243,64 @@
 	</section>
 	 <section><h3>Changing state</h3>
 		<dl class="fa">
-			<dt>We do not manipulate directly the state object, but rather - using the <code>setState() method</code></dt>
-			<dt>When <code>setState()</code> is triggered, React creates a new VDOM tree containing the reactive elements in the component (along with the updated state)</dt>
-			<dt>This new tree is used to figure out how the component’s UI should change in response to the state change by comparing it with the elements of the previous tree.</dt>
-			<dt>React knows which changes to implement and <span class="note">will only update the parts of the DOM where necessary.</span></dt>
+			<dt>We <span class="note">do not manipulate directly the state object</span>, but rather - using the <code>setState() method</code>.</dt>
+			<dt>In fact, we assign a value to <code>this.state</code> only once - <span class="note">to set the initial state</span>, usualy in the constructor or some Lifecycle method (discussed further).</dt>
+			<dt><code>setState()</code> enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state.</dt>
 			<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#setstate">setState() @react docs</a></dt>
 		</dl>
 	</section>
 	<section><h3>Changing state demo</h3>
-		<pre><code rel="Counter.js" class="jsx">
-			export class Counter extends React.Component{
+		<pre><code rel="Counter.js" class="jsx" style="min-height: 70vh;">
+			import React from "react";
+
+			export default class Counter extends React.Component{
 				constructor(props){
 					super(props);
 
+					// set initial state:
 					this.state = {
 						'count': 0
 					}
+				}
 
-					this.increment = ()=&gt;{this.setState({
+				// 'increment' button click handler
+				// note, that we use arrow syntax for method definition, because of 'this' binding
+				increment = ()=>{
+					// change state
+					this.setState({
 						'count': this.state.count+1
-					})}
-
-					this.decrement = ()=&gt;{this.setState({
-						'count': this.state.count-1
-					})}
+					})
 				}
 
 				render(){
 					return (
-					&lt;div className=&quot;counterDemo&quot;&gt;
-						&lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
-						&lt;button onClick={this.decrement}&gt;Decrement&lt;/button&gt;
-						&lt;div className=&quot;output&quot;&gt;{this.state.count}&lt;/div&gt;
-					&lt;/div&gt;
+						<div className="counterDemo">
+						<button onClick={this.increment}>Increment</button>
+						<div className="output">{this.state.count}</div>
+						</div>
 					)
 				}
 			}
 
-
-
 		</code></pre>
+	</section>
+	<section><h3>Reading state</h3>
+		<dl class="fa">
+			<dt>setState() does not always immediately update the component.</dt>
+			<dt>It may batch or defer the update until later. This makes reading <code>this.state </code> right after calling setState() a potential pitfall.</dt>
+
+			<pre><code rel="JS" class="js">
+				increment = ()=>{
+					// change state
+					this.setState({
+						'count': this.state.count+1
+					})
+
+					// note that we get the old state value
+					console.log(`new state: ${this.state.count}`);
+				}
+			</code></pre>
+		</dl>
 	</section>
 	<section><h3>State vs Props</h3>
 		<dl class="fa">
@@ -312,7 +331,7 @@
 		</table>
 	</section>
 </section>
-
+<!--
 <section data-min="5"><h1>Lifting State Up</h1></section>
 <section><h2>Lifting State Up</h2>
 	<section>
@@ -320,7 +339,7 @@
 			<dt>Reading: <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a> @react docs</dt>
 		</dl>
 	</section>
-</section>
+</section> -->
 
 
 <section data-min="5"><h1>References</h1></section>

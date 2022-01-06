@@ -133,6 +133,10 @@
 		</dl>
 	</section>
 	<section><h3>Event Phases</h3>
+		<dl class="fa">
+			<dt>Event bubbling and capturing are two ways of propagating events that occur in an element that is nested within another element, when both elements have registered a handle for that event.</dt>
+			<dt>By default, addEventListener() uses the bubling phase.</dt>
+		</dl>
 		<a href="images/DOMEventsPhases.png"><img src="images/DOMEventsPhases.png"></a>
 	</section>
 	<section><h3>Event Phases Demo</h3>
@@ -149,6 +153,7 @@
 		<p>Handling events with React elements is similar to handling events on DOM elements, using the HTML attributes. The main differences are:</p>
 		<dl class="fa">
 			<dt>React events are named <span class="note">using camelCase</span>, rather than lowercase.</dt>
+			<dd>i.e. instead of <code>onclick</code>, React recognizes the <code>onClick</code> keyword.</dd>
 			<dt>With JSX you <span class="note">pass a function</span> as the event handler, rather than a string.</dt>
 			<dt>In React we do not need to call addEventListener to add listeners to a DOM element after it is created. Instead, we just provide a listener when the element is initially rendered.</dt>
 		</dl>
@@ -173,6 +178,7 @@
 	<section style="font-size: .8em"><h3>Event handlers in class component</h3>
 		<dl class="fa">
 			<dt>When we define a component using an ES6 class, a common pattern is for an event handler to be a method on the class.</dt>
+			<dd>Note that code given bellow will throw an error because of 'this' problem</dd>
 		</dl>
 		<pre><code rel="JS" class="js">
 			import React from 'react';
@@ -189,7 +195,7 @@
 				render(){
 					return(
 						<div>
-							<input type="text"/>
+							&lt;input type="text"/&gt;
 							<button id='btn2' onClick={this.clickHandler}>Add</button>
 						</div>
 					)
