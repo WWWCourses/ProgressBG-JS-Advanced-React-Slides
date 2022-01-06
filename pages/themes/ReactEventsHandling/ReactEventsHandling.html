@@ -178,7 +178,7 @@
 	<section style="font-size: .8em"><h3>Event handlers in class component</h3>
 		<dl class="fa">
 			<dt>When we define a component using an ES6 class, a common pattern is for an event handler to be a method on the class.</dt>
-			<dd>Note that code given bellow will throw an error because of 'this' problem</dd>
+			<dd>Note that code given bellow will throw an error because of 'this' problem.</dd>
 		</dl>
 		<pre><code rel="JS" class="js">
 			import React from 'react';
@@ -315,9 +315,12 @@
 
 <section data-min="5"><h1>Get input value on event</h1></section>
 <section><h2>Get input value on event</h2>
-	<section><h3>With Stateful Componenet</h3>
+	<section><h3>With Stateful Component</h3>
+		<dl class="fa">
+			<dt>Note, that this is the preferred way!</dt>
+		</dl>
 		<pre><code rel="JS" class="js">
-			class InputStatefull extends React.Component{
+			class InputStateful extends React.Component{
 				constructor(props){
 					super(props)
 
@@ -336,7 +339,7 @@
 
 				render(){
 					return <div>
-						<h1>InputStatefull</h1>
+						<h1>InputStateful</h1>
 						<label>user Name: <input onKeyPress={this.keyPressHandler} type="text" /></label>
 						<div className="output">{this.state.inputValue}</div>
 					</div>
@@ -345,6 +348,11 @@
 		</code></pre>
 	</section>
 	<section><h3>With Stateless Component</h3>
+		<dl class="fa">
+			<dt>Note, that this is not the preferred way. It's better to use Stateful component for such purpose.</dt>
+			<dt>React provide a way to access DOM nodes or React elements, by attaching them Refs.</dt>
+			<dt>Refs are created using React.createRef() and attached to React elements via the ref attribute.</dt>
+		</dl>
 		<pre><code rel="JS" class="js">
 			function InputStateless(props) {
 				let textInput = React.createRef();
