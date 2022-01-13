@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>ReactStateManagment</title>
+	<title>ReactStateManagement</title>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -50,7 +50,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section><h1>ReactStateManagment</h1></section>
+<section><h1>ReactStateManagement</h1></section>
 <section data-transition="zoom">
 	<section>
 		<div class="copyright">
@@ -80,7 +80,7 @@
 
 <section data-min="5"><h1>Manage the state outside of React</h1></section>
 <section><h2>Manage the state outside of React</h2>
-	<section><h3>The problem with React State Managment</h3>
+	<section><h3>The problem with React State management</h3>
 		<dl class="fa">
 			<dt>When your component dependencies grows you will find the need to <a href="https://reactjs.org/docs/lifting-state-up.html#lifting-state-up">lift the state up</a> in your component-tree to inject the relevant state in several components.</dt>
 			<dt>The distance between your states location and your components which need a certain part of the state will increase</dt>
@@ -89,13 +89,13 @@
 	</section>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>Before React Hooks we have to use external libraries for managing the app state, like Redux.</dt>
+			<dt>Before React Hooks we have to use external libraries for managing the app state, like Redux or MobX.</dt>
 		</dl>
 	</section>
 
 	<section><h3>Redux</h3>
 		<dl class="fa">
-			<dt><a href="https://redux.js.org/">redux.js.org</a></dt>
+			<dt><a href="https://redux.js.org/">redux.js.org</a> - official site</dt>
 			<dt><a href="https://egghead.io/courses/getting-started-with-redux">Getting Started with Redux</a><span> - a course by the creator of redux - Dan Abramov</span></dt>
 		</dl>
 	</section>
@@ -112,20 +112,21 @@
 <section><h2>Context API</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>Aloows to share global data (like theme, user_id, so on) between components, without having to explicitly pass a prop through every level of the tree.</dt>
+			<dt>Allows to share global data (like theme, user_id, so on) between components, without having to explicitly pass a prop through every level of the tree.</dt>
 			<dt><a href="https://reactjs.org/docs/context.html">Context API docs</a></dt>
 			<dt><a href="https://egghead.io/courses/react-context-for-state-management">React Context for State Management - free course</a></dt>
 		</dl>
 	</section>
 </section>
 
-<section data-min="5"><h1>React Hooks for state managment</h1></section>
-<section><h2>React Hooks for state managment</h2>
+<section data-min="5"><h1>React Hooks for state management</h1></section>
+<section><h2>React Hooks for state management</h2>
   <section><h3>Overview</h3>
 	<dl class="fa">
 		<dt>React Hooks are new feature in React 16.8.</dt>
 		<dt>They let us use state and other React features without writing a class.</dt>
 		<dt><span class="note">A Hook is a special function that lets you “hook into” React features</span></dt>
+		<dt>Reference: <a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook @ reactjs.org</a></dt>
 	</dl>
   </section>
   <section><h3>Why using Hooks?</h3>
@@ -142,16 +143,17 @@
   	<pre><code rel="Syntax" class="js">
 		import { useState } from 'react';
 
-  		# In next syntax, the JS "Array Destructuring" syntax is used:
-  		const [stateVal, setStateVal] = useState(initialState);
+		# In next syntax, the JS "Array Destructuring" syntax is used:
+		const [stateVal, setStateVal] = useState(initialState);
   	</code></pre>
   	<dl class="fa">
-  		<dt><span class="note">initialState</span> - set initial state value</dt>
+  		<dt><span class="note">initialState</span> - sets initial state value.Unlike with classes, the state doesn’t have to be an object</dt>
   		<dt><span class="note">stateVal</span> -  a stateful value. During subsequent re-renders, the state value returned by useState will always be the most recent state after applying updates.</dt>
   		<dd>Similar to <code>this.state.stateVal</code> in class components</dd>
   		<dt><span class="note">setStateVal</span> -  a function, which updates the stateful value. It accepts a new state value and enqueues a re-render of the component.</dt>
   		<dd>Similar to <code>this.setState</code> in class components</dd>
-	<dd><code>setState(newState);</code></dd>
+		<dd><code>setState(newState);</code></dd>
+		<dt>Reference: <a href="https://reactjs.org/docs/hooks-reference.html#usestate">useState @reactjs.org</a></dt>
   	</dl>
   </section>
   <section><h3>The updater function</h3>
@@ -162,17 +164,17 @@
   	<pre><code rel="JS" class="js">
 		import { useState } from 'react';
 
-  		function Counter({initialCount}) {
-  		  const [count, setCount] = useState(initialCount);
-  		  return (
-  		    &lt;div&gt;
-  		      Count: {count}
-  		      &lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
-  		      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
-  		      &lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
-  		    &lt;/div&gt;
-  		  );
-  		}
+		function Counter({initialCount}) {
+			const [count, setCount] = useState(initialCount);
+			return (
+				&lt;div&gt;
+					Count: {count}
+					&lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
+					&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
+					&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
+				&lt;/div&gt;
+			);
+		}
   	</code></pre>
   </section>
   <section><h3>The updater function - notes</h3>
