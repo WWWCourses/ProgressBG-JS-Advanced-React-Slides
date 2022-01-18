@@ -139,76 +139,104 @@
 	<p>An excellent explanation be the Dan Abramov</p>
 	<iframe width="697" height="393" src="https://www.youtube.com/embed/dpw9EHDh2bM"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
-  <section><h3>The useState() hook - basic syntax</h3>
-  	<pre><code rel="Syntax" class="js">
-		import { useState } from 'react';
+</section>
 
-		# In next syntax, the JS "Array Destructuring" syntax is used:
-		const [stateVal, setStateVal] = useState(initialState);
-  	</code></pre>
-  	<dl class="fa">
-  		<dt><span class="note">initialState</span> - sets initial state value.Unlike with classes, the state doesn’t have to be an object</dt>
-  		<dt><span class="note">stateVal</span> -  a stateful value. During subsequent re-renders, the state value returned by useState will always be the most recent state after applying updates.</dt>
-  		<dd>Similar to <code>this.state.stateVal</code> in class components</dd>
-  		<dt><span class="note">setStateVal</span> -  a function, which updates the stateful value. It accepts a new state value and enqueues a re-render of the component.</dt>
-  		<dd>Similar to <code>this.setState</code> in class components</dd>
-		<dd><code>setState(newState);</code></dd>
-		<dt>Reference: <a href="https://reactjs.org/docs/hooks-reference.html#usestate">useState @reactjs.org</a></dt>
-  	</dl>
-  </section>
-  <section><h3>The updater function</h3>
-  	<dl class="fa">
-  		<dt>The updater function <code>setStateVal()</code> can accept a value, or if the new state is computed using the previous state, you can pass a function to it.</dt>
-  		<dd>The function will receive the previous value, and return an updated value.</dd>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-		import { useState } from 'react';
+<section data-min="50"><h1>useState() hook</h1></section>
+<section><h2>useState() hook</h2>
+	<section><h3>basic syntax</h3>
+		<pre><code rel="Syntax" class="js">
+			import { useState } from 'react';
 
-		function Counter({initialCount}) {
-			const [count, setCount] = useState(initialCount);
-			return (
-				&lt;div&gt;
-					Count: {count}
-					&lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
-					&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
-					&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
-				&lt;/div&gt;
-			);
-		}
-  	</code></pre>
-  </section>
-  <section><h3>The updater function - notes</h3>
-  	<dl class="fa">
-  		<dt>Unlike the <code>setState()</code> method found in class components, <code>useState()</code> does not automatically merge update objects.</dt>
-  		<dt>You can replicate this behavior by combining the function updater form with object spread syntax:</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-  		setState(prevState => {
-  		  return {...prevState, ...updatedValues};
-  		});
-  	</code></pre>
-  </section>
-  <section><h3>The initialState argument</h3>
-  	<dl class="fa">
-  		<dt>The initialState argument is the initial state used during the initial render. <span class="note">In subsequent renders, it is disregarded.</span></dt>
-  		<dt>Unlike with classes, the initial state value doesn’t have to be an object</dt>
-  		<dt> If the initial state is the result of an expensive computation, you may provide a function instead, which will be executed only on the initial render:</dt>
-  	</dl>
-  	<pre><code rel="JS" class="js">
-  		const [state, setState] = useState(() => {
-  		  const initialState = someExpensiveComputation(props);
-  		  return initialState;
-  		});
-  	</code></pre>
-  </section>
+			# In next syntax, the JS "Array Destructuring" syntax is used:
+			const [stateVal, setStateVal] = useState(initialState);
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">initialState</span> - sets initial state value.Unlike with classes, the state doesn’t have to be an object</dt>
+			<dt><span class="note">stateVal</span> -  a stateful value. During subsequent re-renders, the state value returned by useState will always be the most recent state after applying updates.</dt>
+			<dd>Similar to <code>this.state.stateVal</code> in class components</dd>
+			<dt><span class="note">setStateVal</span> -  a function, which updates the stateful value. It accepts a new state value and enqueues a re-render of the component.</dt>
+			<dd>Similar to <code>this.setState</code> in class components</dd>
+			<dd><code>setState(newState);</code></dd>
+			<dt>Reference: <a href="https://reactjs.org/docs/hooks-reference.html#usestate">useState @reactjs.org</a></dt>
+		</dl>
+	</section>
+	<section><h3>The updater function</h3>
+		<dl class="fa">
+			<dt>The updater function <code>setStateVal()</code> can accept a value, or if the new state is computed using the previous state, you can pass a function to it.</dt>
+			<dd>The function will receive the previous value, and return an updated value.</dd>
+		</dl>
+		<pre><code rel="JS" class="js">
+			import { useState } from 'react';
 
-  <section><h3>References</h3>
-  	<dl class="fa">
-  		<dt><a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook</a></dt>
-  		<dt><a href="https://reactjs.org/docs/hooks-rules.html">Rules of Hooks</a></dt>
-  		<dt><a href="https://reactjs.org/docs/hooks-reference.html#usestate">hooks-reference - usestate</a></dt>
-  	</dl>
-  </section>
+			function Counter({initialCount}) {
+				const [count, setCount] = useState(initialCount);
+				return (
+					&lt;div&gt;
+						Count: {count}
+						&lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
+						&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
+						&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
+					&lt;/div&gt;
+				);
+			}
+		</code></pre>
+	</section>
+	<section><h3>The updater function - notes</h3>
+		<dl class="fa">
+			<dt>Unlike the <code>setState()</code> method found in class components, <code>useState()</code> does not automatically merge update objects.</dt>
+			<dt>You can replicate this behavior by combining the function updater form with object spread syntax:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			setState(prevState => {
+				return {...prevState, ...updatedValues};
+			});
+		</code></pre>
+	</section>
+	<section><h3>The initialState argument</h3>
+		<dl class="fa">
+			<dt>The initialState argument is the initial state used during the initial render. <span class="note">In subsequent renders, it is disregarded.</span></dt>
+			<dt>Unlike with classes, the initial state value doesn’t have to be an object</dt>
+			<dt> If the initial state is the result of an expensive computation, you may provide a function instead, which will be executed only on the initial render:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const [state, setState] = useState(() => {
+				const initialState = someExpensiveComputation(props);
+				return initialState;
+			});
+		</code></pre>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-rules.html">Rules of Hooks</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-reference.html#usestate">hooks-reference - usestate</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="5"><h1>useEffect() hook</h1></section>
+<section><h2>useEffect() hook</h2>
+	<section><h3>Overview and Syntax</h3>
+		<dl class="fa">
+			<dt>The Effect Hook lets you perform side effects (like data fetching, setting up a subscription, manually changing the DOM) in function components</dt>
+			<dt> you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.</dt>
+			<pre><code rel="Syntax" class="js">
+				useEffect(didUpdateFunction, array);
+			</code></pre>
+			<dt>Where:</dt>
+			<dd><span class="note">didUpdateFunction</span> - function that will be runed after the render is committed to the screen</dd>
+			<dd>By default, effects run after every completed render, but you can choose to fire them only when certain values have changed.
+			</dd>
+			<dd><span class="note">array</span> - optional,the array of values that the effect depends on.</dd>
+			<dd>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument</dd>
+		</dl>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/hooks-effect.html">Using the Effect Hook @react docs</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-reference.html#useeffect">useEffect @react_hooks-reference</a></dt>
+		</dl>
+	</section>
 </section>
 
 <section data-min="5"><h1>TodoApp with useState() - live demo</h1></section>
