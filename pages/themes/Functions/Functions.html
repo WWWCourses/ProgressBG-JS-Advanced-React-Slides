@@ -74,7 +74,7 @@
 	</section>
 </section>
 
-<section><h1>Defining Functions</h1></section>
+<section id="definingFunctions"><h1>Defining Functions</h1></section>
 <section><h2>Defining Functions</h2>
 	<section><h3>Function declaration</h3>
 		<pre><code rel="JS">
@@ -123,7 +123,7 @@
 			foo();
 			</code></pre>
 		</code></pre>
-		<p class="note" style="font-size:0.7em">Remember,  a best practise is to put semicolons manually to separate statements and expressions, instead of relying on Automatic Semicolon Insertion (ASI).</p>
+		<p class="note" style="font-size:0.7em">Remember,  a best practise is to put semicolons manually to separate statements and expressions, instead of relying on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion">Automatic Semicolon Insertion (ASI)</a>.</p>
 	</section>
 	<section><h3>Function expression: named function</h3>
 		<dl class="fa">
@@ -149,7 +149,13 @@
 	<section><h3 class="advanced">Function Constructor</h3>
 		<dl class="fa">
 			<dt>Another way to define a function is by Function Constructor.</dt>
-			<dt>In practise, you'll never use directly Function Constructor, but only <span class="note">when you need to dynamically create function</span></dt>
+			<pre><code rel="JS" class="js">
+				const greet = new Function('userName',
+					'console.log(userName)');
+
+				greet('Ada')
+			</code></pre>
+			<dt>In practise, you'll never have to use directly Function Constructor, but only <span class="note">when you need to dynamically create a function</span>.</dt>
 			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function">Function Constructor</a>@MDN</dt>
 		</dl>
 	</section>
@@ -164,51 +170,54 @@
 	</dl>
 	</section>
 	<section><h3 class="advanced">Conditional function definition</h3>
-		<p>the strict ES2015 behaviour</p>
-		<pre><code rel="JS">
-			if (0){
-				function add(x,y){
-					 x+y;
+		<dl class="fa">
+			<dt>the strict ES2015 behaviour is:</dt>
+			<pre><code rel="JS">
+				if (0){
+					function add(x,y){
+						x+y;
+					};
 				};
-			};
 
-			console.log("add:", add); // undefined
-		</code></pre>
-		<p class="note">Not browser compatible! Some older browser would defined the function.</p>
-	</section>
-	<section><h3 class="advanced">Conditional function definition</h3>
-		<p>Safer way:</p>
-		<pre><code rel="JS">
-			let add;
-			if (0){
-				add = function(x,y){
-					 x+y;
+				console.log("add:", add); // undefined
+			</code></pre>
+			<dd class="note">But this is not browser compatible! Some older browser would defined the function.</dd>
+			<dt>Safer way:</dt>
+			<pre><code rel="JS">
+				let add;
+				if (0){
+					add = function(x,y){
+						x+y;
+					};
 				};
-			};
 
-			console.log("add:", add);
-		</code></pre>
-
+				console.log("add:", add);
+			</code></pre>
+		</dl>
 	</section>
 </section>
 
-<section><h1>Immediately-invoked function expressions (IIFE)</h1></section>
+<section id="IIFE"><h1>Immediately-invoked function expressions (IIFE)</h1></section>
 <section><h2>Immediately-invoked function expressions (IIFE)</h2>
 	<section>
 		<h3><abbr>IIFE</abbr><dfn id="IIFE"><span>Immediately</span><span>Invoked</span><span>Function</span><span>Expression</span></dfn></h3>
-		<p>When a function will be used only once (usually - to create a local scope), we do not need to define it first. It's more efficient to invoke it as an anonymous function</p>
-	</section>
-	<section>
-		<pre><code rel="JS">
-			( function(){} )();
-		</code></pre>
 		<dl class="fa">
-			<dt><code>function(){}</code> is an anonymous function declaration!</dt>
-			<dt><code>( function(){} )</code> is an anonymous function expression!</dt>
-			<dt>We can only invoke <span class="note">function expressions</span>.</dt>
+			<dt>When a function will be used only once (usually - to create a local scope), we do not need to define it first.It's more efficient to invoke it as an anonymous function.</dt>
+			<dt>The need for IIFE, an anonymous function which must be executed immediately, is usually when a library is created in order not to pollute the global namespace.</dt>
 		</dl>
 	</section>
 	<section>
+		<dl class="fa">
+			<dt>How to create an IIFE:</dt>
+			<pre><code rel="JS">
+				( function(){} )();
+			</code></pre>
+			<dt><code>function(){}</code> is an anonymous function declaration!</dt>
+			<dt><code>( function(){} )</code> is an anonymous function expression!</dt>
+			<dt>We can only invoke a <span class="note">function expressions</span>.</dt>
+		</dl>
+	</section>
+	<section><h3>IIFE examples</h3>
 		<pre><code rel="JS">
 			(function(x,y){
 				console.log( x+y );
@@ -226,7 +235,7 @@
 <section id="Functions_FirstClassCitizens"><h1>Functions as first-class citizens</h1></section>
 <section><h2>Functions as first-class citizens</h2>
 	<section>
-		<p>From its creation back in 1995, JavaScript supports function as <span class="note">first-class</span> citizens (objects)</p>
+		<p>From its creation back in 1995, JavaScript supports functions <br> as <span class="note">first-class</span> citizens (objects)</p>
 	</section>
 	<section>
 		<blockquote cite="http://crockford.com/javascript/javascript.html">JavaScript's C-like syntax, including curly braces and the clunky for statement, makes it appear to be an ordinary procedural language. This is misleading because <span class="note"> JavaScript has more in common with functional languages like Lisp or Scheme</span> than with C or Java</blockquote>
@@ -317,7 +326,7 @@
 </section>
 
 
-<section><h1>Scope</h1></section>
+<section id="Scope"><h1>Scope</h1></section>
 <section><h2>Scope</h2>
 	<section>
 		<dl class="fa">
@@ -334,14 +343,11 @@
 			<dt>If same name is defined in both Scopes, then the Inner Scope name <span class="note">shadows</span> the Outer Scope name</dt>
 		</dl>
 	</section>
-	<section>
-		<iframe  src="https://www.youtube.com/embed/hRJrp17WnOE?autoplay=0"  allowfullscreen></iframe>
-	</section>
 </section>
 
 
-<section><h1>Closures</h1></section>
-<section><h2>Closures</h2>
+<section id="Closure"><h1>Closure</h1></section>
+<section><h2>Closure</h2>
 	<section><h3>What is?</h3>
 		<dl class="fa">
 			<dt>Allows a function which is executed outside its lexical scope, to preserve the values of scoped variables</dt>
@@ -497,7 +503,7 @@
 			}
 		</code></pre>
 	</section> -->
-	<section><h3>Test it!</h3>
+	<section><h3>More Examples</h3>
 		<iframe height='328' title='Lab5: All Examples' src='https://codepen.io/ProgressWWWCourses/embed/JNydxy/?height=328&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/JNydxy/'>Lab5: All Examples</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
 		</iframe>
 	</section>
@@ -518,7 +524,7 @@
 			<dt>Function call stack (or just "the call stack" or "the stack") is a place in RAM which is created for maintaining the local variables and parameters during function execution</dt>
 			<dt>After the function finish its job, i.e. returns to the calling function, the stack is removed.</dt>
 		</dl>
-		<a href="./images/Function_Call_stack_layout.svg.png"><img src="./images/Function_Call_stack_layout.svg.png" alt=""></a>
+		<a href="./images/Function_Call_stack_layout.svg.png"><img src="./images/Function_Call_stack_layout.svg.png" alt="Function_Call_stack_layout" style="height: 40vh;"></a>
 	</section>
 	<section><h3>Calculate Factorial - definition</h3>
 		<dl class="fa">
