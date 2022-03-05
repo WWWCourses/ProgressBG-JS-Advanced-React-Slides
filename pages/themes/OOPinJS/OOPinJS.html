@@ -74,7 +74,7 @@
 	</section>
 </section>
 
-<section><h1>OOP in a nutshell</h1></section>
+<section id="oopInANutshell"><h1>OOP in a nutshell</h1></section>
 <section><h2>OOP in a nutshell</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
@@ -101,7 +101,7 @@
 			<dt>Jailed to development processes, "best practises", frameworks.</dt>
 		</dl>
 	</section>
-	<section><h3>The notion of class and instance in classic OOP</h3>
+	<section id="theNotionOfClassAndInstanceInClassicOop"><h3>The notion of class and instance in classic OOP</h3>
 		<dl class="fa">
 			<dt>Class: a "blueprint" which describes objects and their behaviour:<br>
 				<img src="images/classAsBlueprint.png" alt="images/classAsBlueprint">
@@ -149,7 +149,7 @@
 </section>
 
 
-<section><h1>Object creation</h1></section>
+<section id="objectCreation"><h1>Object creation</h1></section>
 <section><h2>Object creation</h2>
 	<section>
 		<dl class="fa">
@@ -201,7 +201,7 @@
 			<dd>To much "copy-paste" syntax for multitude instances</dd>
 		</dl>
 	</section>
-	<section><h3>The Factory Pattern</h3>
+	<section id="theFactoryPattern"><h3>The Factory Pattern</h3>
 		<p>"Factory" - a function which creates object instances!</p>
 		<pre><code rel="JS" class="js">
 			let carFactory = function(model, year){
@@ -217,7 +217,7 @@
 			let car1 = carFactory('FORD Mustang', 1998);
 		</code></pre>
 	</section>
-	<section><h3>Factory Pattern - simple example</h3>
+	<section id="factoryPatternSimpleExample"><h3>Factory Pattern - simple example</h3>
 		<pre><code rel="JS" class="js">
 			var objFactory = function(name){
 				var obj = {};
@@ -238,7 +238,7 @@
 			// I'm object: Object 2
 		</code></pre>
 	</section>
-	<section style="font-size: .8em"><h3>The Factory as mechanism to enforce <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a></h3>
+	<section id="theFactoryAsMechanismForEncapsulation" style="font-size: .8em"><h3>The Factory as mechanism to enforce <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a></h3>
 		<dl class="fa">
 			<dt>As we saw, the only way to "hide" a variable in JavaScript is by function scopes and closures</dt>
 			<dt>And Factory is just a function!</dt>
@@ -311,7 +311,7 @@
 			// Maria salary after promotion is 1200
 		</code></pre>
 	</section>
-	<section><h3>Factory Pattern: Pros&Cons</h3>
+	<section id="factoryPatternProsCons"><h3>Factory Pattern: Pros&Cons</h3>
 		<dl class="fa">
 			<dt>Pros</dt>
 			<dd>Great flexibility and implementation independence.</dd>
@@ -321,7 +321,7 @@
 			<dd>Not familiar for "classical" OOP programmers</dd>
 		</dl>
 	</section>
-	<section id="constructor"><h3>Constructor Function</h3>
+	<section id="constructorFunction"><h3>Constructor Function</h3>
 		<dl class="fa">
 			<dt>Constructor function is a function which constructs objects. I.e. defines objects and their features</dt>
 			<dt>JavaScript <span class="note">emulates classes</span> via constructor functions</dt>
@@ -330,7 +330,7 @@
 			<dt>The naming convention for a constructor function is to start it with <b>CapitalLetter</b> - this convention is used to make constructor functions easier to recognize in code.</dt>
 		</dl>
 	</section>
-	<section><h3>Constructor Function - example</h3>
+	<section id="constructorFunctionExample"><h3>Constructor Function - example</h3>
 		<pre><code rel="JS">
 			// the Constructor Function:
 			let AppleConstructor = function( color, prices ){
@@ -354,7 +354,7 @@
 			console.log( "apple1 min price: ", apple1.calcMinPrice());
 		</code></pre>
 	</section>
-	<section><h3>Constructor Function: Pros&Cons</h3>
+	<section id="constructorFunctionProsCons"><h3>Constructor Function: Pros&Cons</h3>
 		<dl class="fa">
 			<dt>Pros</dt>
 			<dd>Easy to create multiple instances.</dd>
@@ -362,7 +362,7 @@
 			<dd><code>new</code> and <code>this</code> problems!</dd>
 		</dl>
 	</section>
-	<section><h3 class="advanced">Factory Pattern with Constructors - flexibility example</h3>
+	<section id="factoryPatternWithConstructorsFlexibilityExample"><h3>Factory Pattern with Constructors - flexibility example</h3>
 		<pre><code rel="JS" class="js">
 			"use strict";
 			// constructors:
@@ -410,7 +410,7 @@
 	</section> -->
 </section>
 
-<section><h2>Object properties</h2>
+<section id="objectProperties"><h2>Object properties</h2>
 	<section><h3>Property names</h3>
 		<dl class="fa">
 			<dt>Property names must be strings</dt>
