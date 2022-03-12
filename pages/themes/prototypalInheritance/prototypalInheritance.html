@@ -70,7 +70,16 @@
 	</section>
 </section>
 
-<section><h2>Classical (class-based) Inheritance vs. Prototypal Inheritance</h2>
+
+<section><h1>OOP Inheritance Overview</h1></section>
+<section><h2>OOP Inheritance Overview</h2>
+	<section><h3>What is inheritance?</h3>
+		<dl class="fa">
+			<dt>Inheritance is one of the core concepts of object-oriented programming.</dt>
+			<dt>It allows the programmers to reuse code. Instead of writing the same code, again and again, we can simply inherit the properties of one class/object into the other.</dt>
+		</dl>
+		<a href="./images/animal_inheritencej.png"><img src="./images/animal_inheritencej.png" alt="animal_inheritencej"></a>
+	</section>
 	<section><h3>Classical  (class-based) Inheritance</h3>
 		<p class="note">Classes inherits from classes!</p>
 		<a href="images/class-basedInheritance.png"><img src="images/class-basedInheritance.png" style="height: 60vh;"></a>
@@ -92,13 +101,17 @@
 	</section>
 	<section><h3>Prototypal Inheritance</h3>
 		<dl class="fa">
-			<dt>The inheritance is based on <span class="note"> a prototype chain</span>! As a result, each child will be able to <span class="note">access by reference</span> its prototype.</dt>
+			<dt>The inheritance is based on <span class="note"> a prototype chain</span>! As a result, each child will be able to <span class="note">access by reference</span> its prototype (parent) object.</dt>
 			<dt>Pros?</dt>
-			<dd>Changing prototype definitions dynamically!</dd>
+			<dd>Prototypes are flexible. They may be either mutable or immutable.</dd>
+			<dd>Dynamic changes in prototype will reflect the child objects!</dd>
+			<dd>It's simple. You only have objects and extending objects is the only operation required</dd>
 		</dl>
 	</section>
 </section>
 
+
+<section><h1>How Prototypal Inheritance works?</h1></section>
 <section><h2>Let's got deep - what's in a object?</h2>
 	<section><h3>at Object Literal</h3>
 		<pre><code rel="JS" class="js">
