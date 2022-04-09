@@ -19,15 +19,15 @@ function showArraySum(sum,array) {
 
 function asyncDemo(){
 	//sumArrayAsync is executed asynchronous and is not blocking the rest of the code!
-	console.time('asyncDemo');
+	console.time('asyncDemo time');
 	testArrays.forEach( (arr)=>{
 		console.time(`time sum array(${arr.length})`);
 		calcArraySum(arr, showArraySum);
 		console.timeEnd(`time sum array(${arr.length})`);
 	})
 
-	console.timeEnd('asyncDemo');
+	console.timeEnd('asyncDemo time');
 }
 
-console.log(`~~~~~ Sync execution ~~~~~`);
+console.log(`~~~~~ Async execution ~~~~~`);
 asyncDemo();
