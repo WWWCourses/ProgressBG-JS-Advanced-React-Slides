@@ -301,7 +301,8 @@
 
 <section data-min="5"><h1>Default parameter values</h1></section>
 <section><h2>Default parameter values</h2>
-	<section><h3>Before ES6</h3>
+	<section>
+		<p>Before ES6</p>
 		<pre><code rel="JS" class="javascript">
 			function f(x, y, z){
 				var x = x || 1;
@@ -312,8 +313,7 @@
 			}
 			f(6, 7);
 		</code></pre>
-	</section>
-	<section><h3>After ES6</h3>
+		<p>After ES6</p>
 		<pre><code rel="JS" class="javascript">
 			function f(x=1, y=2, z=3){
 				console.log(x, y, z); //6,7,3
