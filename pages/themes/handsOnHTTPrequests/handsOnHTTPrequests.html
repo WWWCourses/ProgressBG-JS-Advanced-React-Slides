@@ -141,13 +141,6 @@
 		<a href="./images/json-server_started.png"><img src="./images/json-server_started.png" alt="json-server_started.png"></a>
 		<p class="note">Do not close (or press CTRL+C) the Terminal, as the server will be killed!</p>
 	</section>
-	<section><h3>json-server usage notes</h3>
-		<dl class="fa">
-			<dt>Your request body JSON should be object enclosed, just like the GET output. (for example {"name": "Foobar"})</dt>
-			<dt>Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.</dt>
-			<dt>A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.</dt>
-		</dl>
-	</section>
 	<section><h3>References</h3>
 		<dl class="fa">
 			<dt>Video Tutorial: <a href="https://egghead.io/lessons/javascript-creating-demo-apis-with-json-server">Creating demo APIs with json-server</a></dt>
@@ -170,6 +163,13 @@
 				<tr><td>DELETE</td>	<td>/todos/id</td>	<td>remove Todo by id</td></tr>
 			</table>
 			<dt>The json-server we've setup can serve all of them, even more: <a href="https://www.npmjs.com/package/json-server#routes">Routes in json-server</a></dt>
+		</dl>
+	</section>
+	<section><h3>json-server usage notes</h3>
+		<dl class="fa">
+			<dt>Your request body JSON should be object enclosed, just like the GET output. (for example {"name": "Foobar"})</dt>
+			<dt>Id values are not mutable. Any id value in the body of your PUT or PATCH request will be ignored. Only a value set in a POST request will be respected, but only if not already taken.</dt>
+			<dt>A POST, PUT or PATCH request should include a Content-Type: application/json header to use the JSON in the request body. Otherwise it will result in a 200 OK but without changes being made to the data.</dt>
 		</dl>
 	</section>
 </section>
@@ -197,14 +197,21 @@
 	</section>
 </section>
 
-<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
+<section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task: TodoApp</h2>
+  <section id="hw_TodoApp">
   	<dl class="fa">
-  		<dt></dt>
+  		<dt>Направете отделен проект TodoApp и го инициализирайте като git repo. След като приключите със задачата качете проекта си в Github и ми изпратете мейл с линка.</dt>
+		<dt>Използвайте <a href="https://www.npmjs.com/package/json-server">json-server</a> за вашия проект, с първоначлно празна база данни за 'todos'.</dt>
+		<dt>Външният вид и структура на приложението са изцяло по ваше желание, но е задължително да имплементирате следната функционалност:</dt>
+		<dd>Добавяне на ново todo</dd>
+		<dd>Изтриване на todo</dd>
+		<dd>Промяна и визуализация на приключено (competed:true) todo.</dd>
+		<a href="./images/todoAppBasicFunctionality.gif" title="Click for bigger image"><img src="./images/todoAppBasicFunctionality.gif" alt="todoAppBasicFunctionality.gif"></a>
+
   	</dl>
   </section>
-</section> -->
+</section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>
