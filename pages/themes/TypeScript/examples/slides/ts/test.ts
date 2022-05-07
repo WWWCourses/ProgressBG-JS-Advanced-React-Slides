@@ -1,7 +1,11 @@
-let add = function(x:number,y:number) {
-	console.log(x+y)
+class Person {
+	name:string
+
+	constructor(public firstName: string, public surName: string) {
+	  // no need for: this.firstName = firstName
+	  this.name = `${this.firstName} ${this.surName}`
+	}
 }
 
-add(3,4);
-
-let userName="Ada";
+p = new Person('John', 'Doe')
+console.log(`p:${p}`);
