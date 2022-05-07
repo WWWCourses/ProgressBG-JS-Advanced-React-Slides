@@ -86,7 +86,8 @@
 			<dd>Personalizing site preferences.</dd>
 			<dd>Persisting previous site activity (e.g. storing the contents of a shopping cart from a previous session, remembering if a user was previously logged in).</dd>
 			<dd>Storing data for offline use.</dd>
-			<dt>The basic types of client-side storage are:  Cookies, Local Storage,  Session Storage</dt>
+			<dt>The basic types of client-side storage are:  Cookies, Local/Session Storage, IndexedDB</dt>
+			<dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage">Client-side storage @mdn</a></dt>
 		</dl>
 	</section>
 	<section><h3>Cookies vs Local Storage vs Session Storage</h3>
@@ -150,7 +151,7 @@
 			now.setMinutes( now.getMinutes() + 1 );
 
 			// set a cooke:
-			document.cookie = `${name}=${value}; Expires=${now.toString()}; Path=/`
+			document.cookie = `${name}=${value}; Expires=${now.toGMTString()}; Path=/`
   		}
   		setCookie(color, '#FF0000');
   	</code></pre>
