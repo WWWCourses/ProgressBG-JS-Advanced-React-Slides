@@ -145,7 +145,7 @@
 	</section>
 	<section><h3>Accessing "props" from class component</h3>
 		<dl class="fa">
-			<dt>If you will use a constructor in your class, you should call super(props) before any other statement</dt>
+			<dt>If you will use a constructor (when it's needed will be discussed later) in your class, you should call super(props) before any other statement</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
 			import React from &quot;react&quot;;
@@ -186,7 +186,7 @@
 	</section>
 	<section><h3>Props immutability</h3>
 		<dl class="fa">
-			<dt>Props should be <span class="note">immutable</span> object, since they are passed from parent to child! I.e. the children <span class="note">must not</span> chnage the props object!</dt>
+			<dt>Props should be <span class="note">immutable</span> object, since they are passed from parent to child! I.e. the children <span class="note">must not</span> change the props object (otherwise an error will be thrown)!</dt>
 			<dt>All React components must act like pure functions with respect to their props.</dt>
 			<dt>Reference: <a href="https://reactjs.org/docs/components-and-props.html#props-are-read-only">Props are Read-Only</a></dt>
 		</dl>
