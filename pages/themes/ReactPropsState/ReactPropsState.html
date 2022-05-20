@@ -244,7 +244,8 @@
 	 <section><h3>Changing state</h3>
 		<dl class="fa">
 			<dt>We <span class="note">do not manipulate directly the state object</span>, but rather - using the <code>setState() method</code>.</dt>
-			<dt>In fact, we assign a value to <code>this.state</code> only once - <span class="note">to set the initial state</span>, usualy in the constructor or some Lifecycle method (discussed further).</dt>
+			<dt>In fact, we assign a value to <code>this.state</code> only once - <span class="note">to set the initial state</span>, usually in the constructor or some Lifecycle method (discussed further).</dt>
+			<dd>So, in class component you need a constructor when you want to set initial state.</dd>
 			<dt><code>setState()</code> enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state.</dt>
 			<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#setstate">setState() @react docs</a></dt>
 		</dl>

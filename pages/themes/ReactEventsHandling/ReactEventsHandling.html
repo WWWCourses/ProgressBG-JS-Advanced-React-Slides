@@ -183,7 +183,7 @@
 		<pre><code rel="JS" class="js">
 			import React from 'react';
 
-			class AddTodoCC extends React.Component{
+			class Clicker extends React.Component{
 				constructor(props){
 					super(props);
 				}
@@ -196,16 +196,19 @@
 					return(
 						<div>
 							&lt;input type="text"/&gt;
-							<button id='btn2' onClick={this.clickHandler}>Add</button>
+							&lt;button id=&#39;btn2&#39; onClick={this.clickHandler}&gt;Add&lt;/button&gt;
 						</div>
 					)
 				}
 			}
 
-			export default AddTodoCC;
+			export default Clicker;
 		</code></pre>
 	</section>
 	<section><h3>The problem with 'this' in DOM event handlers</h3>
+		<dl class="fa">
+			<dt>When attaching a handler function to an element using addEventListener(), the value of <code>this</code> inside the handler will be a reference to the element (Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_value_of_this_within_the_handler">The value of "this" within the handler @mdn</a> )</dt>
+		</dl>
 		<pre><code rel="HTML" class="html">
 			<button id="btn2">Greet user</button>
 		</code></pre>
@@ -245,9 +248,10 @@
 	<section><h3>The problem with 'this' in React event handlers</h3>
 		<dl class="fa">
 			<dt>We have the similar problem with 'this', when using a React class component.</dt>
+			<dt>In next example, when clickHandler is executed an error will be thrown: "Uncaught TypeError: Cannot read properties of undefined (reading 'now')"</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
-			class AddTodoCC extends React.Component{
+			class Clicker extends React.Component{
 				constructor(props){
 					super(props);
 
@@ -255,7 +259,7 @@
 				}
 
 				clickHandler(e) {
-					// Problem - this is not bound to the AddTodoCC instances:
+					// Problem - this is not bound to the Clicker instances:
 					console.dir(this); // undefined
 					let clickedAt = new Date(this.now+e.timeStamp);
 					console.log(`${e.target.id} was clicked at ${clickedAt.toLocaleString()}`);
@@ -263,21 +267,21 @@
 
 				render(){
 					return(
-						<div>
-							<input type="text"/>
-							<button id='btn2' onClick={this.clickHandler}>Add</button>
-						</div>
+						&lt;div&gt;
+							&lt;input type=&quot;text&quot;/&gt;
+							&lt;button id=&#39;btn2&#39; onClick={this.clickHandler}&gt;Add&lt;/button&gt;
+						&lt;/div&gt;
 					)
 				}
 			}
 		</code></pre>
 	</section>
-	<section><h3>The solution</h3>
+	<section><h3>'This' problem solution with bind</h3>
 		<dl class="fa">
 			<dt>And 'bind' can give us a solution again</dt>
 		</dl>
 		<pre><code rel="JS" class="js">
-			class AddTodoCC extends React.Component{
+			class Clicker extends React.Component{
 				constructor(props){
 					super(props);
 
@@ -286,6 +290,36 @@
 					// This problem solution: bind event handlers:
 					this.clickHandler = this.clickHandler.bind(this);
 				}
+		</code></pre>
+	</section>
+	<section><h3>'This' problem solution with arrow functions</h3>
+		<dl class="fa">
+			<dt>Remember, that in arrow function 'this' is lexically scoped, so we will in 'this' reference to the object itself</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			class Clicker extends React.Component{
+				constructor(props){
+					super(props);
+					this.now = Date.now();
+				}
+
+				clickHandler(e) {
+					console.dir(e)
+					// Problem - this is not bound to the AddTodoCC instances:
+					console.dir(this); // undefined
+					let clickedAt = new Date(this.now+e.timeStamp);
+					console.log(`${e.target.id} was clicked at ${clickedAt.toLocaleString()}`);
+				}
+
+				render(){
+					return(
+					&lt;div&gt;
+						&lt;input type=&quot;text&quot;/&gt;
+						&lt;button id=&#39;btn2&#39; onClick={el=&gt;this.clickHandler(el)}&gt;Add&lt;/button&gt;
+					&lt;/div&gt;
+					)
+				}
+			}
 		</code></pre>
 	</section>
 </section>
