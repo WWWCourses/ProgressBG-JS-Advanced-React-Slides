@@ -160,7 +160,7 @@
 	</section>
 	<section><h3>Event handlers in function component</h3>
 		<pre><code rel="JSX" class="jsx">
-			export default function AddTodo(props) {
+			export default function Clicker(props) {
 
 				function clickHandler(e) {
 						console.log('The button was clicked');
@@ -305,7 +305,7 @@
 
 				clickHandler(e) {
 					console.dir(e)
-					// Problem - this is not bound to the AddTodoCC instances:
+					// Problem - this is not bound to the Clicker instances:
 					console.dir(this); // undefined
 					let clickedAt = new Date(this.now+e.timeStamp);
 					console.log(`${e.target.id} was clicked at ${clickedAt.toLocaleString()}`);
