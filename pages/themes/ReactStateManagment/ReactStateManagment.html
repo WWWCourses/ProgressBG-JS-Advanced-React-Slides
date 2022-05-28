@@ -78,47 +78,6 @@
 </section>
 
 
-<section data-min="5"><h1>Manage the state outside of React</h1></section>
-<section><h2>Manage the state outside of React</h2>
-	<section><h3>The problem with React State management</h3>
-		<dl class="fa">
-			<dt>When your component dependencies grows you will find the need to <a href="https://reactjs.org/docs/lifting-state-up.html#lifting-state-up">lift the state up</a> in your component-tree to inject the relevant state in several components.</dt>
-			<dt>The distance between your states location and your components which need a certain part of the state will increase</dt>
-			<dt>Which inevitably leads to <a href="https://kentcdodds.com/blog/prop-drilling">prop-drilling</a> - passing props through components which don’t need the props but their children do.</dt>
-		</dl>
-	</section>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>Before React Hooks we have to use external libraries for managing the app state, like Redux or MobX.</dt>
-		</dl>
-	</section>
-
-	<section><h3>Redux</h3>
-		<dl class="fa">
-			<dt><a href="https://redux.js.org/">redux.js.org</a> - official site</dt>
-			<dt><a href="https://egghead.io/courses/getting-started-with-redux">Getting Started with Redux</a><span> - a course by the creator of redux - Dan Abramov</span></dt>
-		</dl>
-	</section>
-	<section><h3>Mobx</h3>
-		<dl class="fa">
-			<dt><a href="https://github.com/mobxjs/mobx">Mobx @github</a></dt>
-			<dt><a href="https://mobx.js.org/getting-started.html">Ten minute introduction to MobX and React</a></dt>
-		</dl>
-	</section>
-</section>
-
-
-<section data-min="5"><h1>Context API</h1></section>
-<section><h2>Context API</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>Allows to share global data (like theme, user_id, so on) between components, without having to explicitly pass a prop through every level of the tree.</dt>
-			<dt><a href="https://reactjs.org/docs/context.html">Context API docs</a></dt>
-			<dt><a href="https://egghead.io/courses/react-context-for-state-management">React Context for State Management - free course</a></dt>
-		</dl>
-	</section>
-</section>
-
 <section data-min="5"><h1>React Hooks for state management</h1></section>
 <section><h2>React Hooks for state management</h2>
   <section><h3>Overview</h3>
@@ -238,6 +197,56 @@
 		</dl>
 	</section>
 </section>
+
+<section data-min="5"><h1>Manage the state outside of React</h1></section>
+<section><h2>Manage the state outside of React</h2>
+	<section><h3>The problem with React State management</h3>
+		<dl class="fa">
+			<dt>When your component dependencies grows you will find the need to <a href="https://reactjs.org/docs/lifting-state-up.html#lifting-state-up">lift the state up</a> in your component-tree to inject the relevant state in several components.</dt>
+			<dt>The distance between your states location and your components which need a certain part of the state will increase</dt>
+			<dt>Which inevitably leads to <a href="https://kentcdodds.com/blog/prop-drilling">prop-drilling</a> - passing props through components which don’t need the props but their children do.</dt>
+		</dl>
+	</section>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Before React Hooks and Context API we have to use external libraries for managing the app state, like Redux or MobX.</dt>
+		</dl>
+	</section>
+
+	<section><h3>Redux</h3>
+		<dl class="fa">
+			<dt><a href="https://redux.js.org/">redux.js.org</a> - official site</dt>
+			<dt><a href="https://egghead.io/courses/getting-started-with-redux">Getting Started with Redux</a><span> - a course by the creator of redux - Dan Abramov</span></dt>
+		</dl>
+	</section>
+	<section><h3>Mobx</h3>
+		<dl class="fa">
+			<dt><a href="https://github.com/mobxjs/mobx">Mobx @github</a></dt>
+			<dt><a href="https://mobx.js.org/getting-started.html">Ten minute introduction to MobX and React</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="5"><h1>Context API</h1></section>
+<section><h2>Context API</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Allows to share global data (like theme, user_id, so on) between components, without having to explicitly pass a prop through every level of the tree.</dt>
+			<dt>Context API requires the creation of Context object via <code>React.createContext</code>.</dt>
+			<dt>This Context object will provide Provider and Consumer components of that Context.</dt>
+			<dd>The Provider will allow you to change the data of Context</dd>
+			<dd>The Consumer will allow you to listen to the changes in the Context</dd>
+
+			<dt><a href="https://reactjs.org/docs/context.html">Context API docs</a></dt>
+			<dt><a href="https://egghead.io/courses/react-context-for-state-management">React Context for State Management - free course</a></dt>
+		</dl>
+	</section>
+	<section><h3>Example</h3>
+		<script src="https://gist.github.com/WWWCourses/9e3acd840aea653c987d67e981ec0ceb.js"></script>
+	</section>
+</section>
+
 
 <section data-min="5"><h1>TodoApp with useState() - live demo</h1></section>
 <section><h2>TodoApp with useState() - live demo</h2>
