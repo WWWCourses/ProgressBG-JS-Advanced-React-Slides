@@ -114,6 +114,7 @@
             <dd>as a <strong>method</strong></dd>
             <dd>as a <strong>constructor</strong></dd>
             <dd>with <span class="code">apply</span> or <span class="code">call</span> or <span class="code">bind</span> </dd>
+            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this @mdn</a></dt>
         </dl>
     </section>
     <section><h3>Invoke as a function - in non Strict Mode</h3>
@@ -215,6 +216,24 @@
    </section> -->
 </section>
 
+<section data-min="50"><h1>"this" in DOM event handler</h1></section>
+<section><h2>"this" in DOM event handler</h2>
+    <section>
+        <dl class="fa">
+            <dt>When a function is used as an event handler, its this is set to the element on which the listener is placed</dt>
+        </dl>
+        <pre><code rel="JS" class="js">
+            const btn = document.querySelector(&quot;button&quot;);
+
+            btn.addEventListener(&#39;click&#39;, function(event) {
+                console.dir(this);
+            })
+
+            // OUTPUT: button
+        </code></pre>
+    </section>
+</section>
+
 <section data-min="50"><h1>the "this" Pitfall and "that" Solution</h1></section>
 <section><h2>the "this" Pitfall and "that" Solution</h2>
     <section><h3>the problem</h3>
@@ -226,6 +245,15 @@
         </iframe>
     </section>
 </section>
+
+<!-- <section data-min="50"><h1>References</h1></section>
+<section><h2>References</h2>
+    <section>
+        <dl class="fa">
+            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this @mdn</a></dt>
+        </dl>
+    </section>
+</section> -->
 
 <section data-min="50"><h1><code>apply()</code>, <code>call()</code> and <code>bind()</code> function methods</h1></section>
 <section><h2><code>apply()</code>, <code>call()</code> and <code>bind()</code> function methods</code></h2>
