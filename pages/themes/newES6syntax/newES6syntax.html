@@ -361,7 +361,7 @@
 
 			console.log( [...arr, 9] );       // [1, 2, 3, 9]
 			console.log( [9, ...arr] );       // [9, 1, 2, 3]
-			console.log( [...arr, ..str] );   // [1, 2, 3, "a", "b", "c"]
+			console.log( [...arr, ...str] );   // [1, 2, 3, "a", "b", "c"]
 		</code></pre>
 	</section>
 </section>
@@ -409,6 +409,11 @@
 			let [a, b] = [1,2];
 			console.log(`a = ${a}; b = ${b}`); // a = 1; b = 2
 
+			// we can first declare variables, and then destrucure:
+			let a,b;
+			[a,b] = [1,2]
+			console.log(`a = ${a}; b = ${b}`); // a = 1; b = 2
+
 			// same as above - no matter that we pass more elements:
 			let [a, b] = [1,2,3,4,5];
 			console.log(`a = ${a}; b = ${b}`); // a = 1; b = 2
@@ -432,17 +437,57 @@
 	<section id="objectDestructuring"><h3>Object destructuring</h3>
 		<dl class="fa">
 			<dt>Destructuring on objects let us bind variables to different properties of an object.</dt>
-			<dt>There is a nice syntactical shortcut for when the property and variable names are the same</dt>
+			<dt>It is a nice syntactical shortcut <span class="note">when the property and variable names are the same</span>:</dt>
+			<pre><code rel="JS" class="js">
+				let obj = {p1: 1, p2: 2};
+
+				// assign obj properties to variables with same name:
+				let {p1, p2} = obj;
+
+				console.log(p1);  // 1
+				console.log(p2);  // 2
+			</code></pre>
+			<dt>If we need first to declare variables, and then to destrucure, we <span class="note">must use braces</span>:</dt>
+			<pre><code rel="JS" class="js">
+				let obj = {p1: 1, p2: 2};
+				let p1,p2;
+
+				// assign obj properties to variables with same name (note the braces):
+				({p1, p2} = obj);
+
+				console.log(p1);  // 1
+				console.log(p2);  // 2
+			</code></pre>
 		</dl>
-		<pre><code rel="JS" class="js">
-			let obj = {p1: 1, p2: 2};
+	</section>
+	<section><h3>Example</h3>
+		<dl class="fa">
+			<dt>Imagine, we have next user data as object:</dt>
+			<pre><code rel="JS" class="js">
+				const userData = {
+					id: 1,
+					name:'Ada',
+					age: 23,
+				}
+			</code></pre>
+			<dt>and we need to define greet() function, which needs only user name, and user age. Instead of writing this:</dt>
+			<pre><code rel="JS" class="js">
+				function greet( name, age ){
+					console.log(`Hello ${name}. You are ${age} years old!`);
+				}
 
-			// assign obj properties to variables with same name:
-			let {p1, p2} = obj;
+				greet(userData.name,userData.age);
+			</code></pre>
+			<dt>we can use:</dt>
+			<pre><code rel="JS" class="js">
+				// note the curly braces in params declaration
+				function greet( {name,age} ){
+					console.log(`Hello ${name}. You are ${age} years old!`);
+				}
 
-			console.log(p1);  // 1
-			console.log(p2);  // 2
-		</code></pre>
+				greet(userData);
+			</code></pre>
+		</dl>
 	</section>
 </section>
 
