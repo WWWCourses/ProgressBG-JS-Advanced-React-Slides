@@ -170,7 +170,7 @@
 			  }
 			}
 
-			// the instancies
+			// the instances
 			const player1 = mediaPlayerMaker('time_lapse.mp3');
 			const player2 = mediaPlayerMaker('micahel_nyman_band_live.avi');
 
@@ -315,11 +315,11 @@
 			console.log(car1 === car2);
 		</code></pre>
 	</section>
-	<section><h3><span class="note">Exercise </span>: caching the singular instance in Factory</h3>
+	<!-- <section><h3><span class="note">Exercise </span>: caching the singular instance in Factory</h3>
 		<dl class="fa">
 			<dt>Implement a Singleton <code>carMaker</code> object Factory, following the "caching the singular instance" approach.</dt>
 		</dl>
-	</section>
+	</section> -->
 	<section><h3>Instance in a Closure: rewrite the Constructor</h3>
 		<pre><code rel="JS" class="js">
 			function Car(name, speed) {
@@ -344,11 +344,11 @@
 			console.log(car1 === car2);
 		</code></pre>
 	</section>
-	<section><h3><span class="note">Exercise </span>: rewrite the Factory</h3>
+	<!-- <section><h3><span class="note">Exercise </span>: rewrite the Factory</h3>
 		<dl class="fa">
 			<dt>Implement a Singleton <code>carMaker</code> object Factory, following the "rewrite the Constructor" approach.</dt>
 		</dl>
-	</section>
+	</section> -->
 </section>
 <section><h2>The Module Pattern</h2>
 	<section><h3>Modules in JavaScript</h3>
@@ -433,6 +433,32 @@
 		</code></pre>
 		<pre><code rel="Terminal" class="js">
 			node --experimental-modules main.mjs
+		</code></pre>
+	</section>
+	<section><h3>ES6 Modules - browser demo</h3>
+		<pre><code rel="lib.js" class="js">
+			var sqrt = Math.sqrt;
+
+			function square(x) {
+						return x * x;
+			}
+			function diag(x, y) {
+						return sqrt(square(x) + square(y));
+			}
+
+			export {square, diag}
+		</code></pre>
+		<pre><code rel="main.js" class="js">
+			import {square, diag} from './lib.js'
+
+			console.log(square(11)); // 121
+			console.log(diag(4, 3)); // 5
+		</code></pre>
+		<p>note that in browser, <span class="note">we must specify <code>type="module"</code></span></p>
+		<pre><code rel="HTML" class="html5">
+			&lt;body&gt;
+				&lt;script src="./main.js" type="module"&gt;&lt;/script&gt;
+			&lt;/body&gt;
 		</code></pre>
 	</section>
 </section>
