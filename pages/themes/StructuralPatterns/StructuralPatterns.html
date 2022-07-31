@@ -70,6 +70,7 @@
 	</section>
 </section>
 
+<section id="Mixins"><h1>Mixins</h1></section>
 <section><h2>Mixins</h2>
 	<section><h3>About</h3>
 		<dl class="fa">
@@ -117,59 +118,55 @@
 	</section>
 	<section><h3 class="advanced">Mixin Pattern Implementation</h3>
 		<pre><code rel="JS" class="js">
-			// The Mixin - exports functionalities for vehicles
-			var Mixin = function (){};
-			Mixin.prototype = {
-			    drive(){console.log( "Driving" )},
-			    ride(){console.log( "Riding" )},
-			    stop(){console.log( "Stopping" )},
-			    purr(){console.log("Purr rrr rrpp prr ppprrrr")},
+			// The vehicleMixin - a mixin that exports functionalities for vehicles
+			const vehicleMixin={
+				drive(){console.log( `${this.model} is Driving` )},
+				ride(){console.log( `${this.model} is Riding` )},
+				stop(){console.log( `${this.model} is Stopping` )},
+				purr(){console.log(`${this.model} makes Purr rrr rrpp prr ppprrrr`)},
 			};
 
-			// some constructor, which can borrow methods from Mixin
-			var Bike = function ( settings ) {
-			    this.model = settings.model || "unknown";
+			// some constructors, which can borrow methods from vehicleMixin
+			const Bike = function ( settings ) {
+				this.model = settings.model || "unknown";
 			};
-			var Car = function ( settings ) {
-			    this.model = settings.model || "unknown";
+			const Car = function ( settings ) {
+				this.model = settings.model || "unknown";
 			};
 
-			// helper function to extend an object by Mixin:
-			// augment( Constructor, Mixin, [methodsArray] );
+			// helper function to extend an object by vehicleMixin:
 			function augment( receiver, giver, methodsArray ){
-					// with a list of specified methods:
-			    if ( methodsArray ){
-			        methodsArray.forEach(m => {
-			        	receiver.prototype[m] = giver.prototype[m];
-			        });
-			    }
-			    // with all methods
-			    else {
-			        for ( let methodName in giver.prototype ) {
-			            if ( !Object.hasOwnProperty.call(receiver.prototype, methodName) ) {
-			                receiver.prototype[methodName] = giver.prototype[methodName];
-			            }
-
-			            // augment by prototype chain:
-			            // if ( !receiver.prototype[methodName] ) {
-			            // receiver.prototype[methodName] = giver.prototype[methodName];
-			            // }
-			        }
-			    }
+				// with a list of specified methods:
+				if ( methodsArray ){
+					methodsArray.forEach(m => {
+						receiver.prototype[m] = giver[m];
+					});
+				}
+				// with all methods
+				else {
+					for ( let methodName in giver ) {
+						if ( !receiver.prototype.hasOwnProperty(methodName) ) {
+							receiver.prototype[methodName] = giver[methodName];
+						}
+					}
+				}
 			}
 
-			// Augment the Bike constructor with some of the Mixin methods:
-			augment( Bike, Mixin, ["ride", "purr"] );
+			// Augment the Bike constructor with some of the vehicleMixin methods:
+			augment( Bike, vehicleMixin, ["ride", "purr"] );
 
-			// Augment the Car constructor with all of the Mixin methods:
-			augment( Car, Mixin );
+			// Augment the Car constructor with all of the vehicleMixin methods:
+			augment( Car, vehicleMixin );
 
 			// make some objects
-			var ford = new Car({ model: "Ford" });
-			console.dir(ford);
+			const ford = new Car({ model: "Ford" });
+			const harley = new Bike({ model: "Harley Davidson" });
 
-			var harley = new Bike({ model: "Harley Davidson" });
-			console.dir(harley);
+			// check that they have required funcitionality:
+			ford.ride();
+			ford.stop();
+			harley.ride();
+			harley.purr();
 		</code></pre>
 	</section>
 	<section><h3>and more...</h3>
@@ -178,6 +175,8 @@
 	</section>
 </section>
 
+
+<section id="Decorator"><h1>Decorator</h1></section>
 <section data-notes="20min"><h2>Decorator</h2>
 	<section><h3>about</h3>
 		<a href="images/decoratorIdea.png"><img src="images/decoratorIdea.png"></a>
@@ -318,41 +317,41 @@
 
 			// define the objects we're going to use
 			decoratorApp = {
-		    defaults: {
-		    		bool:false,
-		        someDefaults: function(){
-		            console.log( "someDefaults actions" );
-		        }
-		    },
-		    options: {
-		        bool: true,
-		        optionsAction: function(){
-		            console.log( "optionsAction" );
-		        }
+			defaults: {
+					bool:false,
+				someDefaults: function(){
+					console.log( "someDefaults actions" );
+				}
+			},
+			options: {
+				bool: true,
+				optionsAction: function(){
+					console.log( "optionsAction" );
+				}
 		  	},
 		  	settings: {},
 
-		    printObj: function( obj ){
-		        var arr = [];
-		        var next;
+			printObj: function( obj ){
+				var arr = [];
+				var next;
 
-		        $.each( obj, function( key, val ){
-		            next = key + ": ";
-		            next += $.isPlainObject(val) ? printObj( val ) : val;
-		            arr.push( next );
-		        } );
+				$.each( obj, function( key, val ){
+					next = key + ": ";
+					next += $.isPlainObject(val) ? printObj( val ) : val;
+					arr.push( next );
+				} );
 
-		        return "{ " + arr.join(", ") + " }";
-		    }
+				return "{ " + arr.join(", ") + " }";
+			}
 			};
 
 			// merge defaults and options, without modifying defaults explicitly
 			decoratorApp.settings = $.extend({}, decoratorApp.defaults, decoratorApp.options);
 
 			$("#log")
-			    .append( decoratorApp.printObj(decoratorApp.settings) +
-			          + decoratorApp.printObj(decoratorApp.options) +
-			          + decoratorApp.printObj(decoratorApp.defaults));
+				.append( decoratorApp.printObj(decoratorApp.settings) +
+					  + decoratorApp.printObj(decoratorApp.options) +
+					  + decoratorApp.printObj(decoratorApp.defaults));
 		</code></pre>
 		<p>from <a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Learning JavaScript Design Patterns: Decorators With jQuery</a></p>
 	</section> -->
@@ -420,15 +419,15 @@
 	<section><h3>implementation (MDN)</h3>
 		<pre><code rel="JS" class="js">
 			function makeIterator(array) {
-			    var index = 0;
+				var index = 0;
 
-			    return {
-			       next: function() {
-			           return index < array.length ?
-			               {value: array[index++], done: false} :
-			               {done: true};
-			       }
-			    };
+				return {
+				   next: function() {
+					   return index < array.length ?
+						   {value: array[index++], done: false} :
+						   {done: true};
+				   }
+				};
 			};
 
 			var it = makeIterator([1,2,3,4,5]);
