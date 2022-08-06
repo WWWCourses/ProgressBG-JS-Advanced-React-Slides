@@ -57,13 +57,13 @@ function loadJSON(url) {
            		console.dir(response);
        			return response;
            	})
-            	.then(function (data) {
-            	    	console.log('JSON from "' + url + '" parsed successfully!');
-            	    	console.log(data);
-            	})
-            	.catch(function (error) {
-            	    	console.error(error.message);
-            	});
+			.then(function (data) {
+					console.log('JSON from "' + url + '" parsed successfully!');
+					console.log(data);
+			})
+			.catch(function (error) {
+					console.error(error.message);
+			});
 }
 
 

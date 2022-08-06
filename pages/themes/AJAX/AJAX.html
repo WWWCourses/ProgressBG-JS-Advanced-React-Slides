@@ -303,7 +303,32 @@
 
 </section>
 
-<section data-min="10"><h1>Create HTTP request with jQuery</h1></section>
+<section data-min="50"><h1>making requests with Axios</h1></section>
+<section><h2>making requests with Axios</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Axios is a simple promise based HTTP client for the browser and node.js. Axios provides a simple to use library in a small package with a very extensible interface.</dt>
+			<dd>Reference: <a href="https://axios-http.com/">https://axios-http.com/</a></dd>
+			<dt>One of the main selling points of Axios is its <span class="note">wide browser (and nodejs) support</span>. Even old browsers like IE11 can run Axios without any issue. This is because it uses XMLHttpRequest under the hood.</dt>
+			<dd>Note that Fetch API are defined in 2017 and they are not supported on old browsers and IE ( <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#browser_compatibility">Fetch API browser_compatibility</a> )</dd>
+		</dl>
+	</section>
+	<section><h3>Example</h3>
+		<dl class="fa">
+			<dt>Note, that in order to use axios lib in the browser you must load it before.</dt>
+			<dt>The best way is to use it from some CDN, like: <code><a href="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js</a></code></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			axios.get(dataURL)
+				.then(function(response){
+					nodes.output.innerHTML = response.data;
+				}).catch(function(error){
+					console.log(error);
+				});
+		</code></pre>
+	</section>
+</section>
+<!-- <section data-min="10"><h1>Create HTTP request with jQuery</h1></section>
 <section><h2 class="advanced">Create HTTP request with jQuery</h2>
 	<section>
 		<a href="https://www.w3schools.com/jquery/jquery_ajax_get_post.asp">jQuery - AJAX get() and post() Methods at w3schools</a>
@@ -344,7 +369,10 @@
 			});
 		</code></pre>
 	</section>
-</section>
+</section> -->
+
+
+
 
 <section data-min="10"><h1>Exercises</h1></section>
 <section><h2>Songs Lyrics</h2>
