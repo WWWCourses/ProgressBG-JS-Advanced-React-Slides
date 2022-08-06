@@ -480,21 +480,25 @@
 	<section>
 		<a href="images/observer_pattern_oreily.png"><img src="images/observer_pattern_oreily.png"></a>
 	</section>
-	<section><h3> Example - Subject-Observer pattern</h3>
+	<section><h3>Example - Subject-Observer: the pattern (ES5)</h3>
 		<pre><code rel="JS" class="js">
 			//The Subject "class"
 			var Subject = function () {
 				this.observerList = [];
 			}
+			// Add an observer
 			Subject.prototype.registerObserver = function(observer) {
 				this.observerList.push(observer);
 			}
+			// Remove an observer
 			Subject.prototype.unregisterObserver = function(observer) {
 				// find the Observer that wants to be removed
 				var index = this.observerList.indexOf(observer);
 				// Remove it from the array
 				this.observerList.splice(index, 1);
 			}
+
+			// Notify all observers
 			Subject.prototype.notifyObservers = function() {
 				for (let i = 0, len = this.observerList.length; i < len; i += 1) {
 					this.observerList[i].update();
@@ -510,19 +514,23 @@
 				}
 			}
 		</code></pre>
+		<dl class="fa">
+			<dt>TASK: Refactor the code above using ES6 class syntax and <code>forEach</code> loop</dt>
+		</dl>
 	</section>
-	<section><h3>Example - Subject-Observer case</h3>
+	<section><h3>Example - Subject-Observer: use case</h3>
 		<pre><code rel="JS" class="js">
+			// the state on which change observers must react
 			var data = 0;
 
 			// create Subject
 			var subject = new Subject();
 
-			// create Observers - each implements its own notify() method
+			// create Observers - each implements its own update() method
 			var a = new Observer();
-			a.notify = ()=> {console.log(data)}
+			a.update = ()=> {console.log(`Observer A process data: ${data}`)}
 			var b = new Observer();
-			b.notify = ()=> {console.log(data)}
+			b.update = ()=> {console.log(`Observer B process data: ${data}`)}
 
 			// Register the observers
 			subject.registerObserver(a);
@@ -538,10 +546,11 @@
 			subject.unregisterObserver(a);
 
 			// change data and notify again
-			data += 1;
+			data += 100;
 			subject.notifyObservers();
 		</code></pre>
 	</section>
+
 	<section><h3>Example - color list items by first letter select</h3>
 		<div class="observerWrapper" style="width: 10em;	margin: 3em auto;	border: 1px solid #999;">
 			<div class="subjectWrapper" style="height: 2em;	margin: .5em 0 0 0;	text-align: center;	border-bottom: 1px dotted #999">
