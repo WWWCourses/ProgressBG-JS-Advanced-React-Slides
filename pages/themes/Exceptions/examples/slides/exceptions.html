@@ -221,9 +221,13 @@
 				console.log( `5/0= ${divide(5, 0)}` );
 			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 			},
-			'example2': function(){
+			'windowOnerror': function(){
 			//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+				window.onerror = function(message, source, lineno, colno, error) {
+					console.log(`Error:${message}`);
+				}
 
+				throw('Ups, Error')
 			//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 			},
 			'example2': function(){
@@ -234,7 +238,7 @@
 
 		}
 
-		examples.ErrorObjectDef();
+		examples.windowOnerror();
 		console.log(`**********************************`);
 		// examples.customErrorsES6();
 	</script>

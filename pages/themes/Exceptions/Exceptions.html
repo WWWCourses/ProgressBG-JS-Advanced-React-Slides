@@ -435,6 +435,9 @@
 
 <section><h2>window.onerror - the global error event handler</h2>
     <section><h3>Syntax</h3>
+        <dl class="fa">
+            <dt>The onerror property of the Window object specifies an error-handler function that is invoked when a JavaScript error occurs and is not caught with a catch statement</dt>
+        </dl>
         <pre><code rel="Syntax" class="javascript">
             window.onerror = function(message, source, lineno, colno, error) { ... }
         </code></pre>
@@ -445,6 +448,24 @@
             <dt><span class="note">colno</span>: Column number for the line where the error occurred (number)</dt>
             <dt><span class="note">error</span>: Error Object (object)</dt>
         </dl>
+    </section>
+    <section><h3>Example</h3>
+        <pre><code rel="HTML" class="html5">
+            &lt;body&gt;
+                &lt;script&gt;
+                    window.onerror = function(message, source, lineno, colno, error) {
+                        console.log(`Error:${message}`);
+                        console.log(`source:${source}`);
+                        console.log(`lineno:${lineno}`);
+                        console.log(`colno:${colno}`);
+                        console.log(`error:${error}`);
+                    }
+
+                    console.log(userName);
+
+                &lt;/script&gt;
+            &lt;/body&gt;
+        </code></pre>
     </section>
 </section>
 
