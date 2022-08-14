@@ -93,6 +93,7 @@
 			<dt>Install <a href="https://www.npmjs.com/package/json-server">json-server</a></dt>
 			<dd>To prevent polluting your global environment, it's recommended to install NPM packages locally, i.e. without the <code>-g</code> option.</dd>
 			<dd>Also, if we need the package just for dev purpose , then it's recommended to install it as <span class="note">dev dependency</span></dd>
+			<dt>We'll talk more deeply on installing npm packages in 'NodeJS and NPM Overview' topic.</dt>
 		</dl>
 		<pre><code rel="Terminal" class="bash">
 			# navigate to your project root folder
@@ -153,16 +154,17 @@
 <section><h2>json-server endpoints</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>For our TodoApp, we need the server to be capable of serving next requests:</dt>
+			<dt>For our TodoApp, we need the server to be capable of serving next requests and taking expected actions:</dt>
 			<table style="margin-top: .5em;">
-				<tr><th>Method</th><th>Path</th><th>Action</th></tr>
+				<tr><th>Method</th><th>Path (Route)</th><th>Action</th></tr>
 				<tr><td>GET</td><td>/todos</td><td>get all todos</td></tr>
 				<tr><td>GET</td>	<td>/todos/id</td>	<td>get Todo by id</td></tr>
 				<tr><td>POST</td>	<td>/todos</td>		<td>add new Todo</td></tr>
 				<tr><td>PUT</td>	<td>/todos/id</td>	<td>update Todo by id</td></tr>
 				<tr><td>DELETE</td>	<td>/todos/id</td>	<td>remove Todo by id</td></tr>
 			</table>
-			<dt>The json-server we've setup can serve all of them, even more: <a href="https://www.npmjs.com/package/json-server#routes">Routes in json-server</a></dt>
+			<dt>The json-server we've setup can serve all of them, even more: <a href="https://github.com/typicode/json-server#routes">Routes in json-server</a></dt>
+			<dt>A tutorial on how to send these requests to json-server with fetch api can be find on <a href="https://jsonplaceholder.typicode.com/guide/">https://jsonplaceholder.typicode.com/guide/</a></dt>
 		</dl>
 	</section>
 	<section><h3>json-server usage notes</h3>
@@ -177,6 +179,7 @@
 	<section id="exploreTheEndpoints"><h3>Explore the Endpoints with Postman</h3>
 		<dl class="fa">
 			<dt>Before starting with coding, it's useful to get insights of the API Server endpoints. I.e. to send HTTP requests to the server and inspect the response. A useful tool for such API exploratory tasks is <a href="https://www.postman.com/">postman</a></dt>
+			<dd>If you don't want to install postman, you can use a browser extension to test Restful API Server, like chrome's <a href="https://chrome.google.com/webstore/detail/restman/ihgpcfpkpmdcghlnaofdmjkoemnlijdi">RestMan</a> extension</dd>
 			<dt>Next slides will present you a screenshot of Postman for each request we need to inspect</dt>
 		</dl>
 	</section>
