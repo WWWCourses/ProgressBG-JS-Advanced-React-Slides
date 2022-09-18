@@ -352,6 +352,34 @@
 	<section><h3>Example 3</h3>
 		<script src="https://gist.github.com/WWWCourses/9e3acd840aea653c987d67e981ec0ceb.js"></script>
 	</section>
+	<section><h3>Wrapping Context</h3>
+		<dl class="fa">
+			<dt>A very common pattern is to separate the context in a file, end export the context object itself, as well as a wrapper for Context.Provider</dt>
+		</dl>
+		<pre><code rel="todosContext.js" class="js">
+			import React,{ createContext, useState, useEffect } from &quot;react&quot;;
+
+			const TodosContext=createContext();
+
+			function TodosContextWrapper(props) {
+				// define state
+
+				// define state changing functions
+				function foo(){}
+				function bar(){}
+
+				// return Provider wrapper
+				return (
+					&lt;TodosContext.Provider value={{foo, bar}}&gt;
+						{props.children}
+					&lt;/TodosContext.Provider&gt;
+				)
+			}
+
+			export default TodosContextWrapper
+			export {TodosContext}
+		</code></pre>
+	</section>
 </section>
 
 <!--
