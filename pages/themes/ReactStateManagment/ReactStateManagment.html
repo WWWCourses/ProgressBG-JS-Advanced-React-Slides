@@ -176,19 +176,27 @@
 <section data-min="5"><h1>useEffect() hook</h1></section>
 <section><h2>useEffect() hook</h2>
 	<section><h3>Overview and Syntax</h3>
+		<pre><code rel="Syntax" class="js">
+				useEffect(didUpdateFunction, array);
+			</code></pre>
 		<dl class="fa">
 			<dt>The Effect Hook lets you perform side effects (like data fetching, setting up a subscription, manually changing the DOM) in function components</dt>
 			<dt> you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.</dt>
-			<pre><code rel="Syntax" class="js">
-				useEffect(didUpdateFunction, array);
-			</code></pre>
-			<dt>Where:</dt>
-			<dd><span class="note">didUpdateFunction</span> - function that will be runed after the render is committed to the screen</dd>
-			<dd>By default, effects run after every completed render, but you can choose to fire them only when certain values have changed.
-			</dd>
-			<dd><span class="note">array</span> - optional,the array of values that the effect depends on.</dd>
-			<dd>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument</dd>
+			<dt><span class="note">didUpdateFunction</span> - function that will be run after the render is committed to the screen</dt>
+			<dt><span class="note">array</span> - optional,the array of values that the effect depends on.</dt>
+			<dt>By default, effects run after every completed render, but you can choose to fire them only when certain values (passed in <span class="note">array</span>) have changed.
+			</dt>
+			<dt>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument, and your <span class="note">didUpdateFunction</span> must return a cleanup function</dt>
 		</dl>
+		<pre><code rel="Syntax" class="js">
+			useEffect(() =&gt; {
+				// Side Effects
+
+				return () =&gt; {
+					// Side Effects Cleanup
+				}
+			}[]);
+		</code></pre>
 	</section>
 	<section><h3>References</h3>
 		<dl class="fa">
@@ -237,21 +245,120 @@
 			<dt>This Context object will provide Provider and Consumer components of that Context.</dt>
 			<dd>The Provider will allow you to change the data of Context</dd>
 			<dd>The Consumer will allow you to listen to the changes in the Context</dd>
-
+			<dt>When the context value changes the consuming component will re-render</dt>
 			<dt><a href="https://reactjs.org/docs/context.html">Context API docs</a></dt>
-			<dt><a href="https://egghead.io/courses/react-context-for-state-management">React Context for State Management - free course</a></dt>
 		</dl>
 	</section>
-	<section><h3>Example</h3>
+	<section><h3>Creating a Context object</h3>
+		<dl class="fa">
+			<pre><code rel="Syntax" class="js">
+				const Context = React.createContext(defaultValue);
+			</code></pre>
+
+			<dl class="fa">
+				<dt>Note, that defaultValue is optional and  is only used when a component does not have a matching Provider above it in the tree.</dt>
+				<dt>Reference: <a href="https://reactjs.org/docs/context.html#reactcreatecontext">React.createContext</a></dt>
+			</dl>
+		</dl>
+	</section>
+	<section><h3>Context Provider</h3>
+		<dl class="fa">
+			<dt>Every Context object comes with a Provider component that allows consuming components to have accesses to Context value and subscribe to its changes.</dt>
+			<dt>Every Context.Provider component must declare <code><span class="note">value</span></code> prop, which will be passed to the consuming components</dt>
+			<dt>Reference: <a href="https://reactjs.org/docs/context.html#contextprovider">Context.Provider</a></dt>
+		</dl>
+		<pre><code rel="JS" class="jsx">
+			// create Context object
+			const Context = React.createContext();
+
+			function ContextDemo() {
+				return (&lt;div&gt;
+					&lt;Context.Provider value={1}&gt;
+						&lt;Component1/&gt;
+					&lt;/Context.Provider&gt;
+
+				&lt;/div&gt;);
+			}
+
+		</code></pre>
+	</section>
+	<section><h3>Context Consumer</h3>
+		<pre><code rel="Syntax" class="jsx">
+			&lt;Context.Consumer&gt;
+				{value =&gt; /* render something based on the context value */}
+			&lt;/MyContext.Consumer&gt;
+		</code></pre>
+		<dl class="fa">
+			<dt>Context.Consumer is a React component that subscribes to context changes</dt>
+			<dt>It must have only one child and it must be a function, which receives the current context value and returns a React node.</dt>
+			<dt>When the context value changes the consuming components will re-render</dt>
+		</dl>
+		<pre><code rel="JS" class="jsx">
+			const Context = React.createContext();
+
+			function ContextDemo() {
+				return (&lt;div&gt;
+					&lt;Context.Provider value={1}&gt;
+						&lt;Component1/&gt;
+					&lt;/Context.Provider&gt;
+
+				&lt;/div&gt;);
+			}
+
+			function Component1(props) {
+				return (
+					&lt;Context.Consumer&gt;
+						{(val)=&gt;&lt;div&gt;context value is {val}&lt;/div&gt;}
+					&lt;/Context.Consumer&gt;
+
+				)
+			}
+		</code></pre>
+		<dl class="fa">
+			<dt class="note">There is another way for a component to consume context - with useContext hook, discussed in next slides</dt>
+		</dl>
+	</section>
+	<section><h3>useContext</h3>
+		<dl class="fa">
+			<dt>useContext hook accepts a context object (the value returned from React.createContext) and returns the current context value for that context.</dt>
+			<dt><dt>When the context value changes the consuming components will re-render</dt></dt>
+			<dt>Reference: <a href="https://reactjs.org/docs/hooks-reference.html#usecontext">useContext</a></dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const Context = React.createContext();
+
+			function ContextDemo() {
+				return (&lt;div&gt;
+					&lt;Context.Provider value={1}&gt;
+						&lt;Component1/&gt;
+					&lt;/Context.Provider&gt;
+
+				&lt;/div&gt;);
+			}
+
+			function Component1(props) {
+				const val = useContext(Context)
+
+				return (
+					&lt;div&gt;context value is {val}&lt;/div&gt;
+				)
+			}
+		</code></pre>
+	</section>
+	<section><h3>Example 2</h3>
+		<p class="note">Demo for component re-rendering on context value change</p>
+		<script src="https://gist.github.com/WWWCourses/18faf5927bf037287dd1a323acd22cda.js"></script>
+	</section>
+	<section><h3>Example 3</h3>
 		<script src="https://gist.github.com/WWWCourses/9e3acd840aea653c987d67e981ec0ceb.js"></script>
 	</section>
 </section>
 
-
+<!--
 <section data-min="5"><h1>TodoApp with useState() - live demo</h1></section>
 <section><h2>TodoApp with useState() - live demo</h2>
 
-</section>
+</section> -->
 
 
 <!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
