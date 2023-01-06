@@ -173,18 +173,31 @@
 <section><h2>Promises</h2>
   <section><h3>Overview</h3>
 	<dl class="fa">
-		<dt>A Promise is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
+		<dt>A <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
 		<dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
 		<dt>A promise can either be <span class="note">fulfilled with a value</span> or <span class="note">rejected with a reason (error)</span></dt>
-		<dt>A promise object has method <code>then()</code> which accepts two callback functions and returns a promise object (which means that we can chain multiple <code>then()</code> calls)</dt>
+		<dt>A promise object has method <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">then()</a> which accepts two callback functions and returns a promise object (which means that we can chain multiple <code>then()</code> calls)</dt>
 		<dt>Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously</dt>
 		<pre><code rel="JS" class="js">
-			p.then(onFulfilled[, onRejected]);
+			// create Promise object:
+			const p = new Promise((resolve, reject)=>{
+				// do promised work asynchronously, like getting data
+				setTimeout(() => {
+					const data = 'some data';
 
+					if(data){
+						resolve(data)
+					}else{
+						reject('Error')
+					}
+				}, 1000);
+			});
+
+			// use promise:
 			p.then(value => {
-				// fulfillment
+				console.log(value);
 			}, reason => {
-				// rejection
+				console.error(reason);
 			});
 		</code></pre>
 	</dl>
