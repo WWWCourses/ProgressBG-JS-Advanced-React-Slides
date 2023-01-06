@@ -1,11 +1,16 @@
-let prepareDinner = function() {
-	return new Promise((resolve, reject)=>{
-		setTimeout(() => {
-			const error = false;
+const handleError = err=>{
+	console.error(`Error: ${err}`)
+}
 
-			if(!error){
-				console.log(`prepareDinner is fulfilled`);
-				const dinner = 'pizza';
+const prepareDinner = function() {
+	return new Promise((resolve,reject)=>{
+		setTimeout(() => {
+			// do work on prepare dinner
+			const dinner = 'pizza'
+			const success = true;
+
+			if(success){
+				console.log(`${dinner} is prepared!`);
 				resolve(dinner);
 			}else{
 				reject(`Error: Can not buy dinner!`);
@@ -14,32 +19,29 @@ let prepareDinner = function() {
 	})
 };
 
-
-let eatDinner = function(dinner, callback){
-	return new Promise((resolve, reject)=>{
+const eatDinner = function(dinner){
+	return new Promise((resolve,reject)=>{
 		setTimeout(() => {
-			const error = false;
+			// do work on eat dinner
+			const success = true;
 
-			if(!error){
-				console.log(`eatDinner is fulfilled`);
-				resolve(`${dinner} eaten`)
+			if(success){
+				console.log(`${dinner} is eaten!`);
+				resolve(`Sweet Dreams after ${dinner}`)
 			}else{
 				reject(`Error: Can not eat dinner!`);
 			}
-		}, 2000);
+		}, 1000);
 	})
 }
 
-let goToBed = function(msg){
-	// console.log(`goToBed called`);
-	console.log();
-	console.log(`${msg}, let's go to bed!`);
+const goToBed = function(msg){
+	console.log(`${msg}`);
 }
 
 
 prepareDinner()
-	.then(eatDinner)
-	.then(goToBed)
-	.catch(errMsg=>console.error(errMsg))
+	.then(prepareRes=>eatDinner(prepareRes))
+	.then(eatRes=>goToBed(eatRes))
+	.catch(handleError)
 
-console.log(`This code did not wait the dinner processes to end!\n`);

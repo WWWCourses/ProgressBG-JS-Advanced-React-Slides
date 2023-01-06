@@ -1,44 +1,38 @@
-let prepareDinner = function() {
-	setTimeout(() => {
-		const error = false;
+const handleError = err=>{
+	console.error(`Error: ${err}`)
+}
 
-		if(!error){
-			console.log(`prepareDinner is fulfilled`);
-			const dinner = 'pizza';
+const prepareDinner = ()=>{
+	setTimeout(() => {
+		// do work on prepare dinner
+		const dinner = 'pizza'
+		const success = true;
+
+		if(success){
+			console.log(`${dinner} is prepared!`);
 			eatDinner(dinner);
 		}else{
-			console.error(`Error: Can not buy dinner!`);
+			handleError(`Can not buy dinner!`);
 		}
 	}, 1000);
 };
 
-
-let eatDinner = function(dinner){
+const eatDinner = (dinner)=>{
 	setTimeout(() => {
-		const error = false;
+		// do work on eat dinner
+		const success = true;
 
-		if(!error){
-			console.log(`eatDinner is fulfilled`);
-			goToBed(`${dinner} eaten`)
+		if(success){
+			console.log(`${dinner} is eaten!`);
+			goToBed(`Sweet Dreams after ${dinner} `)
 		}else{
-			console.error(`Error: Can not eat dinner!`);
+			handleError(`Can not eat dinner!`);
 		}
-	}, 2000);
+	}, 1000);
 }
 
-let goToBed = function(msg){
-	// console.log(`goToBed called`);
-	console.log();
-	console.log(`${msg}, let's go to bed!`);
+const goToBed = (msg)=>{
+	console.log(`${msg}`);
 }
-
-TASK:
-// prepareDinner and if it is fulfilled
-// then eatDinner and if it is fulfilled
-// then goToBed
-
-
 
 prepareDinner();
-
-console.log(`This code did not wait the dinner processes to end!\n`);

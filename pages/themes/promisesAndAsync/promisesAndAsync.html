@@ -140,19 +140,23 @@
   </section>
 </section>
 
-<section data-min="5"><h1>Why?</h1></section>
-<section><h2>Why?</h2>
+<section data-min="5" id="whyUsingPromises"><h1>Why Using Promises?</h1></section>
+<section><h2>Why Using Promises?</h2>
 	<section><h3>The problem</h3>
 		<dl class="fa">
-			<dt>Examine the next code. It works as we want, but calling a function into another function is a bad practise</dt>
-			<dd>no separattion of concerns</dd>
-			<dd>spagetti code</dd>
+			<dt>Let's have to build a program which will:</dt>
+			<dd>prepareDinner() and if it is fulfilled, then</dd>
+			<dd>eatDinner() and if it is fulfilled, then</dd>
+			<dd>goToBed()</dd>
+			<dt>Examine the next code. It works as we want, but calling a function into another function is a bad practice</dt>
+			<dd>no <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a></dd>
+			<dd>spaghetti code</dd>
 		</dl>
-		<script src="https://gist.github.com/WWWCourses/de6465bf8c0a18a0604b550eb7a2441f.js"></script>
+		<script src="https://gist.github.com/WWWCourses/de6465bf8c0a18a0604b550eb7a2441f.js" ></script>
 	</section>
 	<section><h3>Solution with callbacks</h3>
 		<dl class="fa">
-			<dt>As you can see the code is still difficult to mange</dt>
+			<dt>To separate the concerns we can use callback functions, but the code is still difficult to mange. In fact, this is what is called a <span class="note">callback hell:</span></dt>
 		</dl>
 		<script src="https://gist.github.com/WWWCourses/3c1b13ea43461d67b1c6053839bbca3f.js"></script>
 	</section>
@@ -168,12 +172,24 @@
 <section data-min="5"><h1>Promises</h1></section>
 <section><h2>Promises</h2>
   <section><h3>Overview</h3>
-  	<dl class="fa">
-  		<dt>A Promise is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
-      <dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
-  	</dl>
+	<dl class="fa">
+		<dt>A Promise is an object representing the <span class="note">eventual completion or failure</span> of an <span class="note">asynchronous operation</span></dt>
+		<dt>Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks into a function.</dt>
+		<dt>A promise can either be <span class="note">fulfilled with a value</span> or <span class="note">rejected with a reason (error)</span></dt>
+		<dt>A promise object has method <code>then()</code> which accepts two callback functions and returns a promise object (which means that we can chain multiple <code>then()</code> calls)</dt>
+		<dt>Once a Promise is fulfilled or rejected, the respective handler function (onFulfilled or onRejected) will be called asynchronously</dt>
+		<pre><code rel="JS" class="js">
+			p.then(onFulfilled[, onRejected]);
+
+			p.then(value => {
+				// fulfillment
+			}, reason => {
+				// rejection
+			});
+		</code></pre>
+	</dl>
   </section>
-  <!-- <section><h3>The meaning</h3>
+ 																			 <!-- <section><h3>The meaning</h3>
     <dl class="fa">
       <dt>NLP case: "If you keep your promise to clean the room, then we are going to eat icecream</dt>
     </dl>
@@ -205,6 +221,7 @@
     <dl class="fa">
       <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises @mdn</a></dt>
       <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise Constructor @mdn</a></dt>
+	  <dt><a href="https://www.sitepoint.com/overview-javascript-promises/">An Overview of JavaScript Promises @sitepoint.com</a></dt>
     </dl>
   </section>
 </section>

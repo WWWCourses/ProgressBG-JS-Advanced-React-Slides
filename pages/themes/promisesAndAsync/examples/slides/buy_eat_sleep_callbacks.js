@@ -1,38 +1,44 @@
-let prepareDinner = function(callback1, callback2) {
-	setTimeout(() => {
-		const error = false;
+const handleError = err=>{
+	console.error(`Error: ${err}`)
+}
 
-		if(!error){
-			console.log(`prepareDinner is fulfilled`);
-			const dinner = 'pizza';
-			callback1(dinner, callback2);
+const prepareDinner = (successCallback, errorCallback)=>{
+	setTimeout(() => {
+		// do work on prepare dinner
+		const dinner = 'pizza'
+		const success = true;
+
+		if(success){
+			console.log(`${dinner} is prepared!`);
+			successCallback(dinner);
 		}else{
-			console.error(`Error: Can not buy dinner!`);
+			errorCallback(`Can not buy dinner!`);
 		}
 	}, 1000);
 };
 
-
-let eatDinner = function(dinner, callback){
+const eatDinner = (dinner, successCallback, errorCallback)=>{
 	setTimeout(() => {
-		const error = false;
+		// do work on eat dinner
+		const success = true;
 
-		if(!error){
-			console.log(`eatDinner is fulfilled`);
-			callback(`${dinner} eaten`)
+		if(success){
+			console.log(`${dinner} is eaten!`);
+			successCallback(`Sweet Dreams after ${dinner}`)
 		}else{
-			console.error(`Error: Can not eat dinner!`);
+			errorCallback(`Can not eat dinner!`);
 		}
-	}, 2000);
+	}, 1000);
 }
 
-let goToBed = function(msg){
-	// console.log(`goToBed called`);
-	console.log();
-	console.log(`${msg}, let's go to bed!`);
+const goToBed = function(msg){
+	console.log(`${msg}`);
 }
 
+// Callback hell
+prepareDinner((prepareRes)=>{
+	eatDinner(prepareRes, (eatRes)=>{
+		goToBed(eatRes)
+	},handleError)
+},handleError)
 
-prepareDinner(eatDinner,goToBed)
-
-console.log(`This code did not wait the icecream processes!\n`);
