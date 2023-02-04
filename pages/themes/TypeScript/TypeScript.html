@@ -193,8 +193,8 @@
 	</section>
 </section>
 
-<section data-min="10"><h1>Create TypeScript Project</h1></section>
-<section><h2>Create TypeScript Project</h2>
+<section data-min="10"><h1>Setup TypeScript Project</h1></section>
+<section><h2>Setup TypeScript Project</h2>
 	<section><h3>Prepare project folder structure</h3>
 		<p>You have to create nex folder structure for your TypeScript Demo Project:</p>
 		<pre><code rel="Folder structure" class="bash">
@@ -209,10 +209,12 @@
 			mkdir -p ts_demo_project/{dist,src}
 		</code></pre>
 	</section>
-	<section><h3>Create <code>package.json</code></h3>
+	<section><h3>Create <code>package.json</code> with npm</h3>
 		<dl class="fa">
 			<dt>The <code>package.json</code> file holds various metadata relevant to the project.</dt>
 			<dt>Reference: <a href="https://nodejs.org/en/knowledge/getting-started/npm/what-is-the-file-package-json/">What is the file `package.json`?</a></dt>
+			<dt>The command <code>npm init</code> is interactive, i.e. it will ask you question about the project providing sensible defaults.</dt>
+			<dd>If you want to skip questions, and use the defaults, you can use the -f option. I.e. <code>npm init -y</code></dd>
 		</dl>
 		<pre><code rel="Terminal" class="bash">
 			cd ts_demo_project
@@ -242,8 +244,9 @@
 			<dt><span class="note">source-map-loader</span> is useful for debugging</dt>
 		</dl>
 	</section> -->
-	<section><h3>The <code>tsconfig.json</code> file</h3>
+	<section><h3>Create <code>tsconfig.json</code> file</h3>
 		<dl class="fa">
+			<dt>The tsconfig.json contains the TypeScript compiler options for our project.</dt>
 			<dt>Reference: <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">What is a tsconfig.json?</a></dt>
 		</dl>
 		<pre><code rel="Terminal" class="bash">
@@ -251,7 +254,7 @@
 			pwd
 			# .../ts_demo_project
 
-			# create the tsconfig.json with some default settings
+			# create the tsconfig.json with default settings
 			tsc --init
 		</code></pre>
 		<p>or manually create the <code>tsconfig.json</code> and paste into it</p>
@@ -259,6 +262,7 @@
 			{
 				"compilerOptions": {
 					"outDir": "./dist/",
+					"rootDir": "./src/",
 					"sourceMap": false,
 					"module": "commonjs",
 					"target": "ES5",
@@ -268,10 +272,15 @@
 				]
 			}
 		</code></pre>
-		<p class="note">Just make sure, that you have <code>"outDir": "./dist/"</code></p>
+		<dl class="fa">
+			<dt>Just make sure, that you have set:</dt>
+			<dt><span class="note">outDir</span>: where TypeScript to put our compiled code. We want it to go to a dist/ folder.</dt>
+			<dt><span class="note">rootDir</span>: where TypeScript looks for our code. We've configured it to look in the src/ folder.</dt>
+		</dl>
 	</section>
 	<section><h3>Create a simple TS file</h3>
 		<dl class="fa">
+			<dt>As we set TS compiler to look for ts files in ./src/ folder, we must have at least one, before starting the compiler. Otherwise an error: "error TS18003: No inputs were found in config file ..." will be raised.</dt>
 			<dt>Create the <code>helloUser.ts</code> in <code>src/</code> folder</dt>
 		</dl>
 		<pre><code rel="ts_demo_project/src/helloUser.ts" class="ts">

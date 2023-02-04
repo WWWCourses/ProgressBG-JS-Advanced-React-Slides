@@ -90,26 +90,32 @@
 	</section>
 	<section><h3>Controlled Component</h3>
 		<dl class="fa">
-			<dt>When React state is the "single source of truth" for a form element.</dt>
+			<dt>When React state is the "single source of truth" for a form element. <span class="note">This is the preferred method!</span> </dt>
 		</dl>
-		<pre><code rel="JS" class="js">
-			class Forms extends React.Component{
+		<pre><code rel="JS" class="js" style="min-height: 71vh;">
+			class ControledFormComponent extends React.Component{
 				constructor(props){
-					super(props)
-
+					super(props);
 					this.state = {
-						&quot;email&quot;:&quot;&quot;
+						userNameValue: &quot;anonymous&quot;,
+						outputValue:&quot;&quot;
 					}
 				}
+				clickHandler=(e)=&gt;{
+					this.setState((state,_)=&gt;({outputValue:state.userNameValue}))
+				}
 
-				changeEmailHandler = (event)=&gt;{
-					this.setState({email:event.target.value})
+				changeHandler=(e)=&gt;{
+					this.setState((state,_)=&gt;({userNameValue:e.target.value}))
 				}
 
 				render(){
 					return &lt;div&gt;
-						&lt;input type=&quot;text&quot; value={this.state.email} onChange={this.changeEmailHandler}/&gt;
-					&lt;/div&gt;;
+						&lt;label&gt;user name: &lt;input type=&quot;text&quot; value={this.state.userNameValue} onChange={this.changeHandler}/&gt;&lt;/label&gt;
+						&lt;button onClick={this.clickHandler}&gt;Show&lt;/button&gt;
+						&lt;hr /&gt;
+						&lt;div className=&quot;output&quot;&gt;User name: {this.state.outputValue}&lt;/div&gt;
+					&lt;/div&gt;
 				}
 			}
 		</code></pre>
@@ -117,8 +123,42 @@
 	<section><h3>Controlled Component Flow</h3>
 		<a href="images/ControlledComonentsFlow.png"><img src="images/ControlledComonentsFlow.png" alt="ControlledComonentsFlow.png"></a>
 	</section>
-</section>
+	<section><h3>Uncontrolled Component</h3>
+		<dl class="fa">
+			<dt>To write an uncontrolled component, instead of writing an event handler for every state update, you can use a <a href="https://reactjs.org/docs/refs-and-the-dom.html">ref</a> to get form values from the DOM.</dt>
+			<dt>Refs provide a way to access DOM nodes or React elements created in the render method.</dt>
+			<dt>Note: do not overuse refs. Next example is just a demo for Uncontrolled Component. Check <a href="https://reactjs.org/docs/refs-and-the-dom.html#when-to-use-refs">When to Use Refs</a></dt>
+			<pre><code rel="JS" class="js">
+				class UncontroledFormComponent extends React.Component{
+					constructor(props){
+						super(props);
+						this.state = {
+							outputValue:&quot;&quot;
+						}
+						this.userNameInput = React.createRef()
+					}
+					clickHandler=(e)=&gt;{
+						this.setState({outputValue:this.userNameInput.current.value})
+						this.userNameInput.current.value = &quot;&quot;;
 
+						//  next is a goog use of Refs:
+						this.userNameInput.current.focus()
+					}
+
+					render(){
+						return &lt;div&gt;
+							&lt;label&gt;user name: &lt;input type=&quot;text&quot; ref={this.userNameInput}/&gt;&lt;/label&gt;
+							&lt;button onClick={this.clickHandler}&gt;Show&lt;/button&gt;
+							&lt;hr /&gt;
+							&lt;div className=&quot;output&quot;&gt;User name: {this.state.outputValue}&lt;/div&gt;
+						&lt;/div&gt;
+					}
+				}
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<!--
 <section data-min="1" id='hw'><h1>Exercises</h1></section>
 <section><h2>Get input value on each button click</h2>
 	<section><h3>Get input value on each button click</h3>
@@ -128,7 +168,7 @@
 		</dl>
 		<a href="images/reactFormsHW.gif"><img src="images/reactFormsHW.gif" alt="reactFormsHW.gif" title="click for bigger image"></a>
 	</section>
-</section>
+</section> -->
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
 	 <p>These slides are based on</p>

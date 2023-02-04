@@ -253,7 +253,6 @@
 		<dl class="fa">
 			<dt>We <span class="note">do not manipulate directly the state object</span>, but rather - using the <code>setState() method</code>.</dt>
 			<dt>In fact, we assign a value to <code>this.state</code> only once - <span class="note">to set the initial state</span>, usually in the constructor or some Lifecycle method (discussed further).</dt>
-			<dd>So, in class component you need a constructor when you want to set initial state.</dd>
 			<dt><code>setState()</code> enqueues changes to the component state and tells React that this component and its children need to be re-rendered with the updated state.</dt>
 			<dt>Reference: <a href="https://reactjs.org/docs/react-component.html#setstate">setState() @react docs</a></dt>
 		</dl>
@@ -293,7 +292,7 @@
 
 		</code></pre>
 	</section>
-	<section><h3>Reading state</h3>
+	<section><h3>Reading state - the pitfall</h3>
 		<dl class="fa">
 			<dt>setState() does not always immediately update the component.</dt>
 			<dt>It may batch or defer the update until later. This makes reading <code>this.state </code> right after calling setState() a potential pitfall.</dt>
@@ -307,6 +306,38 @@
 
 					// note that we get the old state value
 					console.log(`new state: ${this.state.count}`);
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Reading State</h3>
+		<dl class="fa">
+			<dt>If you need to get updated state use componentDidUpdate  method (discussed further) or a setState callback (setState(updater, callback)), either of which are guaranteed to fire after the update has been applied.</dt>
+			<pre><code rel="JS" class="js">
+				increment = ()=>{
+					// change state
+					this.setState(
+						{
+								'count': this.state.count+1
+						},
+						// the new state will be accessed properly
+						()=>console.log(`new state: ${this.state.count}`)
+					)
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Set the state based on the previous state</h3>
+		<dl class="fa">
+			<dt>If you need to set the state based on the previous state, it's best to use <code>setState</code> with updater function instead of passing object.</dt>
+			<pre><code rel="JS" class="js">
+				increment = ()=>{
+					// next may not work as expected, try to call it twice, for instance
+					// this.setState( {count: this.state.count+1} )
+					// this.setState( {count: this.state.count+1} )
+
+					// next will work as expected
+					this.setState((state, props) => {return {count:state.count+1}} )
 				}
 			</code></pre>
 		</dl>
@@ -340,15 +371,47 @@
 		</table>
 	</section>
 </section>
-<!--
-<section data-min="5"><h1>Lifting State Up</h1></section>
-<section><h2>Lifting State Up</h2>
-	<section>
+
+<section data-min="5"><h1>Share state between components. Lifting State Up </h1></section>
+<section><h2>Share state between components. Lifting State Up</h2>
+	<section><h3>Share state between Parent and Child components</h3>
 		<dl class="fa">
+			<dt>We can pass the state from Parent to Child Component using props</dt>
+			<pre><code rel="JS" class="js" style="min-height: 53vh">
+				class Parent extends React.Component{
+					constructor(props){
+						super(props)
+						this.state={count:1}
+					}
+
+					clickHandler=()=&gt;{
+						this.setState((state,_)=&gt;({count:state.count+1}))
+					}
+
+					render(){
+						return &lt;div&gt;
+							&lt;button onClick={this.clickHandler}&gt;+&lt;/button&gt;
+							&lt;Child state={this.state}/&gt;
+						&lt;/div&gt;
+					}
+				}
+
+				function Child(props){
+					return &lt;div&gt;
+						&lt;span&gt;Count in parent: {props.state.count}&lt;/span&gt;
+					&lt;/div&gt;
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Lifting State Up</h3>
+		<dl class="fa">
+			<dt>If you want the state of two components to always change together, remove state from both of them, move it to their closest common parent, and then pass it down to them via props. This is known as lifting state up</dt>
+			<img src="./images/liftingStateUp.png" alt="liftingStateUp.png">
 			<dt>Reading: <a href="https://reactjs.org/docs/lifting-state-up.html">Lifting State Up</a> @react docs</dt>
 		</dl>
 	</section>
-</section> -->
+</section>
 
 
 <section data-min="5"><h1>References</h1></section>
@@ -356,6 +419,7 @@
 	<section><h3>Docs</h3>
 		<dl class="fa">
 			<dt><a href="https://reactjs.org/docs/components-and-props.html">Components and Props Overview</a></dt>
+			<dt><a href="https://beta.reactjs.org/learn/state-a-components-memory">State: A Component's Memory</a></dt>
 			<dt><a href="https://reactjs.org/docs/react-component.html">React.Component class definition</a></dt>
 		</dl>
 	</section>
