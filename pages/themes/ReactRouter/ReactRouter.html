@@ -98,22 +98,22 @@
 	</section>
 	<section><h3>Example</h3>
 		<pre><code rel="JS" class="js">
-			import React from "react";
-			import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-			import { About, Contacts } from "./routes/pages";
+			import React from &quot;react&quot;;
+			import { BrowserRouter, Routes, Route, Link } from &quot;react-router-dom&quot;;
+			import { About, Contacts } from &quot;./routes/pages&quot;;
 
 			export default function (params) {
 				return (
-					<BrowserRouter>
-						<nav>
-							<Link to="/about">About page</Link>
-							<Link to="/contacts">Contacts page</Link>
-						</nav>
-						<Routes>
-							<Route path="/about" element={<About/>}></Route>
-							<Route path="/contacts" element={<Contacts/>}></Route>
-						</Routes>
-					</BrowserRouter>
+					&lt;BrowserRouter&gt;
+						&lt;nav&gt;
+							&lt;Link to=&quot;/about&quot;&gt;About page&lt;/Link&gt;
+							&lt;Link to=&quot;/contacts&quot;&gt;Contacts page&lt;/Link&gt;
+						&lt;/nav&gt;
+						&lt;Routes&gt;
+							&lt;Route path=&quot;/about&quot; element={&lt;About/&gt;}&gt;&lt;/Route&gt;
+							&lt;Route path=&quot;/contacts&quot; element={&lt;Contacts/&gt;}&gt;&lt;/Route&gt;
+						&lt;/Routes&gt;
+					&lt;/BrowserRouter&gt;
 				)
 			}
 		</code></pre>
