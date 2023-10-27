@@ -460,6 +460,17 @@
 			</code></pre>
 		</dl>
 	</section>
+	<section><h3>Example: delete object property</h3>
+		<pre><code rel="JS" class="js">
+			let obj = {'a':1,'b':2,'c':3}
+
+			// 'c' will go into c, and the rest of obj into obj2
+			let {c,...obj2} = obj
+
+			console.log(c);
+			console.log(obj2);
+		</code></pre>
+	</section>
 	<section><h3>Example</h3>
 		<dl class="fa">
 			<dt>Imagine, we have next user data as object:</dt>
@@ -487,6 +498,7 @@
 
 				greet(userData);
 			</code></pre>
+			<p class="note">Note, that such object destructuring (in function call) is a very common pattern used in React!</p>
 		</dl>
 	</section>
 </section>
