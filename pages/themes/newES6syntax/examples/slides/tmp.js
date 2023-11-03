@@ -1,14 +1,23 @@
-function User(userName) {
-  this.userName = userName
+class A{
+    #id
+    get id(){
+        return this.#id
+    }
+
+    set id(id){
+        this.#id = id
+    }
 }
-User.prototype.greet = function () {
-  console.log(`Hi, I'm ${this.userName}`);
-}
 
-const pesho = new User('Peter');
 
-// Calling greet method immediately: works ok
-pesho.greet();
+const a = new A();
 
-// Calling greet method after 2sec: bug!
-setTimeout(pesho.greet,2000);
+a['#id'] = 9;
+console.log(a.id);
+
+
+a.id = 1;
+console.log(a.id);
+
+
+console.dir(a);

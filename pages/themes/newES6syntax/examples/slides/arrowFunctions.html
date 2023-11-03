@@ -25,7 +25,22 @@
 
 		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
 		},
-		'thisValue': function(){
+		'thisValue_1': function(){
+		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
+			var obj = {
+				'id': 1,
+				'exp': function(){
+					console.log(this.id);
+				},
+				'arr': ()=>{console.log(this.id)}
+			}
+
+
+			obj.exp(); // false
+			obj.arr(); // true
+		//▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴▴//
+		},
+		'thisValue_2': function(){
 		//▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾▾//
 			lexicalThis = this;
 
@@ -180,7 +195,7 @@
 		}
 	}
 
-	examples.tmp();
+	examples.thisValue_1();
 </script>
 </body>
 </html>
