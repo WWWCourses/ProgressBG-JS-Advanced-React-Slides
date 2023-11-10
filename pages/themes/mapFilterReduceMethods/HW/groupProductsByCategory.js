@@ -53,7 +53,6 @@ function groupProductsByCategory_ForLoop(products) {
 		if( !groupedProducts[p.category] ){
 			groupedProducts[p.category]=[]
 		}
-
 		groupedProducts[p.category].push(p)
 	});
 
@@ -67,8 +66,8 @@ function groupProductsByCategory_Reduce(products) {
 			groupedProducts[p.category] = []
 		}
 		groupedProducts[p.category].push(p);
-		return groupedProducts;
 
+		return groupedProducts;
 	}, {});
 }
 
