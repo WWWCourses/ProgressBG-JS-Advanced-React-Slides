@@ -9,7 +9,7 @@ let toggleButtonsTopOffset = toggleButtonsDiv.offsetTop;
 
 var hours_per_day = 4;
 themes.shown = true;
-subThemes.shown = false;
+subThemes.shown = true;
 
 
 window.onload = function(){
