@@ -89,6 +89,30 @@
 			<dt>Reference: <a href="https://nodejs.org">node.js.org</a></dt>
 		</dl>
 	</section>
+	<section><h3>Example: Reading a File Asynchronously</h3>
+		<pre><code rel="JS" class="js">
+			// use the 'fs' node module
+			const fs = require('fs');
+
+			// File path
+			const filePath = 'path/to/your/file.txt';
+
+			// Reading file asynchronously
+			fs.readFile(filePath, 'utf8', (err, data) => {
+				if (err) {
+					console.error("Error reading the file:", err);
+					return;
+				}
+				console.log("File content:", data);
+			});
+
+			console.log("This message is displayed first.");
+		</code></pre>
+		<dl class="fa">
+			<dt>The fs module provides an API for interacting with the file system</dt>
+			<dt>The fs.readFile function is used to read files <span class="note">in a non-blocking (async)</span> manner.</dt>
+		</dl>
+	</section>
 	<section><h3><code>npm - the Node Package Manager</code></h3>
 		<dl class="fa">
 			<dt><code>npm</code> is a package manager for the JavaScript programming language.</dt>

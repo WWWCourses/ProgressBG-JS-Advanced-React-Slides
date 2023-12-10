@@ -202,30 +202,64 @@
 		</code></pre>
 	</dl>
   </section>
- 																			 <!-- <section><h3>The meaning</h3>
-    <dl class="fa">
-      <dt>NLP case: "If you keep your promise to clean the room, then we are going to eat icecream</dt>
-    </dl>
-    <pre><code rel="JS" class="js">
-      let cleanRoom = new Promise(function(resolve, reject) {
-        setTimeout(function() {
-          resolve(`cleanRoom: resolved after 1s`);
-        }, 1000);
-      });
+</section>
 
+<section data-min="10"><h1>Async/Await</h1></section>
+<section><h2>Async/Await</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Async/await is a syntactic feature that allows writing asynchronous code in a more synchronous manner. It's built on top of Promises.</dt>
+			<dt>An async function always returns a Promise.</dt>
+			<dt> The await keyword can be used inside async functions to pause the execution until the Promise is resolved.</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			let getDataPromise = new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve('Some data');
+					// reject('Error message');
+				}, 1000);
+			});
 
-      let eatIcecream = function(){
-        return new Promise(function (resolve, reject){
-          console.log(`Icecream time! `);
-          setTimeout( _=>{
-            resolve('eatIcecream: resolved after 2s')
-          },2000)
-        })
-      }
+			async function renderData() {
+				try {
+					const data = await getDataPromise
+					console.log(data);
+				} catch (error) {
+					console.error(error);
+				}
+			}
 
-      cleanRoom.then(eatIcecream)
-    </code></pre>
-  </section> -->
+			renderData();
+		</code></pre>
+	</section>
+	<section><h3>Async/Await API vs Promise API</h3>
+		<pre><code rel="JS" class="js">
+			let getDataPromise = new Promise((resolve, reject) => {
+				setTimeout(() => {
+					// resolve('Some data');
+					reject('Can not get data!');
+				}, 1000);
+			});
+			// using getDataPromise with Async/Await API:
+			async function renderData() {
+				try {
+					const data = await getDataPromise
+					console.log(data);
+				} catch (error) {
+					console.error(error);
+				}
+			}
+
+			// using getDataPromise with Promise API:
+			function renderData() {
+				getDataPromise
+				.then(data=>console.log(data))
+				.catch(err=>console.log(err))
+			}
+
+			renderData();
+		</code></pre>
+	</section>
 </section>
 
 <section data-min="5"><h1>References</h1></section>

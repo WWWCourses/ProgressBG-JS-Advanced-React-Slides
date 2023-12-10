@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nested fetch requests demo</title>
+</head>
+<body>
+	<button>Get data</button>
+	<div class="content"></div>
+	<script>
+		function doSomethingWithData(data) {
+			dom.content.innerHTML += `<div>${data.joke}</div>`;
+		}
+
+		async function fetchDataAsync(url) {
+			try {
+				// Making a GET request to the URL
+				const response = await fetch(url);
+
+				// Checking if the request was successful
+				if (!response.ok) {
+					throw new Error(`HTTP error! Status: ${response.status}`);
+				}
+
+				// Parsing the JSON response
+				const data = await response.json();
+
+				// Do something with data:
+				console.log(data);
+				doSomethingWithData(data)
+			} catch (error) {
+				// Handling any errors that occur during the fetch
+				console.error('Fetch error:', error.message);
+			}
+		}
+
+		function fetchData(url) {
+			// Making a GET request to the URL
+			fetch(url)
+				.then(response => {
+					// Checking if the request was successful
+					if (!response.ok) {
+						throw new Error(`HTTP error! Status: ${response.status}`);
+					}
+					return response.json(); // Parsing the JSON response
+				})
+				.then(data => {
+					// Do something with data:
+					console.log(data); // Logging the data to the console
+					doSomethingWithData(data)
+				})
+				.catch(error => {
+					// Handling any errors that occur during the fetch
+					console.error('Fetch error:', error.message);
+				});
+		}
+
+
+		const dom = {
+			'button': document.querySelector('button'),
+			'content': document.querySelector('.content')
+		};
+		// url = 'https://jsonplaceholder.typicode.com/todos/1';
+		url = 'https://v2.jokeapi.dev/joke/Coding?blacklistFlags=nsfw,racist,sexist,explicit'
+
+
+		dom.button.addEventListener('click', ()=> fetchData(url))
+	</script>
+</body>
+</html>
