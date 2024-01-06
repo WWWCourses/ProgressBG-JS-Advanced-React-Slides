@@ -115,7 +115,7 @@
 			import './index.css';
 		</code></pre>
 		<dl class="fa">
-			<dt>Note, that wnen we import from node_modules folder, we <span class="note">must not </span> use the './' prefix in path</dt>
+			<dt>Note, that when we import from node_modules folder, we <span class="note">must not </span> use the './' prefix in path</dt>
 			<dt>But when we import a file from our project, we <span class="note">must</span> prepend './' prefix in path</dt>
 		</dl>
 	</section>
@@ -125,18 +125,18 @@
 			<dt><code><a href="https://reactjs.org/docs/react-api.html#createelement">React.createElement()</a></code> method</dt>
 		</dl>
 		<pre><code rel="helloWorld.js" class="js">
-			const h1 = React.createElement("h1", {className: 'green'}, "Hello, world!");
+			const h1 = React.createElement(&quot;h1&quot;, {className: &#39;green&#39;}, &quot;Hello, world!&quot;);
 			ReactDOM.render(
-			h1, document.getElementById('root')
+			h1, document.getElementById(&#39;root&#39;)
 			);
 		</code></pre>
 		<dl class="fa">
-			<dt>JSX syntax (the preferred way)</dt>
+			<dt>JSX syntax (the preferred way - discussed deeply in next lectures)</dt>
 		</dl>
 		<pre><code rel="helloWorld.jsx" class="jsx">
-			const h1 = <h1 className="green">Hello, world!</h1>
+			const h1 = &lt;h1 className=&quot;green&quot;&gt;Hello, world!&lt;/h1&gt;
 			ReactDOM.render(
-			h1, document.getElementById('root')
+			h1, document.getElementById(&#39;root&#39;)
 			);
 		</code></pre>
 	</section>
