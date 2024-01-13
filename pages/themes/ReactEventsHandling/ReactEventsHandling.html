@@ -184,27 +184,27 @@
 			import React from 'react';
 
 			class Clicker extends React.Component{
-			constructor(props){
-				super(props);
-				this.state = {
-					count:1
+				constructor(props){
+					super(props);
+					this.state = {
+						count:1
+					}
 				}
-			}
 
-			clickHandler(e) {
-				console.log(`Btn was clicked`);
-				this.setState({cont: this.state.count+1})
+				clickHandler(e) {
+					console.log(`Btn was clicked`);
+					this.setState({cont: this.state.count+1})
 
-			}
+				}
 
-			render(){
-				return(
-				<div>
-					<button id='btn2' onClick={this.clickHandler}>Click me</button>
-					<div>You clicked {this.state.count} times.</div>
-				</div>
-				)
-			}
+				render(){
+					return(
+					<div>
+						<button id='btn2' onClick={this.clickHandler}>Click me</button>
+						<div>You clicked {this.state.count} times.</div>
+					</div>
+					)
+				}
 			}
 
 			export default Clicker;
