@@ -198,6 +198,69 @@
 			}[]);
 		</code></pre>
 	</section>
+	<section><h3>useEffect instead componentDidMount</h3>
+		<pre><code rel="react" class="js">
+			import React, { useEffect } from &#39;react&#39;;
+
+			function ComponentDidMountExample() {
+				useEffect(() =&gt; {
+					// Code to run when component mounts (equivalent to componentDidMount)
+
+					return () =&gt; {
+					// Cleanup code (equivalent to componentWillUnmount)
+					};
+				}, []); // Empty dependency array means it runs once after the initial render
+
+				// Component render logic
+
+				return &lt;div&gt;ComponentDidMount Example&lt;/div&gt;;
+			}
+		</code></pre>
+	</section>
+	<section><h3>useEffect instead componentDidUpdate</h3>
+		<pre><code rel="react" class="js">
+			import React, { useEffect, useState } from &#39;react&#39;;
+
+			function ComponentDidUpdateExample() {
+				const [count, setCount] = useState(0);
+
+				useEffect(() =&gt; {
+					// Code to run when component updates (equivalent to componentDidUpdate)
+					console.log(`Component updated. Count: ${count}`);
+				}, [count]); // Run only when the &#39;count&#39; state changes
+
+				// Component render logic
+
+				return (
+					&lt;div&gt;
+					&lt;p&gt;Count: {count}&lt;/p&gt;
+					&lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;
+					&lt;/div&gt;
+				);
+			}
+		</code></pre>
+	</section>
+	<section><h3>useEffect instead componentWillUnmount</h3>
+		<pre><code rel="react" class="js">
+			import React, { useEffect } from &#39;react&#39;;
+
+			function ComponentWillUnmountExample() {
+				useEffect(() =&gt; {
+					// Code to run when component mounts (equivalent to componentDidMount)
+
+					return () =&gt; {
+					// Cleanup code (equivalent to componentWillUnmount)
+					console.log(&#39;Component will unmount&#39;);
+					};
+				}, []); // Empty dependency array means it runs once after the initial render
+
+				// Component render logic
+
+				return &lt;div&gt;ComponentWillUnmount Example&lt;/div&gt;;
+			}
+		</code></pre>
+	</section>
+
 	<section><h3>References</h3>
 		<dl class="fa">
 			<dt><a href="https://reactjs.org/docs/hooks-effect.html">Using the Effect Hook @react docs</a></dt>
