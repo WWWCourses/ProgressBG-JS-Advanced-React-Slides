@@ -235,6 +235,104 @@
 	</section>
 </section>
 
+<section data-min="50"><h1>Function Components lifecycle-like hooks</h1></section>
+<section><h2>Function Components lifecycle-like hooks</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>In React, functional components have lifecycle-like behavior through the use of Hooks. Hooks are functions that let you use state and other React features in functional components</dt>
+			<dt>While functional components don't have traditional lifecycle methods like class components, they have equivalent Hooks to achieve similar behavior.</dt>
+			<dt>Hooks provide functional components with the ability to manage state, handle side effects, consume context, manage complex state logic, and optimize performance, thereby covering various aspects of what was traditionally handled by lifecycle methods in class components</dt>
+			<dt>The use of Hooks makes functional components a powerful and flexible alternative to class components in React.</dt>
+			<dt>In next slides we'll discuss some commonly used Hooks in functional components that correspond to different phases of a component's "lifecycle":</dt>
+			<dt>In next lecture "ReactHooks" we will dive into more details.</dt>
+		</dl>
+	</section>
+	<section><h3>useState</h3>
+		<dl class="fa">
+			<dt>This Hook allows functional components to manage state. You can use it to declare state variables and update them within your components. It's often used to replace the this.state in class components.
+			</dt>
+			<pre><code rel="react" class="js">
+				import React, { useState } from 'react';
+
+				function ExampleComponent() {
+					const [count, setCount] = useState(0);
+
+					// ...
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>useEffect</h3>
+		<dl class="fa">
+			<dt>This Hook is used to perform side effects in your components.</dt>
+			<dt>It serves a similar purpose to componentDidMount, componentDidUpdate, and componentWillUnmount in class components.</dt>
+			<dt>It allows you to run code after the component has rendered, and clean up any resources when the component is unmounted.</dt>
+			<pre><code rel="react" class="js">
+				import React, { useEffect } from 'react';
+
+				function ExampleComponent() {
+					useEffect(() => {
+						// Code to run after render or on component update
+
+						return () => {
+						// Cleanup code (optional) when the component is unmounted
+						};
+					}, [/* dependency array */]);
+
+					// ...
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>useContext</h3>
+		<dl class="fa">
+			<dt>This Hook is used to subscribe to React context without introducing nesting. It allows your component to consume values from the context</dt>
+			<pre><code rel="react" class="js">
+				import React, { useContext } from 'react';
+				import MyContext from './MyContext';
+
+				function ExampleComponent() {
+					const contextValue = useContext(MyContext);
+
+					// ...
+				}
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>useReducer</h3>
+		<dl class="fa">
+			<dt>This Hook is used to manage more complex state logic in your components. It's often preferable to useState when the next state depends on the previous one and involves more complex logic.</dt>
+			<pre><code rel="react" class="js">
+				import React, { useReducer } from 'react';
+
+				function reducer(state, action) {
+				// ... logic to compute the next state based on the action
+				}
+
+				function ExampleComponent() {
+				const [state, dispatch] = useReducer(reducer, initialState);
+
+				// ...
+				}
+
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>useCallback and useMemo:</h3>
+		<dl class="fa">
+			<dt>These Hooks are used to optimize performance by memorizing functions or values, preventing unnecessary re-renders.</dt>
+			<pre><code rel="react" class="js">
+				import React, { useCallback, useMemo } from 'react';
+
+				const memoizedCallback = useCallback(() => {
+				// ... function logic
+				}, [/* dependencies */]);
+
+				const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+			</code></pre>
+		</dl>
+	</section>
+</section>
 
 
 <section data-min="1" id='hw'><h1>Exercises</h1></section>

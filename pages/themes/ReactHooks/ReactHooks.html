@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ReactHooks</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- custom -->
+	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+		<div class="top_links">
+			<a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+			<span class="help_link"><i class="fa fa-question"></i></span>
+			<div class="help_text">
+				<div class="note">Keyboard shortcuts:</div>
+				<div><span>N/Спейс</span><span>Next Slide</span></div>
+				<div><span>P</span><span>Previous Slide</span></div>
+				<div><span>O</span><span>Slides Overview</span></div>
+				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+			</div>
+		</div>
+		<div class="footer theme_switch">
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+		</div>
+		<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>ReactHooks</h1></section>
+<section data-transition="zoom">
+	<section>
+		<div class="copyright">
+			<div class="note">
+				<p>Created for</p>
+			</div>
+			<div class="company">
+				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+				</a>
+			</div>
+		</div>
+	</section>
+	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+		<div class="note">
+			<p>Created by</p>
+		</div>
+		<div class="company">
+		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+		</div>
+		<!-- <div class="author">
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+		</div> -->
+	</section>
+</section>
+
+
+<section data-min="5"><h1>React Hooks</h1></section>
+<section><h2>React Hooks</h2>
+  <section><h3>Overview</h3>
+	<dl class="fa">
+		<dt>React Hooks are new feature in React 16.8.</dt>
+		<dt>They let us use state and other React features without writing a class.</dt>
+		<dt><span class="note">A Hook is a special function that lets you “hook into” React features</span></dt>
+		<dt>Reference: <a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook @ reactjs.org</a></dt>
+	</dl>
+  </section>
+  <section><h3>Why using Hooks?</h3>
+  	<dl class="fa">
+  		<dt>If you write a function component and realize you need to add some state to it, previously you had to convert it to a class.</dt>
+  		<dt><span class="note">With React Hooks you can use a Hook inside the existing function component.</span></dt>
+  	</dl>
+  </section>
+  <section><h3>Why using Hooks?</h3>
+	<p>An excellent explanation from Dan Abramov (creator of <a href="https://redux.js.org/">Redux</a> )</p>
+	<iframe width="697" height="393" src="https://www.youtube.com/embed/dpw9EHDh2bM"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+</section>
+
+<section data-min="50"><h1>useState() hook</h1></section>
+<section><h2>useState() hook</h2>
+	<section><h3>basic syntax</h3>
+		<pre><code rel="Syntax" class="js">
+			import { useState } from 'react';
+
+			// In next syntax, the JS "Array Destructuring" syntax is used:
+			const [stateVal, setStateVal] = useState(initialState);
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">initialState</span> - sets initial state value.Unlike with classes, the state doesn’t have to be an object</dt>
+			<dt><span class="note">stateVal</span> -  a stateful value. During subsequent re-renders, the state value returned by useState will always be the most recent state after applying updates.</dt>
+			<dd>Similar to <code>this.state.stateVal</code> in class components</dd>
+			<dt><span class="note">setStateVal</span> -  a function, which updates the stateful value. It accepts a new state value and enqueues a re-render of the component.</dt>
+			<dd><code>setStateVal(newStateVal);</code></dd>
+			<dd>Similar to <code>this.setState</code> in class components</dd>
+			<dt>Reference: <a href="https://reactjs.org/docs/hooks-reference.html#usestate">useState @reactjs.org</a></dt>
+		</dl>
+	</section>
+	<section><h3>The updater function</h3>
+		<dl class="fa">
+			<dt>The updater function <code>setStateVal()</code> can accept a value, or if the new state is computed using the previous state, you can pass a function to it.</dt>
+			<dd>The function will receive the previous value, and return an updated value.</dd>
+		</dl>
+		<pre><code rel="JS" class="js">
+			import { useState } from 'react';
+
+			function Counter({initialCount}) {
+				const [count, setCount] = useState(initialCount);
+				return (
+					&lt;div&gt;
+						Count: {count}
+						&lt;button onClick={() =&gt; setCount(initialCount)}&gt;Reset&lt;/button&gt;
+						&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount + 1)}&gt;+&lt;/button&gt;
+						&lt;button onClick={() =&gt; setCount(prevCount =&gt; prevCount - 1)}&gt;-&lt;/button&gt;
+					&lt;/div&gt;
+				);
+			}
+		</code></pre>
+	</section>
+	<section><h3>The updater function - notes</h3>
+		<dl class="fa">
+			<dt>Unlike the <code>setState()</code> method found in class components, <code>useState()</code> does not automatically merge update objects.</dt>
+			<dt>You can replicate this behavior by combining the function updater form with object spread syntax:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			setState(prevState => {
+				return {...prevState, ...updatedValues};
+			});
+		</code></pre>
+	</section>
+	<section><h3>The initialState argument</h3>
+		<dl class="fa">
+			<dt>The initialState argument is the initial state used during the initial render. <span class="note">In subsequent renders, it is disregarded.</span></dt>
+			<dt>Unlike with classes, the initial state value doesn’t have to be an object</dt>
+			<dt> If the initial state is the result of an expensive computation, you may provide a function instead, which will be executed only on the initial render:</dt>
+		</dl>
+		<pre><code rel="JS" class="js">
+			const [state, setState] = useState(() => {
+				const initialState = someExpensiveComputation(props);
+				return initialState;
+			});
+		</code></pre>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/hooks-state.html">Using the State Hook</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-rules.html">Rules of Hooks</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-reference.html#usestate">hooks-reference - usestate</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="5"><h1>useEffect() hook</h1></section>
+<section><h2>useEffect() hook</h2>
+	<section><h3>Overview and Syntax</h3>
+		<pre><code rel="Syntax" class="js">
+				useEffect(didUpdateFunction, array);
+			</code></pre>
+		<dl class="fa">
+			<dt>The Effect Hook lets you perform side effects (like data fetching, setting up a subscription, manually changing the DOM) in function components</dt>
+			<dt> you can think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.</dt>
+			<dt><span class="note">didUpdateFunction</span> - function that will be run after the render is committed to the screen</dt>
+			<dt><span class="note">array</span> - optional,the array of values that the effect depends on.</dt>
+			<dt>By default, effects run after every completed render, but you can choose to fire them only when certain values (passed in <span class="note">array</span>) have changed.
+			</dt>
+			<dt>If you want to run an effect and clean it up only once (on mount and unmount), you can pass an empty array ([]) as a second argument, and your <span class="note">didUpdateFunction</span> must return a cleanup function</dt>
+		</dl>
+		<pre><code rel="Syntax" class="js">
+			useEffect(() =&gt; {
+				// Side Effects
+
+				return () =&gt; {
+					// Side Effects Cleanup
+				}
+			}[]);
+		</code></pre>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://reactjs.org/docs/hooks-effect.html">Using the Effect Hook @react docs</a></dt>
+			<dt><a href="https://reactjs.org/docs/hooks-reference.html#useeffect">useEffect @react_hooks-reference</a></dt>
+		</dl>
+	</section>
+</section>
+
+<!--
+<section data-min="5"><h1>TodoApp with useState() - live demo</h1></section>
+<section><h2>TodoApp with useState() - live demo</h2>
+
+</section> -->
+
+
+<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
+<section><h2>Task1: __task_title__</h2>
+  <section><h3>__task_description__</h3>
+	<dl class="fa">
+		<dt></dt>
+	</dl>
+  </section>
+</section> -->
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
+	 <p>These slides are based on</p>
+	 <p>customised version of </p>
+	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+	 <p>framework</p>
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="../../../outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="../../../lib/reveal.js/js/reveal.js"></script>
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+			center: true,
+			width: '100%',
+			height: '100%',
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+
+</body>
+</html>
