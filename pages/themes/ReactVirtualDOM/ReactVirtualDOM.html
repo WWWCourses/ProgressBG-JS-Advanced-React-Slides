@@ -108,11 +108,22 @@
   </section>
   <section><h3>The Diffing Algorithm</h3>
   	<dl class="fa">
+		<dt>React's reconciliation or "diffing" algorithm is at the core of its efficient rendering process.</dt>
+		<dt>When changes occur in a React application, React needs to update the user interface to reflect these changes.</dt>
+		<dt>The process of comparing the current virtual DOM with the previous one and determining the minimum number of updates needed is known as "reconciliation" or "diffing."</dt>
+		<dt>React uses a diffing algorithm to minimize the number of updates required when the state or props of a component change</dt>
   		<dt><a href="https://reactjs.org/docs/reconciliation.html#the-diffing-algorithm">React Diffing Algorithm</a></dt>
   	</dl>
   </section>
-  <section>
-  	<a href="images/virtualDOMdiffing.png"><img src="images/virtualDOMdiffing.png"></a>
+  <section><h3>The steps</h3>
+	<dl class="fa">
+		<dt><span class="note">1. Create Virtual DOM</span>: React maintains a virtual representation of the DOM in memory, known as the virtual DOM. This is a lightweight copy of the actual DOM.</dt>
+		<dt><span class="note">2. Render</span>: When a component's state or props change, React re-renders the component and generates a new virtual DOM representation.</dt>
+		<dt><span class="note">3. Diffing</span>: React performs a "diffing" or reconciliation process to compare the new virtual DOM with the previous one. It identifies the differences or "diffs" between the two.
+			Minimal Updates: React determines the most efficient way to update the actual DOM based on the identified differences. Instead of updating the entire DOM, React calculates the minimal set of changes required to update only the parts of the DOM that changed.</dt>
+		<dt><span class="note">4. Reconciliation</span>: The calculated changes are applied to the actual DOM, updating only the necessary elements.</dt>
+	</dl>
+  	<!-- <a href="images/virtualDOMdiffing.png"><img src="images/virtualDOMdiffing.png"></a> -->
   </section>
   <section><h3>Batching</h3>
   	<dl class="fa">
