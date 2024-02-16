@@ -1,50 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>git_overview</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<!-- css & themes include -->
-	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	</script>
-	<!--[if lt IE 9]>
-	<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
-	<!-- custom -->
-	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-	<base target="_blank">
+    <meta charset="utf-8">
+    <title>git_overview</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
 </head>
 <body>
-	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-		<div class="top_links">
-			<a class="home_link" href="../../../index.html#git_overview" target="_top"><i class="fa fa-home"></i></a>
-			<span class="help_link"><i class="fa fa-question"></i></span>
-			<div class="help_text">
-				<div class="note">Keyboard shortcuts:</div>
-				<div><span>N/Спейс</span><span>Next Slide</span></div>
-				<div><span>P</span><span>Previous Slide</span></div>
-				<div><span>O</span><span>Slides Overview</span></div>
-				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
-				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
-				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
-			</div>
-		</div>
-		<div class="footer theme_switch">
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-		</div>
-		<div class="slides">
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#git_overview" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -52,156 +52,381 @@
 -->
 <section><h1>Practical introduction to git and GitHub/GitLab</h1></section>
 <section data-transition="zoom">
-	<section>
-		<div class="copyright">
-			<div class="note">
-				<p>Created for</p>
-			</div>
-			<div class="company">
-				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
-				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
-				</a>
-			</div>
-		</div>
-	</section>
-	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-		<div class="note">
-			<p>Created by</p>
-		</div>
-		<div class="company">
-		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
-		</div>
-		<!-- <div class="author">
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-		</div> -->
-	</section>
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
 </section>
 
 <section data-min="5"><h1>What is a VCS and how it makes life easier?</h1></section>
 <section><h2>What is a VCS and how it makes life easier?</h2>
-  <section>
-  	<dl class="fa">
-  		<dt><abbr>VCS</abbr><dfn id="DB"><span>Version</span><span>Control</span><span>System</span></dfn></dt>
-  		<dd>a system that records changes to a file (or directory) over time so that you can recall specific versions later</dd>
-  		<dt>You can version control <span class="note">all kind of work</span> you do:</dt>
-  		<dd>Poetry</dd>
-  		<dd>Images</dd>
-  		<dd>Music</dd>
-  		<dd>Programming</dd>
-  		<dd>...</dd>
-  		<dt><span class="note">Easily share</span> your work with other team members</dt>
-  	</dl>
-  </section>
-  <section><h3>VCS Types</h3>
-  	<dl class="fa">
-  		<dt>local</dt>
-  		<dd>really, not used by companies</dd>
-  		<dt>centralized</dt>
-  		<dd>like <a href="http://subversion.tigris.org/">subversion</a></dd>
-  		<dt>decentralized (distributed)</dt>
-  		<dd>like <a href="https://git-scm.com/">git</a></dd>
-  	</dl>
-  </section>
-  <section><h3>Local VCS</h3>
-  	<a href="images/local_vcs.png"><img src="images/local_vcs.png"></a>
-  </section>
-  <section><h3>Centralized VCS</h3>
-  	<a href="images/centralized_vcs.png"><img src="images/centralized_vcs.png"></a>
-  </section>
-  <section><h3>Distributed VCS</h3>
-  	<a href="images/distributed_vcs.png"><img src="images/distributed_vcs.png" style="width: 50vw; height: 73vh;"></a>
-  </section>
+    <section>
+        <dl class="fa">
+            <dt><abbr>VCS</abbr><dfn id="DB"><span>Version</span><span>Control</span><span>System</span></dfn></dt>
+            <dd>a system that records changes in a project (files and directories) over time so that you can recall specific versions later</dd>
+            <dt>You can version control any files, all kind of work you do: writing, programming, images. </dt>
+            <dd>But VCS are extremely helpful in software development</dd>
+        </dl>
+    </section>
+    <section><h3 id="VCSAdvantagesInSoftwareDevelopment">VCS Advantages in Software Development</h3>
+        <dl class="fa">
+            <dt><b>Track Changes Over Time:</b> VCS allows developers to keep a history of changes made to the codebase. This feature is invaluable for understanding how a project has evolved and for analyzing the impact of specific changes.</dt>
+            <dt><b>Facilitate Collaboration:</b> In modern software development, teams often work on the same projects simultaneously. VCS supports multiple developers working on the same codebase without overwriting each other's changes, merging contributions seamlessly.</dt>
+            <dt><b>Error Recovery:</b> When errors are introduced into the code, VCS makes it easy to revert to earlier, error-free versions. This capability significantly reduces the risk associated with new deployments.</dt>
+            <dt><b>Branching and Merging:</b> VCS enables developers to create branches, allowing them to work on new features or fixes independently from the main codebase. Once ready, these changes can be merged back into the main project, facilitating continuous integration and delivery.</dt>
+            <dt><b>Track Who Made Changes:</b> VCS provides transparency over who made specific changes, adding an accountability layer to the development process. This feature is crucial for coordinating team efforts and resolving issues.</dt>
+        </dl>
+    </section>
 </section>
 
-<section data-min="5"><h1>Installing and configuring git.</h1></section>
-<section><h2>Installing and configuring git.</h2>
-  <section>
-  	<dl class="fa">
-  		<dt><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Installing Git</a></dt>
-  		<dt><span class="note">Note for Windows Users</span> - install from <a href="https://gitforwindows.org/">gitforwindows.org</a> which also brings a nice features like <code>git bash</code>, <code>shell integration</code> and more </dt>
-  	</dl>
-  </section>
+<section data-min="50"><h1>Types of VSC</h1></section>
+<section><h2>Types of VSC</h2>
+    <section><h3>Local VCS</h3>
+        <dl class="fa">
+            <dt>Local version control systems store tracking information on the local computer only.</dt>
+            <dt>While it's a simple method, it's not commonly used by companies due to the lack of collaboration features and increased risk of data loss.</dt>
+            <a href="images/local_vcs.png"><img src="images/local_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Centralized VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Centralized version control systems, like <a href="http://subversion.tigris.org/">Subversion (SVN)</a>, use a single server repository and client workstations that check out files from that repository.</dt>
+            <dt>Centralized VCSs simplify collaboration but introduce a single point of failure that can compromise the entire project's history if not properly backed up.</dt>
+            <a href="images/centralized_vcs.png"><img src="images/centralized_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Decentralized (Distributed) VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Distributed version control systems, like <a href="https://git-scm.com/">Git</a>, allow each user to have a full copy of the entire repository history, enhancing collaboration and security.</dt>
+            <dt>This model supports distributed development, allows for multiple backup points, and facilitates complex merging and branching strategies.</dt>
+            <a href="images/distributed_vcs.png"><img src="images/distributed_vcs.png" style="width: 30vw; height: 53vh;"></a>
+        </dl>
+    </section>
 </section>
 
-<section data-min="5"><h1>Distributed VCS - Basic Concepts</h1></section>
-<section><h2>Distributed VCS - Basic Concepts</h2>
-	<section><h3>Distributed VCS Concepts Overview</h3>
-		<a href="images/distributed_concepts_overview.png"><img src="images/distributed_concepts_overview.png"></a>
-	</section>
-	<section><h3 class="note">Initialize a Git repository</h3>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-				git init
-			</code></pre>
-		<dl class="fa">
-			<dt>git will start to track the Current Working Directory (CWD).</dt>
-			<dt>A hidden <code>.git</code> folder is created.</dt>
-		</dl>
-	</section>
-	<section><h3 class="note">Stage files/changes</h3>
-		<p>Also known as <span class="note">adding files content to the index</span></p>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-				# to stage only certain file/path:
-				git add <i>path</i>
-
-				# to stage all files in CWD:
-				git add -A
-			</code></pre>
-		<dl class="fa">
-			<dt>The staging are contains all the changes that will be added to the local repository after the <code>commit</code></dt>
-			<dt>You can remove (unstage) files from the index, with:
-				<pre><code rel="Terminal" class="bash" data-noescape>
-					git rm <i>file</i>
-				</code></pre>
-			</dt>
-		</dl>
-	</section>
-	<section><h3>Setup your git identity</h3>
-		<dl class="fa">
-			<dt>Before your first commit, you have to provide your user name and email.</dt>
-			<dt>This information will be stamped in each of you commits and other git activities you make.</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash">
-			# per project - make sure you type next commands while you are in the root git folder
-			git config user.email "your_mail@mail.com"
-			git config user.name "User Name"
-
-			# or if you wish to setup your git identity on global level, you can use the --global option:
-			git config --global user.email "your_mail@mail.com"
-			git config --global user.name "User Name"
-		</code></pre>
-	</section>
-	<section><h3 class="note">Commit files to local repository</h3>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-				# commit files - the default system editor for git will be opened to write your Commit Message
-				git commit
-
-				# commit and write the Commit Message
-				git commit -m'Your Commit Message'
-			</code></pre>
-		<dl class="fa">
-			<dt>If you want to make VSCode your default git editor:</dt>
-			<pre><code rel="Terminal" class="bash">
-				git config --global core.editor "code --wait"
-			</code></pre>
-			<!-- <dd><a href="https://stackoverflow.com/questions/8951275/how-can-i-make-sublime-text-the-default-editor-for-git/23934471">How can I make Sublime Text the default editor for Git?</a></dd> -->
-		</dl>
-	</section>
-	<section><h3>Git status and commit history</h3>
-		<dl class="fa">
-			<dt>We often need to check a git repository status (if there are any non-commited changes and etc.) </dt>
-			<pre><code rel="Terminal" class="bash">
-				git status
-			</code></pre>
-			<dt>Or to check the repository commits history</dt>
-			<pre><code rel="Terminal" class="bash">
-				git log
-			</code></pre>
-		</dl>
-	</section>
-  <section><h3>The Three States</h3>
-  	<a href="images/git_areas.png"><img src="images/git_areas.png"></a>
-  </section>
+<section data-min="50" class="main-section-title"><h1>Distributed VCS Concepts</h1></section>
+<section class="sub-sections"><h2>Distributed VCS Concepts</h2>
+    <section><h3>Overview</h3>
+        <a href="images/distributed_concepts_overview.png"><img src="images/distributed_concepts_overview.png"></a>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt><b>Working Copy:</b></dt>
+            <dd>The actual files a developer works on. Changes made here can be saved (committed) to their local repository.</dd>
+            <dt><b>Repository</b></dt>
+            <dd>It's a place where all the project's files live and where you can see the history of what's been done, who did it, and when. Repositories can be local or remote</dd>
+            <dt><b>Local Repository:</b></dt>
+            <dd>Local repositories reside on the computer of each developer, allowing for individual work on the project's codebase. Each contributor has their own local repository with the full history of the project.</dd>
+            <dt><b>Remote Repository:</b></dt>
+            <dd>Remote repositories are hosted on the internet or a network, enabling multiple developers to push and pull changes, thus supporting collaborative work across teams.</dd>
+            <dt><b>Commit (Local):</b></dt>
+            <dd>Saving changes to the local repository. It's a snapshot of the working copy at a given time.</dd>
+            <dd>Developers must commit their work locally before sharing it with others.</dd>
+            <dt><b>Pull:</b></dt>
+            <dd>Bringing in changes from the server repository to the local repository to keep it up-to-date.</dd>
+            <dt><b>Push:</b></dt>
+            <dd>Transferring local changes (commits_ to the server repository. This is how changes are shared with other team members.</dd>
+        </dl>
+    </section>
 </section>
+
+
+
+<!-- Basic Git Commands -->
+<section class="sub-sections" id="BasicGitCommands"><h2>Basic Git Commands</h2>
+    <section><h3>Core Commands and Their Usage</h3>
+        <dl class="fa">
+            <dt><code>git init</code> creates a new Git repository in your current directory.</dt>
+            <dt><code>git clone [url]</code> creates a local copy of a remote repository.</dt>
+            <dt><code>git add [file]</code> adds files to the staging area, preparing them for a commit.</dt>
+            <dt><code>git commit -m "commit message"</code> records file snapshots in the repository history.</dt>
+            <dt><code>git status</code> shows the status of changes as untracked, modified, or staged.</dt>
+            <dt><code>git push [remote] [branch]</code> uploads all local branch commits to the remote repository.</dt>
+            <dt><code>git pull [remote] [branch]</code> fetches and merges any commits from the tracking remote branch.</dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="CommandPromptBasicsForGit"><h1>Terminal (Command Prompt) Basics <br>for working with git</h1></section>
+<section class="sub-sections">
+    <section><h3>Introduction to terminal</h3>
+        <dl class="fa">
+            <dt>A "terminal" is an application where you type commands to perform actions on your computer. Instead of clicking, you type text and press Enter to execute actions (executing programs, managing files and directories, configuring system settings, and troubleshooting issues)</dt>
+            <dt>"terminal" allows users to execute commands directly, providing more control and flexibility compared to graphical user interfaces (GUIs). It supports a wide range of commands and utilities, making it suitable for both basic and advanced users.</dt>
+            <dt>"terminal" is commonly used by system administrators, developers, and power users for tasks such as system maintenance, batch processing, automation, and debugging.</dt>
+            <dt>"terminal" is a generic term used to describe command-line interfaces on various operating systems, including Windows, macOS, and Linux.</dt>
+            <dd>While Command Prompt and PowerShell are specific to Windows, Terminal is a "terminal" specific for Linux and MacOS</dd>
+        </dl>
+    </section>
+
+    <section><h3>Opening Command Prompt</h3>
+        <dl class="fa">
+            <dt><b>How to Open:</b></dt>
+            <dd>Press <code>Windows + R</code>, type <code>cmd</code>, and press Enter. Alternatively, search for "Command Prompt" in the Start menu.</dd>
+            <dd>This opens Command Prompt, starting in your user profile directory.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Current Working Directory (CWD)</h3>
+        <dl class="fa">
+            <dt>The Current Working Directory is your active directory in the Command Prompt, acting as the reference point for all file and directory commands. It determines the context for executing commands and scripts.</dt>
+            <dt>Think of it as your home base. If you tell your computer to do something, it starts here and looks around in this spot</dt>
+            <dd>If you're in a folder named "Music" and look for a file, your computer only searches in "Music," not the whole computer</dd>
+            <dt>Example Scenario:</dt>
+            <dd>If your CWD is <code>C:\Users\YourUsername\Documents</code> and you run a command like <code>dir Projects</code>, it will list contents of <code>C:\Users\YourUsername\Documents\Projects</code>.</dd>
+            <dt><b>Viewing Current Directory:</b> Type <code>cd</code> without arguments to see CWD:</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd
+                # Output: C:\Users\UserName
+            </code></pre>
+            <dt>Best Practices:</dt>
+            <dd>Always verify your CWD with <code>cd</code> before executing commands to avoid unintended consequences, such as file deletions or incorrect script executions.</dd>
+        </dl>
+    </section>
+
+    <section><h3>Viewing Folder Contents</h3>
+        <dl class="fa">
+            <dt>Type <code>dir</code> to list all the files and folders  within your current directory.</dt>
+            <dd>This command provides information like file size and the date last modified.</dd>
+            <dt>To view hidden files and folders you can use <code>dir /a</code></dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                dir /a
+                # Output:
+                Volume in drive C has no label.
+                Volume Serial Number is 1234-5678
+
+                Directory of C:\Users\UserName\Documents
+
+                02/15/2024  10:00 AM    &lt;DIR&gt;          .
+                02/15/2024  10:00 AM    &lt;DIR&gt;          ..
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Projects
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Reports
+                02/15/2024  10:00 AM    &lt;DIR&gt;          Presentations
+                02/15/2024  10:00 AM    &lt;DIR&gt;          .hidden_folder
+                            0 File(s)              0 bytes
+                            6 Dir(s)  100,000,000,000 bytes free
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Navigating Through Folders</h3>
+        <dl class="fa">
+            <dt><b>Changing Directories:</b> Use <code>cd [FolderName]</code> to move into a specific folder.</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd Documents
+                # New CWD: C:\Users\UserName\Documents
+            </code></pre>
+            <dd>If you want to move to a folder deep within several layers of directories, you can chain them together with backslashes.</dd>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName
+                cd Documents\Projects\Cources
+                # New CWD: C:\Users\UserName\Documents\Projects\Cources
+            </code></pre>
+            <dt><b>Going Up:</b> type <code>cd ..</code> to move up one directory level. This command takes you to the parent directory of your current location.</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                cd ..
+                # New CWD: C:\Users\UserName
+            </code></pre>
+            <dd>You can move several levels up by chaining <code>..</code> with backslashes.</dd>
+            <pre><code rel="Terminal" class="bash">
+                # Assuming CWD is C:\Users\UserName\Documents
+                cd ..\..
+                # New CWD: C:\Users
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="GitBasics"><h1>Setting Up Git</h1></section>
+<section class="sub-sections"><h2>Setting Up Git</h2>
+    <section><h3>Installing Git</h3>
+        <dl class="fa">
+            <dt>Visit the official Git website (git-scm.com) to download the Git installer for your operating system.</dt>
+            <dt>Follow the installation wizard, which will guide you through the setup process, including selecting the right options for your environment.</dt>
+            <dt>To verify the installation, open your terminal (Command Prompt, PowerShell, or Terminal) and type:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git -v
+
+                # git version 2.43.0
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Setting up user name and email</h3>
+        <dl class="fa">
+            <dt>Before your first git commit, you have to provide your user name and email.</dt>
+            <dt>This information will be stamped in each of you commits and other git activities you make.</dt>
+            <dt>You are not obliged to put your GitHub account email, but keep in mind that GitHub relies on the email address associated with commits to attribute contributions to user profiles. If the email address in your Git configuration does not match the one associated with your GitHub account, your contributions will not be reflected on your GitHub profile activity and contribution graphs.</dt>
+            <pre><code rel="Terminal" class="bash">
+                #Global:  if you wish to setup your git identity on global level, you can use the --global option:
+                git config --global user.email "your_mail@mail.com"
+                git config --global user.name "User Name"
+
+                # Local: per project - make sure you type next commands while you are in the root git folder
+                git config user.email "your_mail@mail.com"
+                git config user.name "User Name"
+            </code></pre>
+            <dt>Check your configuration by typing:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config user.name
+                git config user.email
+            </code></pre>
+
+        </dl>
+    </section>
+</section>
+
+<section><h1>Initialize a Git repository</h1></section>
+<section><h2>Initialize a Git repository</h2>
+    <section><h3><code>git init</code></h3>
+        <dl class="fa">
+            <dt>To create a new Git repository open a terminal and navigate to the root project folder and then execute the git init command.:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                cd /path/to/your/project
+
+                git init
+            </code></pre>
+            <dt>git will start to track all the files and <b>non empty folders</b> in CWD.</dt>
+            <dt>A hidden <code>.git</code> folder is created.</dt>
+            <pre><code rel="Terminal" class="bash">
+                ### list all files:
+                # Linux/MacOS:
+                pwd
+                # CommandPrompt:
+                dir /a
+
+                # output
+                .git
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section><h1>Saving changes in Git</h1></section>
+<section><h2>The Three States</h2>
+    <section>
+        <a href="images/git_areas.png"><img src="images/git_areas.png"></a>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The three states" in Git refer to the three main states that files can reside in within a Git repository:</dt>
+            <dt><b>Working Directory</b> (Untracked files): This is the state where files exist in your project directory but have not yet been tracked by Git. Git is unaware of any changes made to these files, and they are considered untracked.</dt>
+            <dt><b>Staging Area</b> (Staged files): After modifying files in the working directory, you can stage them for the next commit by adding them to the staging area using the git add command. Files in the staging area are ready to be committed, and Git is aware of the changes made to these files.</dt>
+            <dt><b>Repository</b> (Committed files): When you commit changes in the staging area using the git commit command, Git creates a snapshot of the staged changes and permanently stores them in the repository. These committed changes are now part of the project's history and can be accessed and referenced in the future.</dt>
+        </dl>
+    </section>
+</section>
+<section><h2>The Staging Area</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>The staging area, also known as the index, is a crucial concept in Git that serves as a middle ground between your working directory and the repository. It acts as a temporary storage area where changes are prepared before being committed to the repository.</dt>
+            <dt>Before committing changes to the repository, files must be added to the staging area. This allows you to selectively choose which changes to include in the next commit, providing finer control over the commit process.</dt>
+            <dt>Imagine the staging area as a preparation zone where you carefully select and organize items (changes) before packing them into a box (commit) for shipping (pushing to the repository).</dt>
+            <dt>The staging area allows for the separation of logical changes into smaller, more manageable commits.</dt>
+            <dt>Common Git commands related to the staging area include:
+                <ul>
+                    <li><code>git add</code>: Adds changes from the working directory to the staging area.</li>
+                    <li><code>git reset</code>: Removes changes from the staging area, but keeps them in the working directory.</li>
+                    <li><code>git status</code>: Displays the status of files in the working directory and staging area.</li>
+                </ul>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Add changes to stage (index): git add</h3>
+        <dl class="fa">
+            <dt>To stage changes only in certain file/directory:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git add <i>path</i>
+            </code></pre>
+            <dt>To stage all changes in the working directory, including new, modified, and deleted files (including untracked files and directories):</dt>
+            <pre><code rel="Terminal" class="bash">
+                git add -A
+
+                # or the shortcut:
+                git add .
+            </code></pre>
+            <dt>To stage modifications and deletions, but not to add new untracked files to the staging area:</dt>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                git add -A
+            </code></pre>
+
+        </dl>
+    </section>
+</section>
+
+<section><h2>Commit</h2>
+
+    <section><h3 class="note">Commit files to local repository</h3>
+        <pre><code rel="Terminal" class="bash" data-noescape>
+                # commit files - the default system editor for git will be opened to write your Commit Message
+                git commit
+
+                # commit and write the Commit Message
+                git commit -m'Your Commit Message'
+            </code></pre>
+        <dl class="fa">
+            <dt>If you want to make VSCode your default git editor:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config --global core.editor "code --wait"
+            </code></pre>
+            <!-- <dd><a href="https://stackoverflow.com/questions/8951275/how-can-i-make-sublime-text-the-default-editor-for-git/23934471">How can I make Sublime Text the default editor for Git?</a></dd> -->
+        </dl>
+    </section>
+    <section><h3>Git status and commit history</h3>
+        <dl class="fa">
+            <dt>We often need to check a git repository status (if there are any non-commited changes and etc.) </dt>
+            <pre><code rel="Terminal" class="bash">
+                git status
+            </code></pre>
+            <dt>Or to check the repository commits history</dt>
+            <pre><code rel="Terminal" class="bash">
+                git log
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<!-- Practical Example -->
+<section class="sub-sections" id="GitPracticalExample"><h2>Practical Example</h2>
+    <section><h3>Using Git in Your Projects</h3>
+        <dl class="fa">
+            <dt>1. Navigate to your project directory and open a terminal.</dt>
+            <dt>2. Initialize a new Git repository: <code>git init</code>.</dt>
+            <dt>3. Add a file to the repository: <code>git add README.md</code>.</dt>
+            <dt>4. Commit the file: <code>git commit -m "Initial commit"</code>.</dt>
+            <dt>5. Connect your repository to a remote server: <code>git remote add origin https://github.com/yourusername/yourrepository.git</code>.</dt>
+            <dt>6. Push your commits: <code>git push -u origin master</code>.</dt>
+            <dd>This sequence of commands sets up a new Git repository, tracks changes to a file, and pushes those changes to a remote repository hosted on GitHub.</dd>
+        </dl>
+    </section>
+</section>
+
+
+
 
 <!-- <section data-min="5"><h1>Create and configure a git repository.</h1></section>
 <section><h2>Create and configure a git repository.</h2>
@@ -213,33 +438,33 @@
 <section data-min="5"><h1>Adding files to repository and committing changes</h1></section>
 <section><h2>Adding files to repository and committing changes</h2>
   <section>
-  	<p>Open a Terminal/Command Prompt</p>
-  	<pre><code rel="Terminal" class="bash" data-noescape style="font-size: .7em">
-  			# Create your project directory
-  			mkdir my_project
+      <p>Open a Terminal/Command Prompt</p>
+      <pre><code rel="Terminal" class="bash" data-noescape style="font-size: .7em">
+              # Create your project directory
+              mkdir my_project
 
-  			# go into it
-  			cd my_project
+              # go into it
+              cd my_project
 
-  			# initialize the new repository
-  			git init
+              # initialize the new repository
+              git init
 
-  			# do some work and save your files
-  			echo "I'm working hard..." > file1.txt
+              # do some work and save your files
+              echo "I'm working hard..." > file1.txt
 
-  			# stage all your work
-  			git add -A
+              # stage all your work
+              git add -A
 
-  			# commit your work
-  			git commit -am'Work 1 Done'
-  	</code></pre>
+              # commit your work
+              git commit -am'Work 1 Done'
+      </code></pre>
   </section>
 </section>
 
 <section data-min="5"><h1>Working with branches.</h1></section>
 <section><h2>Working with branches.</h2>
   <section>
-  	<a href="https://www.atlassian.com/git/tutorials/using-branches">Git Branch</a>
+      <a href="https://www.atlassian.com/git/tutorials/using-branches">Git Branch</a>
   </section>
 </section>
 
@@ -262,106 +487,106 @@
 <section data-min="5"><h1>Connect your local git repository to your GitHub/GitLab repository</h1></section>
 <section><h2>Connect your local git repository to your GitHub/GitLab repository</h2>
   <section>
-  	<dl class="fa">
-  		<dt>Create a local git repository</dt>
-  		<dt>Create a corresponding GitHub repo (preferably with the same name, as the root folder of your local repo).</dt>
-  		<dt>Follow the instruction given in github page, in the section: "…or push an existing repository from the command line" section.</dt>
-		<dd>Or read the github docs: <a href="https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Adding an existing project to GitHub using the command line</a></dd>
-	</dl>
+      <dl class="fa">
+          <dt>Create a local git repository</dt>
+          <dt>Create a corresponding GitHub repo (preferably with the same name, as the root folder of your local repo).</dt>
+          <dt>Follow the instruction given in github page, in the section: "…or push an existing repository from the command line" section.</dt>
+        <dd>Or read the github docs: <a href="https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line">Adding an existing project to GitHub using the command line</a></dd>
+    </dl>
   </section>
 </section>
 
 <section data-min="5"><h1>Using GitHub/GitLab pages as free hosting for your project</h1></section>
 <section><h2>Using GitHub/GitLab pages as free hosting for your project</h2>
   <section>
-  	<dl class="fa">
-  		<dt>GitHub Pages provides a host for your static site directly from your GitHub repository.</dt>
-  		<dt>Reference: <a href="https://pages.github.com/">pages.github.com</a></dt>
-  	</dl>
+      <dl class="fa">
+          <dt>GitHub Pages provides a host for your static site directly from your GitHub repository.</dt>
+          <dt>Reference: <a href="https://pages.github.com/">pages.github.com</a></dt>
+      </dl>
   </section>
   <section><h3>How To</h3>
-  	<dl class="fa">
-  		<dt>Under your repository name, click  Settings.</dt>
-  		<dt>Navigate to "GitHub Pages" section and follow the instructions.</dt>
-  	</dl>
+      <dl class="fa">
+          <dt>Under your repository name, click  Settings.</dt>
+          <dt>Navigate to "GitHub Pages" section and follow the instructions.</dt>
+      </dl>
   </section>
   <section>
-  	<iframe width="853" height="480" src="https://www.youtube.com/embed/2MsN8gpT6jY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="853" height="480" src="https://www.youtube.com/embed/2MsN8gpT6jY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
 </section>
 
 <section data-min="5"><h1>Resources</h1></section>
 <section><h2>Recommended Videos</h2>
   <section>
-  	<p>Git Tutorial for Beginners: Command-Line Fundamentals</p>
-  	<iframe width="736" height="414" src="https://www.youtube.com/embed/HVsySz-h9r4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <p>Git Tutorial for Beginners: Command-Line Fundamentals</p>
+      <iframe width="736" height="414" src="https://www.youtube.com/embed/HVsySz-h9r4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </section>
   <section>
-  	<p>Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics</p>
-  	<iframe width="736" height="414" src="https://www.youtube.com/embed/0fKg7e37bQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <p>Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics</p>
+      <iframe width="736" height="414" src="https://www.youtube.com/embed/0fKg7e37bQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </section>
 </section>
 
 
 <section class="disclaimer" data-background="../../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customised version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
 </section>
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customised version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-		</div>
-	</div>
-	<!-- Custom processing -->
-	<script src="../../../outfit/js/slides.js"></script>
-	<!-- external scripts -->
-	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
-	<script src="../../../lib/reveal.js/js/reveal.js"></script>
-	<!-- init reveal -->
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		var highlightjsTabSize = '  ';
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			slideNumber: 'c/t',
-			keyboard: true,
-			history: true,
-			center: true,
-			width: '100%',
-			height: '100%',
-			// slide transition
-			transition: 'concave', // none/fade/slide/convex/concave/zoom
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
-			// shift+maous click to zoom in/out element
-			zoomKey: 'ctrl',
-			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			// transition: Reveal.getQueryHash().transition || 'default'
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
-	<!-- linkedin badge -->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../../lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: '100%',
+            height: '100%',
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
 
 </body>
 </html>
