@@ -1,7 +1,9 @@
-if (0){
-	function add(x,y){
-	   x+y;
-	};
-  };
+let a,b;
+const foo = function () {
+    console.log(`Foo`);
+}
 
-console.log("add:", add); // undefined
+[a,b] = [4,3];
+console.log(a,b);
+
+foo();

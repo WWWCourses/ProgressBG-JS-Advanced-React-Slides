@@ -76,54 +76,60 @@
 
 <section id="definingFunctions"><h1>Defining Functions</h1></section>
 <section><h2>Defining Functions</h2>
-    <section><h3>Function declaration</h3>
-        <pre><code rel="JS">
-            function add(x,y){
-                return x+y
-            }
-        </code></pre>
-        <dl class="fa">
-            <dt>Semicolons are note required after function declaration. But there will be no problem if you put one.</dt>
-        </dl>
-    </section>
-    <section><h3>Function expression</h3>
-        <pre><code rel="JS">
-            const add = function(x,y){
-                return x+y
-            };
-        </code></pre>
-        <dl class="fa">
-            <dt>function name can be omitted in function expressions to create anonymous functions</dt>
-            <dt>a function expression can be immediately invoked (as IIFE)</dt>
-            <dt>Usually (depending on context), semicolons are required after function expression as with any expression. A best (and safer) practice is to put the semicolons after function expression.</dt>
+    <section><h3>Function declaration vs Function Expression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Function declaration (statement):</dt>
+            <pre><code rel="JS">
+                function add(x,y){
+                    return x+y
+                }
+            </code></pre>
+            <dd>Semicolons are note required after function declaration. But there will be no problem if you put one.</dd>
+            <dt>Function expression:</dt>
+            <pre><code rel="JS">
+                const add = function(x,y){
+                    return x+y
+                };
+            </code></pre>
+            <dd>usually (depending on context), semicolons are required after function expression as with any expression. A best (and safer) practice is to put the semicolons after function expression.</dd>
+            <dd>function name can be omitted in function expressions to create anonymous functions</dd>
+            <pre><code rel="JS" class="js">
+                // an anonymous function is passed as the first argument to setTimeout()
+                setTimeout(function() {
+                  console.log("This message is shown after 3 seconds.");
+                }, 3000);
+            </code></pre>
         </dl>
     </section>
     <section><h3>Function expression: do not rely on ASI - Example</h3>
-        <p>Can you see a problem in 'example 1'?</p>
-        <pre><code rel="example 1" class="js">
-            let a,b;
-            const foo = function () {
-                console.log(`Foo`);
-            }
+        <dl class="fa" style="min-width:80vw">
+            <dt>Next code throws an error: "TypeError: foo is not a function" </dt>
+            <pre><code rel="example 1" class="js">
+                let a,b;
+                const foo = function () {
+                    console.log(`Foo`);
+                }   // Missing semicolon here
 
-            [a,b] = [4,3];
-            console.log(a,b);
+                [a,b] = [4,3];
+                console.log(a,b);
 
-            foo();
-        </code></pre>
-        <pre><code rel="example 2" class="js">
-            let a,b;
-            const foo = function () {
-                console.log(`Foo`);
-            };
-
-            [a,b] = [4,3];
-            console.log(a,b);
-
-            foo();
+                foo();
             </code></pre>
-        </code></pre>
-        <p class="note" style="font-size:0.7em">Remember,  a best practise is to put semicolons manually to separate statements and expressions, instead of relying on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion">Automatic Semicolon Insertion (ASI)</a>.</p>
+            <dt>Next code works as expected:</dt>
+            <pre><code rel="example 2" class="js">
+                let a,b;
+                const foo = function () {
+                    console.log(`Foo`);
+                };  // Semicolon added here
+
+                [a,b] = [4,3];
+                console.log(a,b);
+
+                foo();
+            </code></pre>
+            <dt>Remember,  a best practise is to put semicolons manually to separate statements and expressions, instead of relying on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion">Automatic Semicolon Insertion (ASI)</a></dt>
+        </dl>
+
     </section>
     <section><h3>Function expression: named function</h3>
         <dl class="fa">
@@ -156,43 +162,9 @@
                 greet('Ada')
             </code></pre>
             <dt>In practise, you'll never have to use directly Function Constructor, but only <span class="note">when you need to dynamically create a function</span>.</dt>
+            <dd>Functions defined by Function Constructor are parsed each time the constructor is called.</dd>
+            <dd>Functions defined by Function Expressions and Function Declarations are parsed only once.</dd>
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function">Function Constructor</a>@MDN</dt>
-        </dl>
-    </section>
-    <section><h3 class="advanced">Why not to use the Function Constructor</h3>
-    <dl class="fa">
-        <dt>Parsing</dt>
-        <dd>Functions defined by Function Constructor are parsed each time the constructor is called.</dd>
-        <dd>Functions defined by Function Expressions and Function Declarations are parsed only once.</dd>
-        <dt>Closure</dt>
-        <dd>Functions created by the Function Constructor do not create closures.</dd>
-        <dd>Functions defined by Function Expressions and Function Declarations create closure to their creation context.</dd>
-    </dl>
-    </section>
-    <section><h3 class="advanced">Conditional function definition</h3>
-        <dl class="fa">
-            <dt>the strict ES2015 behaviour is:</dt>
-            <pre><code rel="JS">
-                if (0){
-                    function add(x,y){
-                        x+y;
-                    };
-                };
-
-                console.log("add:", add); // undefined
-            </code></pre>
-            <dd class="note">But this is not browser compatible! Some older browser would defined the function.</dd>
-            <dt>Safer way:</dt>
-            <pre><code rel="JS">
-                let add;
-                if (0){
-                    add = function(x,y){
-                        x+y;
-                    };
-                };
-
-                console.log("add:", add);
-            </code></pre>
         </dl>
     </section>
 </section>
@@ -206,50 +178,42 @@
             <dt>The need for IIFE, an anonymous function which must be executed immediately, is usually when a library is created in order not to pollute the global namespace.</dt>
         </dl>
     </section>
-    <section>
+    <section><h3>How to create an IIFE</h3>
         <dl class="fa">
-            <dt>How to create an IIFE:</dt>
             <pre><code rel="JS">
                 ( function(){} )();
             </code></pre>
             <dt><code>function(){}</code> is an anonymous function declaration!</dt>
-            <dt><code>( function(){} )</code> is an anonymous function expression!</dt>
+            <dt><code>( function(){} )</code> is an anonymous function expression (everything in <code>()</code> is executed as expression ).</dt>
             <dt>We can only invoke a <span class="note">function expressions</span>.</dt>
+            <dt>Example:</dt>
+            <pre><code rel="JS">
+                (function(x,y){
+                    console.log( x+y );
+                })(2,3);
+            </code></pre>
+            <dd>is the same as:</dd>
+            <pre><code rel="JS">
+                (function(x,y){
+                    console.log( x+y );
+                }(2,3));
+            </code></pre>
         </dl>
-    </section>
-    <section><h3>IIFE examples</h3>
-        <pre><code rel="JS">
-            (function(x,y){
-                console.log( x+y );
-            })(2,3);
-        </code></pre>
-        <p>is the same as</p>
-        <pre><code rel="JS">
-            (function(x,y){
-                console.log( x+y );
-            }(2,3));
-        </code></pre>
     </section>
 </section>
 
 <section id="Functions_FirstClassCitizens"><h1>Functions as first-class citizens</h1></section>
 <section><h2>Functions as first-class citizens</h2>
     <section>
-        <p>From its creation back in 1995, JavaScript supports functions <br> as <span class="note">first-class</span> citizens (objects)</p>
-    </section>
-    <section>
-        <blockquote cite="http://crockford.com/javascript/javascript.html">JavaScript's C-like syntax, including curly braces and the clunky for statement, makes it appear to be an ordinary procedural language. This is misleading because <span class="note"> JavaScript has more in common with functional languages like Lisp or Scheme</span> than with C or Java</blockquote>
-        <a href="http://crockford.com/javascript/javascript.html">JavaScript: The World's Most Misunderstood Programming Language (Douglas Crockford)</a>
-    </section>
-    <section>
-        <p>What means a function to be "First-class" citizen in a language?</p>
-        <dl class="fa">
-            <dt>A function can be treated as object, expression or statement.</dt>
-            <dt>A function can be passed as argument to other functions.</dt>
-            <dt>A function can be the return value of the <code>return</code> operator.</dt>
+        <dl class="fa" style="min-width:80vw">
+            <dt>From its creation back in 1995, JavaScript supports functions  as <span class="note">first-class</span> citizens (objects)</dt>
+            <dt>Which simply means that:</dt>
+            <dd>A function can be treated as object, expression or statement.</dd>
+            <dd>A function can be passed as argument to other functions.</dd>
+            <dd>A function can be the return value of the <code>return</code> operator.</dd>
         </dl>
     </section>
-    <section><h3>Callback Function</h3>
+    <section><h3>"Callback Function"</h3>
         <dl class="fa">
             <dt>A function which is passed as argument to another function usually is called <span class="note">callback function</span></dt>
             <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Callback_function">Callback function</a></dt>
@@ -318,7 +282,7 @@
     <section><h3>First-Class Functions: Pros and Cons</h3>
         <dl class="fa">
             <dt>Pros</dt>
-            <dd>The new (ES6) arrow functions syntax make JavaScript a language suited for lamdba-calculus (functional programming paradigm)</dd>
+            <dd>The new (ES6) arrow functions syntax (discussed in next lectures) make JavaScript a language suited for lamdba-calculus (functional programming paradigm)</dd>
             <dt>Cons</dt>
             <dd>Not intuitive for persons used with classical procedural languages.</dd>
         </dl>
@@ -327,20 +291,38 @@
 
 
 <section id="Scope"><h1>Scope</h1></section>
-<section><h2>Scope</h2>
+<section><h2>Recap Scope</h2>
     <section>
+        <h3>What is Scope?</h3>
         <dl class="fa">
-            <dt>The context in which values and expressions are "visible," or can be referenced.</dt>
-            <dt>Scopes can be layered in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.</dt>
-            <dt class="note">Each function in JavaScript creates its own scope!</dt>
+            <dt>Scope is the context in which values and expressions are "visible," or can be referenced</dt>
+            <dt>Global Scope</dt>
+            <dd>Variables defined outside of any function, block, or module scope are in the global scope and can be accessed from anywhere in the code.</dd>
+            <dt>Local (Function) Scope</dt>
+            <dd>Each function in JavaScript creates its own scope. Variables defined within a function are accessible only within that function, illustrating local scope.</dd>
+            <dd>A new local scope is created on every function execution</dd>
         </dl>
     </section>
     <section>
-        <img src="images/Scope1.png">
         <dl class="fa">
-            <dt>Inner Scope can use the names in Outer Scope</dt>
-            <dt>Outer Scope <span class="note">can not</span> see the names defined in Inner Scope</dt>
+            <dt>Scopes can be layered in a hierarchy, allowing child scopes access to parent scopes, but not vice versa</dt>
+            <dd>Inner Scope can use the names in Outer Scope</dd>
+            <dd>Outer Scope <span class="note">can not</span> see the names defined in Inner Scope</dd>
             <dt>If same name is defined in both Scopes, then the Inner Scope name <span class="note">shadows</span> the Outer Scope name</dt>
+            <img src="images/Scope1.png">
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Execution Context</h1></section>
+<section class="sub-sections"><h2>Execution Context</h2>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt>An execution context in JavaScript is the environment in which JavaScript code is evaluated and executed</dt>
+            <dt>Whenever any code runs in JavaScript, it runs inside an execution context that provides the variables, objects, and functions available for use</dt>
+            <dt class="note">Each time a function is executed, it creates a new execution context, which includes a local scope for that execution</dt>
+            <dd>This means that all local variables (including parameters) are specific to that execution instance</dd>
+            <dd>If the function is called multiple times, each call creates its own local scope, independent of other executions, ensuring variables defined in one call do not interfere with those in another.</dd>
         </dl>
     </section>
 </section>
@@ -350,8 +332,9 @@
 <section><h2>Closure</h2>
     <section><h3>What is?</h3>
         <dl class="fa">
-            <dt>Allows a function which is executed outside its lexical scope, to preserve the values of scoped variables</dt>
+            <dt>A closure is a feature in JavaScript  allowing a function which is executed outside its lexical scope, to preserve the values of <b>scoped variables</b></dt>
             <dt>Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where those variable(s) wouldn't be accessible.</dt>
+            <dt>A closure is formed when a function is declared, allowing it to capture and remember the environment in which it was created, including any variables it has access to at that time.</dt>
         </dl>
         <pre><code rel="JS">
             function outer(){
@@ -381,11 +364,16 @@
             cats[1](); //Cat 3 is ready!
             cats[2](); //Cat 3 is ready!
         </code></pre>
-
-        <p class="note">the value of 'i' in the cats[i] function body is determined when the function is invoked!</p>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Each function created in the loop retains access to the same <code>i</code> variable - the global variable <code>i</code>.</dt>
+            <dt>When we execute the functions, after the loop is finished, the value of <code>i</code> is 3, that's why all of the functions logs 3</dt>
+            <dt>But if <code>i</code> was local or block scoped, each function created in the loop would have access to its own copy of <code>i</code> at the time the function was defined. As a result, the functions would log the intended values (0, 1, 2) instead of 3, preserving the state of <code>i</code> for each iteration independently.</dt>
+        </dl>
     </section>
     <section><h3>"closures in loops" - <code>let</code> solution</h3>
-        <p>From ES6 we can scope the <code>i</code> variable to the <code>for</code> block with the <code>let</code> keyword.</p>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Using <code>let</code> for the loop variable <code>i</code> creates a unique block scope for each iteration, allowing each closure to capture and remember its own version of <code>i</code> with values 0, 1,and 2 respectively.</dt>
+        </dl>
         <pre><code rel="JS" class="js">
             var cats = [];
 
@@ -401,6 +389,10 @@
         </code></pre>
     </section>
     <section><h3>"closures in loops" - IIFE solution</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Within each iteration, an IIFE is used. This function is invoked immediately after its definition, encapsulating the current i value.</dt>
+            <dt>The IIFE takes the current value of <code>i</code> as an argument,passing it to <code>j</code>, creating a new scope for each iteration of the loop</dt>
+        </dl>
         <pre><code rel="JS">
             var cats = [];
 
@@ -418,6 +410,9 @@
         </code></pre>
     </section>
     <section><h3>"closures in loops" - Factory solution</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The "factory solution" for handling closures in loops involves creating a function that returns another function, effectively creating a closure for each iteration of the loop</dt>
+        </dl>
         <pre><code rel="JS">
             var cats = [];
 
@@ -436,33 +431,12 @@
             cats[2](); //Cat 2 is ready!
         </code></pre>
     </section>
-    <section><h3>"closures in loops - timeout Problem"</h3>
-        <pre><code rel="HTML" class="html5">
-            <div class="box" style="width:5em; height:5em; border:1px solid #000"></div>
-        </code></pre>
-        <pre><code rel="JS">
-            var colors = ["red", "green", "blue"];
-            var box = document.querySelector('.box');
 
-            function changeBG(color){
-                box.style.background = color;
-            }
-
-            for (var i = 0; i < colors.length; i++) {
-                setTimeout(function(){
-                    console.log(`i:${i}`);
-                    changeBG( colors[i] );
-                }, 1000*i)
-            }
-        </code></pre>
-        <dl class="fa">
-            <dt style="font-size: .8em;">setTimeout() is invoked immediately 3 times. The delay is for the callback function. If we pass same delay, they will be invoked simultaneously after the delay. So, we need to change the delay, i.e. like <code>i*1000</code></dt>
-            <dt>But the problem with global <code>i</code> still exists.</dt>
-        </dl>
-    </section>
     <section id="HW_ClosureInLoop"><h3>TASK: "closures in loops - timeout Problem"</h3>
         <dl class="fa">
-            <dt>Fix the next code, using an IIFE</dt>
+            <dt>The intended behavior of the provided code is to change the background color of the <code>div.box</code> to each color specified in the colors array ("red", "green", "blue") in sequence, with each color change happening 1 second apart</dt>
+            <dt>You task is to fix the bug</dt>
+            <dd>the easiest solution is to make <code>i</code> block scoped, declaring it with <code>let</code>, but for the sake of practice imagine that you are writing a library which must works on ES5 (and let is introduced in ES6)</dd>
         </dl>
         <pre><code rel="HTML" class="html5">
             <div class="box" style="width:5em; height:5em; border:1px solid #000"></div>
@@ -503,10 +477,10 @@
             }
         </code></pre>
     </section> -->
-    <section><h3>More Examples</h3>
+    <!-- <section><h3>More Examples</h3>
         <iframe height='328' title='Lab5: All Examples' src='https://codepen.io/ProgressWWWCourses/embed/JNydxy/?height=328&theme-id=0&default-tab=js&embed-version=2' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/ProgressWWWCourses/pen/JNydxy/'>Lab5: All Examples</a> by Iva E. Popova (<a href='http://codepen.io/ProgressWWWCourses'>@ProgressWWWCourses</a>) on <a href='http://codepen.io'>CodePen</a>.
         </iframe>
-    </section>
+    </section> -->
 </section>
 
 
