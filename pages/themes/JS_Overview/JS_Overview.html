@@ -144,7 +144,7 @@
         <iframe width="768" src="https://www.youtube.com/embed/k_Dwu_rqAYY"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
     <section data-notes="1min/total NN"><h3>2017</h3>
-        <p><span class="note">WebAssembly</span> Web standard was introduced</p>
+        <p><span class="note">WebAssembly</span> was introduced</p>
         <iframe width="768" src="https://www.youtube.com/embed/PpuAqLCraAQ"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
     <!-- <section data-notes="1min/total 20"><h3>2014</h3>
@@ -174,7 +174,7 @@
                 </ul>
             </aside>
         </section>
-        <section><h3><a href="http://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262%206th%20edition%20June%202015.pdf">ECMAScript 6 (ES6)/ ECMAScript 2015 (ES2015)</a> year</h3>
+        <section><h3><a href="http://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262%206th%20edition%20June%202015.pdf">ECMAScript 6 (ES6)/ ECMAScript 2015 (ES2015)</a></h3>
                 <dl class="fa">
                     <dt>New Features:</dt>
                     <dd><a href="https://github.com/lukehoban/es6features#readme">git.io/es6features</a></dd>
@@ -201,17 +201,6 @@
                 <dt>Finished proposals can be checked here: <a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">tc39/finished-proposals</a></dt>
             </dl>
         </section>
-        <section><h3>Compatibility</h3>
-        <p><a href="http://kangax.github.io/compat-table/es6/">ECMAScript compatibility table</a></p>
-        </section>
-
-        <aside class="notes">
-                <ul>
-                        <li><a href="http://kangax.github.io/compat-table/es6/">ECMAScript compatibility table</a></li>
-                        <li><a href="https://channel9.msdn.com/Events/MIX/MIX11/EXT13"></a>ECMAScript 5: The New Parts by Doug Crockford</li>
-                        <li><a href="http://2ality.com/2016/01/ecmascript-2016.html">The final feature set of ECMAScript 2016 (ES7)</a></li>
-                </ul>
-        </aside>
 </section>
 
 
@@ -259,9 +248,9 @@
 </section>
 
 
-<section data-min="20"><h1>The object oriented nature of JavaScript: "is everything an object" ?</h1></section>
-<section><h2>The object oriented nature of JavaScript: "everything is an object"?</h2>
-    <section data-notes="2min"><h3>Data types and structures</h3>
+<section data-min="20"><h1>Data types and structures</h1></section>
+<section><h2>Data types and structures</h2>
+    <section data-notes="2min"><h3>Overview</h3>
         <dl class="fa">
             <dt>Primitive types:</dt>
             <dd>Boolean</dd>
@@ -288,29 +277,6 @@
             console.log(typeof Symbol()); // "symbol"
         </code></pre>
         <p id="a1">the 'typeof null' return "object" due to a bug in the first release in JavaScript <a href="#/refs" class="sup">3</a></p>
-    </section>
-    <section data-notes="2min"><h3>Primitives Boxing</h3>
-        <p>The primitive types <code>boolean</code>, <code>number</code>, <code>string</code> and <code>symbol</code> have corresponding object types (wrappers): <code>Boolean</code>, <code>Number</code>, <code>String</code> and <code>Symbol</code></p>
-        <p>Primitives do not have methods, but can borrow from their corresponding wrapper, when needed.</p>
-    </section>
-    <section data-notes="2min"><h3>Primitives Boxing: Example</h3>
-    <pre><code rel="JS">
-        console.log( 3.141592653589793.toFixed(4) );
-        //3.1416
-
-        console.log( 'ada byron'.length );
-        //9
-
-        console.log( true.toString() );
-        //"true"
-    </code></pre>
-    </section>
-    <section><h3>Primitives <span class="note">are NOT</span> objects - example</h3>
-        <pre><code rel="JS">
-            let str = 'Some string';
-            str.id = 1; // wraps 'Some string' into anonymous String object
-            console.log( str.id ); // undefined
-        </code></pre>
     </section>
     <section data-notes="1min"><h3>Primitives are Immutable. Objects are Mutable.</h3>
         <dl class="fa">
@@ -343,21 +309,18 @@
             <dt>A collection of properties</dt>
             <dt>Property values can be values of any type, including other objects</dt>
             <dt>When property value contains a function, by convention this property is called a method.</dt>
-            <dt>JavaScript object can repesent any <span class="note">key:value</span> data structure, like <i>associative arrays</i> and <i>dictionaries</i>.</dt>
-            <!-- <dt>Properties are identified using key values</dt>
-            <dt>A key value is either a String or a Symbol value.</dt> -->
+            <dt>JavaScript object can represent any <span class="note">key:value</span> data structure, like <i>associative arrays</i> and <i>dictionaries</i>.</dt>
+            <dt>Objects are mutable!</dt>
+            <pre><code rel="JS">
+                const ada = {};
+                console.log(ada); //Object {}
+
+                ada.surname = 'Byron';
+                console.log(ada); //{ surname: 'Byron' }
+            </code></pre>
         </dl>
     </section>
-    <!-- <section data-notes="2min"><h3>Objects</h3>
-        <p>Objects are mutable!</p>
-        <pre><code rel="JS">
-            var ada = {};
-            console.log(ada); //Object {}
 
-            ada.surname = 'Byron';
-            console.log(ada.surname); //Byron
-        </code></pre>
-    </section> -->
     <section data-notes="5min"><h3>Functions</h3>
         <dl class="fa">
             <dt><span class="note">Functions are objects</span> that have an internal [[Call]] property</dt>
@@ -370,60 +333,17 @@
             console.log(foo.id); // 1
         </code></pre>
     </section>
-    <section data-notes="2min"><h3>Indexed collections: Arrays and typed Arrays</h3>
-        <dl class="fa">
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array Object @mdn</a></dt>
-            <dt>Reference: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">TypedArray Object @mdn</a></dt>
-        </dl>
-    </section>
-    <section data-notes="2min"><h3>Arrays - Example</h3>
+    <section data-notes="2min"><h3>Arrays</h3>
         <dl class="fa">
             <dt>Arrays are objects</dt>
+            <pre><code rel="JS" class="js" style="width: 30vw;">
+                let arr = ['a','b','c'];
+                arr.id = 1;
+
+                console.log(`arr.id: ${arr.id}`);
+                // arr.id: 1
+            </code></pre>
         </dl>
-        <pre><code rel="JS" class="js">
-            let arr = ['a','b','c'];
-            arr.id = 1;
-
-            console.log(`arr.id: ${arr.id}`);
-            // arr.id: 1
-        </code></pre>
-    </section>
-    <section data-notes="2min"><h3 class="advanced">Keyed collections: Maps</h3>
-        <dl class="fa">
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Maps</a> - the Map object holds key-value pairs and <span class="note">remembers the original insertion order</span> of the keys.</dt>
-        </dl>
-        <pre><code rel="JS" class="js">
-            let fruits = new Map([
-                ['banana', 1],
-                ['orange', 2],
-                ['meat', 4]
-            ]);
-
-            console.dir(fruits);
-            // Map { 'banana' => 1, 'orange' => 2, 'meat' => 4 }
-        </code></pre>
-    </section>
-    <section><h3 class="advanced">Keyed collections: Sets</h3>
-        <dl class="fa">
-            <dt><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a> - the Set object is a collections of <span class="note">unique values</span>.</dt>
-        </dl>
-        <pre><code rel="JS" class="js">
-            let arr = ['a','b','c', 'b','a','b','c'];
-
-            let someSet = new Set(arr);
-
-            console.dir(someSet);
-            //Set { 'a', 'b', 'c' }
-        </code></pre>
-    </section>
-    <section><h3 class="advanced">Sets - use case demo (get unique array values)</h3>
-        <pre><code rel="JS" class="js">
-            let arr = ['a','b','c', 'b','a','b','c'];
-            let unique = [... new Set(arr)]
-            console.dir(unique);
-            //[ 'a', 'b', 'c' ]
-        </code></pre>
-        <p><span class="note">Note:</span> the <code>[... set]</code> construct will be discussed in next themes. As well as the other approach to do the same task (with array filter method).</p>
     </section>
 </section>
 

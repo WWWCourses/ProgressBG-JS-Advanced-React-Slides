@@ -1,7 +1,8 @@
 {
     "spellright.language": [
         "Bulgarian",
-        "English (American)"
+        "English (American)",
+        "English (British)"
     ],
     "spellright.documentTypes": [
         "markdown",

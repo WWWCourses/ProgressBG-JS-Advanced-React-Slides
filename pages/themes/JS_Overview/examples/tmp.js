@@ -1,8 +1,5 @@
-let fruits = new Map([
-	['banana', 1],
-	['orange', 2],
-	['meat', 4]
-]);
+const ada = {};
+console.log(ada); //Object {}
 
-console.dir(fruits);
-// Map { 'banana' => 1, 'orange' => 2, 'meat' => 4 }
+ada.surname = 'Byron';
+console.log(ada);
