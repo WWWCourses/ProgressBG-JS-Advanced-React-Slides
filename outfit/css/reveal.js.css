@@ -286,6 +286,7 @@ a.home_link{
 }
 .copyright>.company img{
     margin: 0;
+    transform: scale(0.5);
     background: none;
     vertical-align: middle;
     border: none;
