@@ -1,4 +1,4 @@
-# News Aggregator Project
+# News Aggregation Project
 
 ## Objective
 Create a news aggregator web application that collects, curates, and displays news articles from various sources based on user-selected topics, categories, or keywords. The goal is to provide a personalized news reading experience.
