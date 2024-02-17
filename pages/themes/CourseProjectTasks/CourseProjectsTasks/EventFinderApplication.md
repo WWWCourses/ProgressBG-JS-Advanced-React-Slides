@@ -15,7 +15,7 @@ Build an intuitive application to find and explore local events based on user pr
 
 ### Individual Event Details
 - **Detailed Information:** Shows comprehensive details about each event, including venue, time, ticketing options, and a description.
-- **User Interaction:** Options to save events, purchase tickets, or share on social media.
+- **User Interaction:** Options to save events in LocalStorage, or share on social media (by using Web Share API).
 
 ## Data Source
 - Use [Eventful API](http://api.eventful.com/) to fetch a wide range of event listings.
