@@ -469,7 +469,7 @@
     <section><h3><code>git log</code></h3>
         <dl class="fa" style="min-width:80vw">
             <dt>The "git log" command is used to view the commit history of a Git repository.</dt>
-            <dt>When you run "git log", Git displays a chronological list of commits, starting with the most recent commit at the top.</dt>
+            <dt>When you run "git log", Git displays a chronological list of commits, <span class="note">starting with the most recent commit at the top</span>.</dt>
             <dt>The output of "git log" includes details such as the commit hash (unique identifier assigned to each commit in a Git repository), author, date and time of the commit, and the commit message.</dt>
             <dt>There are various options you can use with "git log" to customize the output, such as "--oneline" for a concise view, "--graph" for a graphical representation of branches, and "--since" or "--until" to filter commits by date.</dt>
             <dt>"git log" is a valuable tool for understanding the history of a project, tracking changes, and collaborating with team members. It provides insight into who made changes, when they were made, and the purpose of each commit.</dt>
@@ -538,15 +538,37 @@
 
 <section class="main-section-title"><h1>Adding a local repository to GitHub using Git <br>(uploading your project to GitHub)</h1></section>
 <section class="sub-sections"><h2>Adding a local repository to GitHub using Git</h2>
+    <section><h3>Authenticating to GitHub</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>When you want to push/pull to GtiHub repo, you must authenticate yourself.</dt>
+            <dt>If you'll use git to push/pull - check on next slide "Authenticating to GitHub with the command line by Personal Access Token (PAT)"</dt>
+            <dt>If you use VSCode, as of November 2023, VS Code introduced automatic GitHub authentication for public and private repositories. It uses your logged-in GitHub account for authentication. No PAT or SSH setup is required.</dt>
+        </dl>
+    </section>
+    <section><h3>Authenticating to GitHub with the command line by Personal Access Token (PAT)</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Go to your GitHub profile settings (https://github.com/settings/tokens)</dt>
+            <dd>click on "Settings=>Developer Settings"</dd>
+            <dt>Click on "Personal access tokens=>Tokens (classic)=>New personal access token (classic)".</dt>
+            <dt>Give your token a descriptive name (e.g., "push-to-MyProject").</dt>
+            <dt>Select the scopes that the token will need</dt>
+            <dd>for pushes you need only the "workflows" scope.</dd>
+            <dt>Click "Generate token" and copy the generated token securely.</dt>
+            <dd class="note">Never share this token publicly.</dd>
+            <dt>Now what git asks you for GitHub login give the token instead of a password</dt>
+            <dt>Reference: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line">Authenticating with the command line</a></dt>
+        </dl>
+    </section>
     <section>
         <dl class="fa" style="min-width:80vw">
-            <dt>1. Create a GitHub repository online, if you haven't already.</dt>
+            <dt>1. Create a GitHub repository online (Go to your GitHub profile and click on "New repository").</dt>
+            <dd>Do NOT initialize the repository with a README, license, or gitignore file</dd>
             <dt>2. Initialize a local Git repository or navigate to an existing one.</dt>
             <dt>3. Link your local repository to the remote GitHub repository using:</dt>
             <pre><code rel="Terminal" class="bash">
                 git remote add origin &lt;repository_URL&gt;
             </code></pre>
-            <dt>4. Commit your changes:</dt>
+            <dt>4. Commit your changes (if you have not done that):</dt>
             <pre><code rel="Terminal" class="bash">
                 git add .
                 git commit -m "Initial commit"
