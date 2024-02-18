@@ -408,12 +408,20 @@
             <pre><code rel="plaintext">
                 git commit -m "commit message"
             </code></pre>
-            <dd>The "-m" flag is used to specify a commit message, which provides a brief description of the changes made in the commit. It's essential to write clear and descriptive commit messages to communicate the purpose of the changes effectively.</dd>
+            <dd>The "-m" flag is used to specify a commit message, which provides a brief description of the changes made in the commit.</dd>
             <dt>Commit Best Practices:</dt>
             <dd>Write clear and concise commit messages that describe the purpose of the changes.</dd>
             <dd>Commit small, focused changes rather than large, sweeping modifications.</dd>
             <dd>Review changes before committing to ensure that only intended modifications are included.</dd>
             <dd>Use present tense in commit messages and avoid unnecessary details.</dd>
+            <dd>Examples:</dd>
+            <pre><code rel="git commit messsages" class="bash">
+                "Fix typo in user registration form" #GOOD
+                "Changed registration form"          #BAD
+
+                "Add validation for email address in registration form"  #GOOD
+                "Update registration form functionality"                 #BAD
+            </code></pre>
         </dl>
     </section>
 </section>
