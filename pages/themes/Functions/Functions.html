@@ -323,6 +323,7 @@
             <dt class="note">Each time a function is executed, it creates a new execution context, which includes a local scope for that execution</dt>
             <dd>This means that all local variables (including parameters) are specific to that execution instance</dd>
             <dd>If the function is called multiple times, each call creates its own local scope, independent of other executions, ensuring variables defined in one call do not interfere with those in another.</dd>
+            <a href="./images/ExecutionContext_and_Closure.webp"><img src="./images/ExecutionContext_and_Closure.webp" alt="ExecutionContext_and_Closure.webp" style="height: 30vh;"></a>
         </dl>
     </section>
 </section>
@@ -332,9 +333,10 @@
 <section><h2>Closure</h2>
     <section><h3>What is?</h3>
         <dl class="fa">
-            <dt>A closure is a feature in JavaScript  allowing a function which is executed outside its lexical scope, to preserve the values of <b>scoped variables</b></dt>
+            <dt>A closure is a feature in JavaScript  allowing a function which is executed outside its lexical scope, to preserve the values of <b>scoped variables.</b></dt>
             <dt>Closure is observed when a function uses variable(s) from outer scope(s) even while running in a scope where those variable(s) wouldn't be accessible.</dt>
             <dt>A closure is formed when a function is declared, allowing it to capture and remember the environment in which it was created, including any variables it has access to at that time.</dt>
+            <dt class="note">In essence, the function within the closure "remembers" the environment in which it was created.</dt class="note">
         </dl>
         <pre><code rel="JS">
             function outer(){
@@ -365,7 +367,8 @@
             cats[2](); //Cat 3 is ready!
         </code></pre>
         <dl class="fa" style="min-width:80vw">
-            <dt>Each function created in the loop retains access to the same <code>i</code> variable - the global variable <code>i</code>.</dt>
+            <dt>The function inside the loop is created within the scope of the loop. It captures (or closes over) the variable <code>i</code> from its outer scope, which is the loop. However, because <code>i</code> is global variable, the function does not capture the value of <code>i</code>, but a reference to the variable <code>i</code> itself.</dt>
+            <dt>So, each function created in the loop retains access to the same <code>i</code> variable - the global variable <code>i</code>.</dt>
             <dt>When we execute the functions, after the loop is finished, the value of <code>i</code> is 3, that's why all of the functions logs 3</dt>
             <dt>But if <code>i</code> was local or block scoped, each function created in the loop would have access to its own copy of <code>i</code> at the time the function was defined. As a result, the functions would log the intended values (0, 1, 2) instead of 3, preserving the state of <code>i</code> for each iteration independently.</dt>
         </dl>
