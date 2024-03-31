@@ -75,7 +75,7 @@
 	<section><h3>About</h3>
 		<dl class="fa">
 			<dt>Mixin Pattern represents <span class="note">an object (or a class) that defines a set of functions intended to be inherited from other sub classes</span>.</dt>
-			<dt>Mixins classes are considered <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)#Abstract_and_concrete">abstract</a>, as they will not themselves be instantiated.</dt>
+			<dt>Mixins classes are considered <a href="https://en.wikipedia.org/wiki/Class_(computer_programming)#Abstract_and_concrete">abstract</a>, as they are not intended to be instantiated.</dt>
 			<dt>A class can inherit functionality from multiple mixins through multiple inheritance.</dt>
 		</dl>
 	</section>
@@ -172,6 +172,42 @@
 	<section><h3>and more...</h3>
 		<blockquote cite="https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c">Mixins are a form of object composition, where component features get mixed into a composite object so that properties of each mixin become properties of the composite object</blockquote>
 		<a href="https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c">Functional Mixins by Eric Elliott</a>
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Object Compositions vs Inheritence</h1></section>
+<section class="sub-sections"><h2>Object Compositions vs Inheritence</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Composition and inheritance are two fundamental concepts in object-oriented programming (OOP) used to define relationships between classes and objects.</dt>
+			<dt>They represent different approaches to code reuse and design, each with its own set of advantages and trade-offs.</dt>
+		</dl>
+	</section>
+	<section><h3>Inheritance</h3>
+		<dl class="fa" style="font-size: .7em;">
+			<dt>Inheritance is a mechanism for creating a new class (known as a subclass or derived class) that adopts the attributes and behaviors (methods) of another class (known as a superclass or base class). It represents an "is-a" relationship between the subclass and the superclass.</dt>
+			<dt>Inheritance is suitable when you want to model a hierarchical relationship between classes, ensuring that derived classes inherit all the public and protected functionalities of the base class. It's often used when there's a clear relationship that fits the <span class="note">"is-a"</span> model.</dt>
+			<dt>Advantages:</dt>
+			<dd><b>Code Reuse</b>: Allows subclasses to reuse code from the base class, reducing redundancy.</dd>
+			<dd><b>Polymorphism</b>: Enables the use of a derived class object as if it were a base class object, simplifying code and promoting flexibility.</dd>
+			<dt>Disadvantages:</dt>
+			<dd><b>Tight Coupling</b>: Subclasses are tightly coupled to the base class, making changes to the base class potentially risky for all subclasses.</dd>
+			<dd><b>Inflexibility</b>: Inheriting from a base class locks the subclass into a specific hierarchy, which can lead to a rigid design that's hard to modify.</dd>
+			<dd><b>Overhead: With deep inheritance hierarchies, understanding and debugging code can become challenging.</b>: With deep inheritance hierarchies, understanding and debugging code can become challenging.</dd>
+		</dl>
+	</section>
+	<section><h3>Composition</h3>
+		<dl class="fa" style="font-size: .7em;">
+			<dt>Composition is a design principle where a class is composed of one or more objects of other classes in order to delegate operations to these object(s). It represents a "has-a" relationship between the composite class and the component classes.</dt>
+			<dt>Composition is used when you want to model a relationship between components where one class utilizes the capabilities of another by containing it or having a reference to it. It's preferred when the relationship doesn't fit the "is-a" model but rather a <span class="note">"has-a" or "uses-a"</span> model.</dt>
+			<dt>Advantages</dt>
+			<dd><b>Flexibility</b>: It's easier to change the behavior of a composite object at runtime by changing the components' composition, leading to more flexible and dynamic designs.</dd>
+			<dd><b>Loose Coupling</b>: Components can be easily changed without affecting the composite class, leading to a design that's easier to understand and maintain.</dd>
+			<dd><b>Simplicity</b>: Encourages smaller, more focused classes that handle specific responsibilities, simplifying the overall design.</dd>
+			<dt>Disadvantages</dt>
+			<dd><b>Potentially More Boilerplate</b>: You might need to write more code to delegate tasks to the component objects.</dd>
+			<dd><b>Initial Complexity</b>: Designing objects to work well when composed can require more thought and planning upfront.</dd>
+		</dl>
 	</section>
 </section>
 
