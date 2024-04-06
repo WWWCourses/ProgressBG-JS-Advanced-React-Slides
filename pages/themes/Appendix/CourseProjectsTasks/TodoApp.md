@@ -38,9 +38,6 @@ Build a Todo application that allows users to add, view, complete, and delete ta
 ### Code Quality
 - Write clean, readable, and maintainable code, following best practices.
 
-### Responsiveness
-- Ensure that the app looks good on desktop and mobile devices.
-
 ### Accessibility
 - Include appropriate aria-labels for screen readers and ensure the app is navigable using keyboard shortcuts.
 
