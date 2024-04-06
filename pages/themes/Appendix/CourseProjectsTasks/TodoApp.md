@@ -1,5 +1,7 @@
 # Todo App Project Assignment
 
+![Todo App gif](../TodoAppProjectTask/TodoAppDemo.gif)
+
 ## Objective
 Build a Todo application that allows users to add, view, complete, and delete tasks. The application should be responsive and update dynamically as tasks are added and modified.
 
