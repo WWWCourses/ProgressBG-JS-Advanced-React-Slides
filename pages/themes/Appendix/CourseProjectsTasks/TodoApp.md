@@ -42,11 +42,5 @@ Build a Todo application that allows users to add, view, complete, and delete ta
 - Include appropriate aria-labels for screen readers and ensure the app is navigable using keyboard shortcuts.
 
 ## Submission Guidelines
-- Zip your project files and include a README.md with setup and run instructions.
+- Upload project to github. Include a README.md with setup and run instructions.
 - If using any external libraries or tools, include a package.json file with the necessary dependencies listed.
-
-## Evaluation Criteria
-- Functionality: The application meets all the outlined features.
-- Code Quality: The code follows best practices and is well-organized.
-- Design: The application is visually appealing and user-friendly.
-- Accessibility: The application is accessible to as many users as possible.
