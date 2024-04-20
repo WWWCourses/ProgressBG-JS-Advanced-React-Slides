@@ -148,8 +148,8 @@
 			<dt>You can install these packages either to your global node package folder or to your local project folder.</dt>
 			<dd>Global node packages are accessible from everywhere and you have to install them only once to your global directory</dd>
 			<dd>Local node packages are accessible only from your project folder</dd>
-			<dt>Should I install a package as local or global (rule of tumb)</dt>
-			<dd>Any package that you want to use in your project should be installed locally</dd>
+			<dt>Should I install a package as local or global (rule of thumb)</dt>
+			<dd>Any package that you want to use in your project (i.e. your project dependencies) should be installed locally</dd>
 			<dd>Any package that you want to use from the CLI should be installed globally</dd>
 		</dl>
 	</section>
@@ -163,6 +163,16 @@
 			# initialize a npm project (-y == defaults for package.json)
 			npm init -y
 		</code></pre>
+	</section>
+	<section><h3>the <code>package.json</code> file</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>While not strictly necessary, using a package.json is highly beneficial and recommended for managing a Node.js project efficiently.</dt>
+			<dd><b>Dependency Management</b>: package.json allows you to manage your project’s dependencies effectively. It lists all modules your project needs and their versions, which helps ensure consistency across different environments (development, testing, production).</dd>
+			<dd><b>NPM Scripts</b>: It enables the use of NPM scripts, which can automate common tasks such as testing, building, and starting your application.</dd>
+			<dd><b>Project Metadata</b>: It provides important metadata about your project, such as name, version, description, and entry points. This is particularly useful if you plan to distribute your project or work collaboratively.</dd>
+			<dd><b>Version Control</b>: It helps in handling version control of dependencies, enabling semantic versioning to manage different levels of dependency updates.</dd>
+			<dd><b>Package Installation</b>: When you use npm install to add a new package, NPM automatically adds the package and its version to your package.json, simplifying dependency management.</dd>
+		</dl>
 	</section>
 	<section><h3>Package installation</h3>
 		<pre><code rel="Terminal" class="bash">
