@@ -1,50 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>ReactRouter</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<!-- css & themes include -->
-	<link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	</script>
-	<!--[if lt IE 9]>
-	<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
-	<!-- custom -->
-	<link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
-	<base target="_blank">
+    <meta charset="utf-8">
+    <title>ReactRouter</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="../../../lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../../outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../../../lib/reveal.js/css/print/pdf.css' : '../../../lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- custom -->
+    <link rel="stylesheet" href="../../../outfit/css/reveal.js.css">
+    <base target="_blank">
 </head>
 <body>
-	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-		<div class="top_links">
-			<a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
-			<span class="help_link"><i class="fa fa-question"></i></span>
-			<div class="help_text">
-				<div class="note">Keyboard shortcuts:</div>
-				<div><span>N/Спейс</span><span>Next Slide</span></div>
-				<div><span>P</span><span>Previous Slide</span></div>
-				<div><span>O</span><span>Slides Overview</span></div>
-				<div><span>ctrl+left click</span><span>Zoom Element</span></div>
-				<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
-				Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
-			</div>
-		</div>
-		<div class="footer theme_switch">
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
-			<a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
-		</div>
-		<div class="slides">
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+        <div class="top_links">
+            <a class="home_link" href="../../../index.html#Course_Intro" target="_top"><i class="fa fa-home"></i></a>
+            <span class="help_link"><i class="fa fa-question"></i></span>
+            <div class="help_text">
+                <div class="note">Keyboard shortcuts:</div>
+                <div><span>N/Спейс</span><span>Next Slide</span></div>
+                <div><span>P</span><span>Previous Slide</span></div>
+                <div><span>O</span><span>Slides Overview</span></div>
+                <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+                <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+                Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+            </div>
+        </div>
+        <div class="footer theme_switch">
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/dark.css'); return false;">Dark</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/light.css'); return false;">Light</a>
+            <a href="#" onclick="document.getElementById('theme').setAttribute('href','../../../outfit/css/themes/projector.css'); return false;">Projector</a>
+        </div>
+        <div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -52,136 +52,299 @@
 -->
 <section><h1>ReactRouter</h1></section>
 <section data-transition="zoom">
-	<section>
-		<div class="copyright">
-			<div class="note">
-				<p>Created for</p>
-			</div>
-			<div class="company">
-				<a href="https://progressbg.net/javascript-advanced-with-reactjs/">
-				<img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
-				</a>
-			</div>
-		</div>
-	</section>
-	<section class="copyright" data-transition="zoom" style="margin-top: -2em;">
-		<div class="note">
-			<p>Created by</p>
-		</div>
-		<div class="company">
-		   <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
-		</div>
-		<!-- <div class="author">
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-		</div> -->
-	</section>
+    <section>
+        <div class="copyright">
+            <div class="note">
+                <p>Created for</p>
+            </div>
+            <div class="company">
+                <a href="https://progressbg.net/javascript-advanced-with-reactjs/">
+                <img src="../../../outfit/images/logos/ProgressBG_logo_529_127.png" alt="ProgressBG_logo">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="copyright" data-transition="zoom" style="margin-top: -2em;">
+        <div class="note">
+            <p>Created by</p>
+        </div>
+        <div class="company">
+           <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="ivapopova"><a class="LI-simple-link" href="https://bg.linkedin.com/in/ivapopova?trk=profile-badge">Iva E. Popova</a></div>
+        </div>
+        <!-- <div class="author">
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+        </div> -->
+    </section>
 </section>
 
 
-<section data-min="5"><h1>What is routing and why?</h1></section>
-<section><h2>What is routing and why?</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>Routing is the process through which the user is navigated to different pages on a website</dt>
-			<dt><a href="https://stackoverflow.com/a/37062379">Client-side vs Server-side Routing</a></dt>
-		</dl>
-	</section>
-	<section><h3>Routing in React</h3>
-		<dl class="fa">
-			<dt>React doesn't provide native routing support, but the <a href="https://reactrouter.com/">React Router</a> library is commonly used.</dt>
-			<dt>Reference: <a href="https://reactjs.org/docs/code-splitting.html#route-based-code-splitting">Route-based code splitting @reactjs.org</a></dt>
-			<dt>Installation:</dt>
-			<pre><code rel="Terminal" class="bash">
-				npm install react-router-dom@6
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3>Example</h3>
-		<pre><code rel="JS" class="js">
-			import React from &quot;react&quot;;
-			import { BrowserRouter, Routes, Route, Link } from &quot;react-router-dom&quot;;
-			import { About, Contacts } from &quot;./routes/pages&quot;;
+<section class="main-section-title" id="ReactRouter"><h1>ReactRouter</h1></section>
+<section class="sub-sections"><h2>ReactRouter</h2>
+    <section id="WhatisRouting"><h3>What is routing?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Routing is the process of determining what code to run when a URL is accessed.</dt>
+            <dt>It is essential for creating a single-page application with multiple views, enabling smooth navigation and a better user experience without full page reloads.</dt>
+        </dl>
+    </section>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>React Router is a standard library for routing in React.</dt>
+            <dt>It enables the navigation among views of various components in a React Application, allows changing the browser URL, and keeps UI in sync with the URL.</dt>
+            <dt>Install React Router via npm or yarn.</dt>
+            <dd>This will add the React Router to your project dependencies.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                npm install react-router-dom
+                # or
+                yarn add react-router-dom
+            </code></pre>
+        </dl>
+    </section>
+    <section id="KeyConcepts"><h3>Key Concepts
+    </h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Router</b>: The &lt;Router&gt; component (usually &lt;BrowserRouter&gt; or &lt;HashRouter&gt;) wraps your application and provides the routing context for the components inside it. It replaces the &lt;Switch&gt; component from v5 and provides a more intuitive and declarative way to define nested routes.</dt>
+            <dt><b>Routes</b>: The &lt;Routes&gt; component renders the first child &lt;Route&gt; that matches the current location. It is used to group &lt;Route&gt; elements and ensure that only one of them renders at a time.</dt>
+            <dt><b>Route</b>: The &lt;Route&gt; component defines a mapping between a URL path and a component. When the URL matches the path specified in a &lt;Route&gt;, the corresponding component is rendered.</dt>
+            <dt><b>Outlet</b>: The &lt;Outlet&gt; component is used in parent routes to render child routes. It serves as a placeholder for nested routes.</dt>
+            <dt><b>Link</b>: The &lt;Link&gt; component is used to create navigable links within the application. It’s similar to an HTML &lt;a&gt; tag but without causing a full page reload.</dt>
+            <dt><b>NavLink</b>: A &lt;NavLink&gt; is a special kind of &lt;Link&gt; that knows whether or not it is "active", "pending", or "transitioning".</dt>
+            <dt><b>Hooks</b>: useHistory, useLocation, useParams, useRouteMatch: These are hooks provided by React Router for accessing and manipulating the router state and URL parameters.</dt>
+        </dl>
+    </section>
+    <section id="BasicUsage"><h3>Basic Usage</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Wrap your app with BrowserRouter and define routes using Route.</dt>
+            <dd>The BrowserRouter component should wrap your entire application.</dd>
+            <dt>The Link component is used to create links to different routes defined in your application.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 50vh;">
+                import { BrowserRouter as Router, Routes, Route, Link } from &#39;react-router-dom&#39;;
+                import About from &quot;./components/Router/about&quot;;
+                import Home from &quot;./components/Router/home&quot;;
+                import Contact from &quot;./components/Router/contact&quot;;
 
-			export default function (params) {
-				return (
-					&lt;BrowserRouter&gt;
-						&lt;nav&gt;
-							&lt;Link to=&quot;/about&quot;&gt;About page&lt;/Link&gt;
-							&lt;Link to=&quot;/contacts&quot;&gt;Contacts page&lt;/Link&gt;
-						&lt;/nav&gt;
-						&lt;Routes&gt;
-							&lt;Route path=&quot;/about&quot; element={&lt;About/&gt;}&gt;&lt;/Route&gt;
-							&lt;Route path=&quot;/contacts&quot; element={&lt;Contacts/&gt;}&gt;&lt;/Route&gt;
-						&lt;/Routes&gt;
-					&lt;/BrowserRouter&gt;
-				)
-			}
-		</code></pre>
-	</section>
+
+                function App() {
+                    return (
+                        &lt;Router&gt;
+                            &lt;nav&gt;
+                                &lt;ul&gt;
+                                    &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
+                                    &lt;li&gt;&lt;Link to=&quot;/contact&quot;&gt;Contact&lt;/Link&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/nav&gt;
+                            &lt;Routes&gt;
+                                &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+                                &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+                                &lt;Route path=&quot;/contact&quot; element={&lt;Contact /&gt;} /&gt;
+                            &lt;/Routes&gt;
+                        &lt;/Router&gt;
+                    );
+                }
+
+                export default App
+            </code></pre>
+        </dl>
+    </section>
+
+    <section id="NestedRouting"><h3>Nested Routing</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Nested routing allows you to render sub-routes inside a parent route.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 70vh;">
+                import React from &#39;react&#39;;
+                import { BrowserRouter as Router, Route, Routes, Link, Outlet, useParams } from &#39;react-router-dom&#39;;
+                import &quot;./App.css&quot;;
+
+                const Home = () =&gt; &lt;h2&gt;Home&lt;/h2&gt;;
+                const About = () =&gt; &lt;h2&gt;About&lt;/h2&gt;;
+                const Users = () =&gt; (
+                  &lt;div&gt;
+                    &lt;h2&gt;Users&lt;/h2&gt;
+                    &lt;nav&gt;
+                      &lt;ul&gt;
+                        &lt;li&gt;&lt;Link to=&quot;1&quot;&gt;User 1&lt;/Link&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;Link to=&quot;2&quot;&gt;User 2&lt;/Link&gt;&lt;/li&gt;
+                      &lt;/ul&gt;
+                    &lt;/nav&gt;
+                    &lt;Outlet /&gt; {/* Placeholder for nested routes */}
+                  &lt;/div&gt;
+                );
+                const User = () =&gt; {
+                  const { id } = useParams();
+                  return &lt;h2&gt;User ID: {id}&lt;/h2&gt;;
+                };
+
+                function App() {
+                  return (
+                    &lt;Router&gt;
+                      &lt;div&gt;
+                        &lt;nav&gt;
+                          &lt;ul&gt;
+                            &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;Link to=&quot;/users&quot;&gt;Users&lt;/Link&gt;&lt;/li&gt;
+                          &lt;/ul&gt;
+                        &lt;/nav&gt;
+
+                        &lt;Routes&gt;
+                          &lt;Route path=&quot;/&quot; element={&lt;Home /&gt;} /&gt;
+                          &lt;Route path=&quot;/about&quot; element={&lt;About /&gt;} /&gt;
+                          &lt;Route path=&quot;/users&quot; element={&lt;Users /&gt;}&gt;
+                            &lt;Route path=&quot;:id&quot; element={&lt;User /&gt;} /&gt;
+                          &lt;/Route&gt;
+                        &lt;/Routes&gt;
+                      &lt;/div&gt;
+                    &lt;/Router&gt;
+                  );
+                }
+
+                export default App;
+
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>App.css</h3>
+        <pre><code rel="CSS" class="css" style="min-height: 70vh;">
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+              }
+
+              .app {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              }
+
+              nav {
+                margin-bottom: 20px;
+              }
+
+              nav ul {
+                list-style: none;
+                padding: 0;
+              }
+
+              nav ul li {
+                display: inline;
+                margin-right: 10px;
+              }
+
+              nav ul li a {
+                text-decoration: none;
+                color: #007bff;
+              }
+
+              nav ul li a:hover {
+                text-decoration: underline;
+              }
+
+              h2 {
+                font-size: 24px;
+                color: #333;
+              }
+
+              .users nav ul {
+                margin-top: 10px;
+              }
+
+              .users nav ul li {
+                display: block;
+                margin-bottom: 5px;
+              }
+
+        </code></pre>
+    </section>
+
+    <section id="Navigate"><h3>useNavigate</h3>
+        <dl class="fa" style="min-width:80vw">
+          <dt>The <a href="https://reactrouter.com/en/main/hooks/use-navigate">useNavigate</a> hook in React Router v6 provides a way to programmatically navigate between routes. This can be useful for redirecting users after certain actions, like form submissions or button clicks.</dt>
+          <dt>Example:</dt>
+          <pre><code rel="JS" class="js">
+            import React from 'react';
+            import { useNavigate } from 'react-router-dom';
+
+            function Home() {
+              const navigate = useNavigate();
+
+              const handleClick = () => {
+                navigate('/about');
+              };
+
+              return (
+                <div>
+                  <h1>Home Page</h1>
+                  <button onClick={handleClick}>Go to About</button>
+                </div>
+              );
+            }
+
+            export default Home;
+
+          </code></pre>
+        </dl>
+    </section>
 </section>
 
 
-<!-- <section data-min="1" id='hw'><h1>Exercises</h1></section>
-<section><h2>Task1: __task_title__</h2>
-  <section><h3>__task_description__</h3>
-	<dl class="fa">
-		<dt></dt>
-	</dl>
-  </section>
-</section> -->
+
 
 <section class="disclaimer" data-background="../../../outfit/images/for_slides/the_end_on_sand.jpg">
-	 <p>These slides are based on</p>
-	 <p>customised version of </p>
-	 <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
-	 <p>framework</p>
+     <p>These slides are based on</p>
+     <p>customised version of </p>
+     <p><a href="http://hakim.se/">Hakimel</a>'s <a href="http://lab.hakim.se/reveal-js">reveal.js</a></p>
+     <p>framework</p>
 </section>
 <!--
 ########################################################
 ##################### SLIDES END   #####################
 ########################################################
 -->
-		</div>
-	</div>
-	<!-- Custom processing -->
-	<script src="../../../outfit/js/slides.js"></script>
-	<!-- external scripts -->
-	<script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
-	<script src="../../../lib/reveal.js/js/reveal.js"></script>
-	<!-- init reveal -->
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		var highlightjsTabSize = '  ';
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			slideNumber: 'c/t',
-			keyboard: true,
-			history: true,
-			center: true,
-			width: '100%',
-			height: '100%',
-			// slide transition
-			transition: 'concave', // none/fade/slide/convex/concave/zoom
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
-			// shift+maous click to zoom in/out element
-			zoomKey: 'ctrl',
-			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			// transition: Reveal.getQueryHash().transition || 'default'
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-				{ src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-				{ src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
-	<!-- linkedin badge -->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="../../../outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="../../../lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../../lib/reveal.js/js/reveal.js"></script>
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+            center: true,
+            width: '100%',
+            height: '100%',
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../../../lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../../../lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../../../lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '../../../lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '../../../lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
 
 </body>
 </html>
